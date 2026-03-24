@@ -32,7 +32,10 @@
         linear-gradient(180deg, #f7f4ef 0%, var(--bg) 100%);
     }
 
-    a { color: inherit; text-decoration: none; }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
     .container {
       width: min(1180px, calc(100% - 32px));
@@ -126,7 +129,9 @@
       transition: width 0.2s ease;
     }
 
-    .nav a:hover::after { width: 100%; }
+    .nav a:hover::after {
+      width: 100%;
+    }
 
     .cta {
       display: inline-flex;
@@ -147,6 +152,22 @@
     .cta:hover {
       background: var(--gold-dark);
       border-color: var(--gold-dark);
+    }
+
+    .secondary-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0 18px;
+      border: 1px solid var(--dark);
+      color: var(--dark);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      background: transparent;
+      cursor: pointer;
     }
 
     .hero {
@@ -195,7 +216,7 @@
     }
 
     .hero-lead {
-      margin: 0 0 22px;
+      margin: 0 0 18px;
       max-width: 760px;
       color: #42474d;
       line-height: 1.7;
@@ -206,23 +227,8 @@
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
+      margin-top: 10px;
       margin-bottom: 22px;
-    }
-
-    .secondary-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 44px;
-      padding: 0 18px;
-      border: 1px solid var(--dark);
-      color: var(--dark);
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      background: transparent;
-      cursor: pointer;
     }
 
     .stats {
@@ -328,51 +334,51 @@
     }
 
     .section-box {
-  border: 1px solid var(--line);
-  background: rgba(255,255,255,0.96);
-  box-shadow: 0 10px 28px rgba(31,31,31,0.04);
-  overflow: hidden;
-}
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.96);
+      box-shadow: 0 10px 28px rgba(31,31,31,0.04);
+      overflow: hidden;
+    }
 
-.section-head {
-  background:
-    linear-gradient(90deg, rgba(184,154,98,0.12), rgba(184,154,98,0.03));
-  color: var(--text);
-  padding: 22px 24px;
-  border-bottom: 1px solid var(--line);
-}
+    .section-head {
+      background:
+        linear-gradient(90deg, rgba(184,154,98,0.12), rgba(184,154,98,0.03));
+      color: var(--text);
+      padding: 22px 24px;
+      border-bottom: 1px solid var(--line);
+    }
 
-.section-head .kicker {
-  color: var(--gold-dark);
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 1.4px;
-  text-transform: uppercase;
-  margin-bottom: 6px;
-}
+    .section-head .kicker {
+      color: var(--gold-dark);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
 
-.section-head .title {
-  font-size: 30px;
-  line-height: 1.1;
-  letter-spacing: -0.5px;
-  font-weight: 700;
-  margin-bottom: 8px;
-}
+    .section-head .title {
+      font-size: 30px;
+      line-height: 1.1;
+      letter-spacing: -0.5px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
 
-.section-head .summary {
-  color: var(--muted);
-  max-width: 760px;
-  line-height: 1.6;
-  font-size: 14px;
-}
+    .section-head .summary {
+      color: var(--muted);
+      max-width: 760px;
+      line-height: 1.6;
+      font-size: 14px;
+    }
 
-.section-content {
-  background: #fff;
-}
+    .section-content {
+      background: #fff;
+    }
 
-.section-inner {
-  padding: 22px 24px 24px;
-}
+    .section-inner {
+      padding: 22px 24px 24px;
+    }
 
     .content-grid-2 {
       display: grid;
@@ -496,6 +502,12 @@
       margin-top: 6px;
     }
 
+    label {
+      font-weight: 700;
+      font-size: 14px;
+      margin-bottom: -4px;
+    }
+
     input, textarea {
       width: 100%;
       border: 1px solid var(--line);
@@ -508,6 +520,12 @@
     textarea {
       min-height: 170px;
       resize: vertical;
+    }
+
+    #formStatus {
+      margin-top: 2px;
+      font-weight: 700;
+      min-height: 20px;
     }
 
     .site-footer {
@@ -560,11 +578,11 @@
         padding: 18px;
       }
 
-      .section-toggle {
+      .section-head {
         padding: 18px;
       }
 
-      .section-toggle .title {
+      .section-head .title {
         font-size: 24px;
       }
 
@@ -592,7 +610,7 @@
 
       <nav class="nav">
         <a href="#overview">Overview</a>
-        <a href="#verbatim">Service Model</a>
+        <a href="#service-model">Service Model</a>
         <a href="#process">Process</a>
         <a href="#contact">Contact</a>
       </nav>
@@ -617,7 +635,7 @@
 
             <div class="hero-actions">
               <a class="cta" href="#contact">Discuss Your Project</a>
-              <a class="secondary-btn" href="#verbatim">Open Service Model</a>
+              <a class="secondary-btn" href="#service-model">Open Service Model</a>
             </div>
           </div>
 
@@ -658,14 +676,14 @@
 
     <section class="section" id="overview">
       <div class="container">
-<div class="section-box">
-  <div class="section-head">
-    <div class="kicker">Section 01</div>
-    <div class="title">Overview</div>
-    <div class="summary">This section uses the introductory text exactly as provided.</div>
-  </div>
+        <div class="section-box">
+          <div class="section-head">
+            <div class="kicker">Section 01</div>
+            <div class="title">Overview</div>
+            <div class="summary">This section uses the introductory text exactly as provided.</div>
+          </div>
 
-  <div class="section-content" id="overview-content">
+          <div class="section-content">
             <div class="section-inner">
               <div class="content-grid-2">
                 <div class="card">
@@ -687,16 +705,16 @@
       </div>
     </section>
 
-    <section class="section" id="verbatim">
+    <section class="section" id="service-model">
       <div class="container">
-<div class="section-box">
-  <div class="section-head">
-    <div class="kicker">Section 02</div>
-    <div class="title">Service Model — Exact Text</div>
-    <div class="summary">Every supplied bullet point appears below as separate content blocks, without dropping any part.</div>
-  </div>
+        <div class="section-box">
+          <div class="section-head">
+            <div class="kicker">Section 02</div>
+            <div class="title">Service Model — Exact Text</div>
+            <div class="summary">Every supplied bullet point appears below as separate content blocks, without dropping any part.</div>
+          </div>
 
-  <div class="section-content" id="verbatim-content">
+          <div class="section-content">
             <div class="section-inner">
               <div class="verbatim-list">
                 <div class="verbatim-item">
@@ -743,13 +761,13 @@
     <section class="section" id="process">
       <div class="container">
         <div class="section-box">
-  <div class="section-head">
-    <div class="kicker">Section 03</div>
-    <div class="title">How Engagement Works</div>
-    <div class="summary">A simple process layer for the homepage, while keeping the original business text intact in the earlier sections.</div>
-  </div>
+          <div class="section-head">
+            <div class="kicker">Section 03</div>
+            <div class="title">How Engagement Works</div>
+            <div class="summary">A simple process layer for the homepage.</div>
+          </div>
 
-  <div class="section-content" id="process-content">
+          <div class="section-content">
             <div class="section-inner">
               <div class="process-grid">
                 <div class="process-card">
@@ -781,14 +799,14 @@
 
     <section class="section" id="contact">
       <div class="container">
-<div class="section-box">
-  <div class="section-head">
-    <div class="kicker">Section 04</div>
-    <div class="title">Contact</div>
-    <div class="summary">Simple lead form for a static GitHub Pages website.</div>
-  </div>
+        <div class="section-box">
+          <div class="section-head">
+            <div class="kicker">Section 04</div>
+            <div class="title">Contact</div>
+            <div class="summary">Direct email plus a Google Apps Script form endpoint, matching the same approach as your existing site.</div>
+          </div>
 
-  <div class="section-content" id="contact-content">
+          <div class="section-content">
             <div class="section-inner">
               <div class="contact-grid">
                 <div class="contact-panel">
@@ -797,22 +815,34 @@
                     For partnership discussions, project enquiries or private investment conversations, use the form or email directly.
                   </p>
 
-                  <div class="contact-item"><strong>Email:</strong> contact@ivolco.com.au</div>
-                  <div class="contact-item"><strong>Location:</strong> Sydney, Australia</div>
-                  <div class="contact-item"><strong>Focus:</strong> Property development, investment and turnkey residential delivery</div>
+                  <div class="contact-item">
+                    <strong>Email:</strong>
+                    <a href="mailto:contact@ivolco.com.au">contact@ivolco.com.au</a>
+                  </div>
+
+                  <div class="contact-item">
+                    <strong>Location:</strong> Sydney, Australia
+                  </div>
+
+                  <div class="contact-item">
+                    <strong>Focus:</strong> Property development, investment and turnkey residential delivery
+                  </div>
                 </div>
 
                 <div class="contact-panel">
                   <h3>Send an enquiry</h3>
-                  <form action="https://formsubmit.co/contact@ivolco.com.au" method="POST">
-                    <input type="text" name="name" placeholder="Your name" required>
-                    <input type="email" name="email" placeholder="Your email" required>
-                    <textarea name="message" placeholder="Your message" required></textarea>
+                  <form id="contactForm" method="POST" action="REPLACE_WITH_YOUR_GAS_WEB_APP_URL">
+                    <label for="name">Full name</label>
+                    <input id="name" name="name" type="text" required>
 
-                    <input type="hidden" name="_subject" value="New IVOLCO website enquiry">
-                    <input type="hidden" name="_captcha" value="false">
+                    <label for="phone">Phone</label>
+                    <input id="phone" name="phone" type="tel" required>
 
-                    <button class="cta" type="submit">Send</button>
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+
+                    <button class="cta" type="submit" id="submitBtn">Send</button>
+                    <p id="formStatus"></p>
                   </form>
                 </div>
               </div>
@@ -829,5 +859,50 @@
     </div>
   </footer>
 
+  <script>
+    const WEB_APP_URL = "REPLACE_WITH_YOUR_GAS_WEB_APP_URL";
+
+    const formEl = document.getElementById("contactForm");
+    const statusEl = document.getElementById("formStatus");
+    const btnEl = document.getElementById("submitBtn");
+
+    formEl.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      statusEl.textContent = "";
+      btnEl.disabled = true;
+
+      try {
+        const fd = new FormData(formEl);
+
+        const res = await fetch(WEB_APP_URL, {
+          method: "POST",
+          body: fd
+        });
+
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+
+        let data;
+        try {
+          data = await res.json();
+        } catch {
+          data = { result: "success" };
+        }
+
+        if (data.result === "success") {
+          statusEl.style.color = "#2c7a7b";
+          statusEl.textContent = "Thanks! We’ve received your details.";
+          formEl.reset();
+        } else {
+          throw new Error(data.message || "Unknown error");
+        }
+      } catch (err) {
+        console.error(err);
+        statusEl.style.color = "#c53030";
+        statusEl.textContent = "Sorry—something went wrong. Please email us at contact@ivolco.com.au.";
+      } finally {
+        btnEl.disabled = false;
+      }
+    });
+  </script>
 </body>
 </html>
