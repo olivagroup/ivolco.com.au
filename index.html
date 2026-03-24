@@ -5,153 +5,842 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>IVOLCO | Property Development & Investment</title>
   <meta name="description" content="IVOLCO delivers fixed-price property development, investment opportunities, and turnkey home building services in Sydney.">
-  <link rel="icon" href="assets/images/logo.png">
   <style>
+    :root {
+      --bg: #f5f3ee;
+      --surface: #ffffff;
+      --surface-2: #ece8e1;
+      --text: #1f1f1f;
+      --muted: #5f6770;
+      --line: #d7d2c8;
+      --gold: #b89a62;
+      --gold-dark: #977b47;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      color: #222;
-      background: #f7f7f7;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background:
+        linear-gradient(180deg, rgba(184,154,98,0.08), rgba(184,154,98,0.02) 18%, rgba(255,255,255,0) 30%),
+        var(--bg);
     }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
     .container {
-      max-width: 1100px;
-      margin: auto;
-      padding: 20px;
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
     }
-    header {
+
+    .topbar {
+      background: var(--text);
+      color: #f3efe8;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .topbar-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 10px 0;
+      font-size: 13px;
+      letter-spacing: 0.4px;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(10px);
+      background: rgba(245,243,238,0.92);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .site-header-inner {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 24px;
+      padding: 16px 0;
+    }
+
+    .brand {
       display: flex;
       align-items: center;
-      gap: 20px;
-      padding: 20px 0;
-      border-bottom: 1px solid #ddd;
+      gap: 14px;
+      min-width: 0;
     }
-    header img {
-      height: 60px;
+
+    .brand img {
+      width: 74px;
+      height: 74px;
+      object-fit: contain;
+      display: block;
+      background: transparent;
     }
-    h1 {
+
+    .brand-text {
+      min-width: 0;
+    }
+
+    .brand-name {
+      margin: 0;
+      font-size: 32px;
+      line-height: 1;
+      letter-spacing: 3px;
+      font-weight: 700;
+    }
+
+    .brand-tag {
+      margin-top: 7px;
+      color: var(--muted);
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: center;
+      gap: 26px;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+    }
+
+    .nav a {
+      position: relative;
+      padding-bottom: 6px;
+    }
+
+    .nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background: var(--gold);
+      transition: width 0.2s ease;
+    }
+
+    .nav a:hover::after {
+      width: 100%;
+    }
+
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0 18px;
+      border: 1px solid var(--gold);
+      background: var(--gold);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: 0.2s ease;
+    }
+
+    .cta:hover {
+      background: var(--gold-dark);
+      border-color: var(--gold-dark);
+    }
+
+    .hero {
+      padding: 42px 0 18px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.35fr 0.95fr;
+      gap: 22px;
+    }
+
+    .hero-main,
+    .hero-side {
+      background: linear-gradient(180deg, rgba(255,255,255,0.94), rgba(255,255,255,0.98));
+      border: 1px solid var(--line);
+      box-shadow: 0 14px 34px rgba(31,31,31,0.06);
+    }
+
+    .hero-main {
+      padding: 34px;
+      min-height: 520px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 14px;
+      padding: 6px 10px;
+      background: rgba(184,154,98,0.12);
+      color: var(--gold-dark);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      margin: 0 0 16px;
+      font-size: 56px;
+      line-height: 1.02;
+      letter-spacing: -1.5px;
+      max-width: 780px;
+    }
+
+    .hero-lead {
+      max-width: 760px;
+      color: #3f444a;
+      font-size: 18px;
+      line-height: 1.65;
+      margin: 0 0 24px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 26px;
+    }
+
+    .secondary-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0 18px;
+      border: 1px solid var(--text);
+      color: var(--text);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      background: transparent;
+    }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 10px;
+    }
+
+    .metric {
+      padding: 16px 18px;
+      background: var(--surface-2);
+      border-left: 4px solid var(--gold);
+    }
+
+    .metric strong {
+      display: block;
+      font-size: 18px;
+      margin-bottom: 6px;
+    }
+
+    .metric span {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .hero-side {
+      padding: 0;
+      overflow: hidden;
+      display: grid;
+      grid-template-rows: 240px auto;
+    }
+
+    .hero-visual {
+      background:
+        linear-gradient(135deg, rgba(31,31,31,0.88), rgba(95,103,112,0.88)),
+        linear-gradient(180deg, rgba(184,154,98,0.28), rgba(184,154,98,0.02));
+      position: relative;
+      padding: 28px;
+      color: #fff;
+    }
+
+    .hero-visual::after {
+      content: "";
+      position: absolute;
+      inset: 22px;
+      border: 1px solid rgba(255,255,255,0.22);
+    }
+
+    .hero-visual h2 {
+      position: relative;
       margin: 0;
       font-size: 28px;
-      letter-spacing: 2px;
+      line-height: 1.15;
+      max-width: 260px;
+      z-index: 1;
     }
-    h2 {
-      margin-top: 30px;
-      font-size: 22px;
-    }
-    p {
+
+    .hero-visual p {
+      position: relative;
+      z-index: 1;
+      margin: 14px 0 0;
+      color: rgba(255,255,255,0.82);
       line-height: 1.6;
-      margin: 10px 0;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-      margin-top: 20px;
-    }
-    .card {
-      background: white;
-      padding: 20px;
-      border: 1px solid #ddd;
-    }
-    footer {
-      margin-top: 40px;
-      padding: 20px 0;
-      border-top: 1px solid #ddd;
       font-size: 14px;
-      color: #666;
+      max-width: 270px;
     }
-    @media (max-width: 768px) {
-      .grid {
+
+    .hero-panel {
+      padding: 26px;
+      background: #fff;
+    }
+
+    .hero-panel h3 {
+      margin: 0 0 14px;
+      font-size: 16px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .hero-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 12px;
+    }
+
+    .hero-list li {
+      padding: 12px 0;
+      border-top: 1px solid var(--line);
+      color: #44484d;
+      line-height: 1.55;
+      font-size: 14px;
+    }
+
+    .hero-list li:first-child {
+      border-top: 0;
+      padding-top: 0;
+    }
+
+    .section {
+      padding: 18px 0;
+    }
+
+    .section-title-row {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+
+    .section-title {
+      margin: 0;
+      font-size: 28px;
+      letter-spacing: -0.5px;
+    }
+
+    .section-note {
+      color: var(--muted);
+      max-width: 520px;
+      line-height: 1.6;
+      font-size: 14px;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .service-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      padding: 22px;
+      box-shadow: 0 10px 24px rgba(31,31,31,0.04);
+    }
+
+    .service-card .num {
+      display: inline-block;
+      margin-bottom: 12px;
+      color: var(--gold);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+    }
+
+    .service-card h3 {
+      margin: 0 0 10px;
+      font-size: 21px;
+    }
+
+    .service-card p {
+      margin: 0;
+      color: #4a4f55;
+      line-height: 1.7;
+      font-size: 15px;
+    }
+
+    .split-band {
+      margin: 22px 0 8px;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 16px;
+    }
+
+    .band-left,
+    .band-right {
+      border: 1px solid var(--line);
+      background: var(--surface);
+      padding: 26px;
+    }
+
+    .band-left {
+      background: linear-gradient(180deg, rgba(184,154,98,0.09), rgba(255,255,255,0.98));
+    }
+
+    .band-left h3,
+    .band-right h3 {
+      margin: 0 0 14px;
+      font-size: 24px;
+    }
+
+    .band-left p,
+    .band-right p {
+      margin: 0 0 14px;
+      color: #495058;
+      line-height: 1.7;
+    }
+
+    .band-right ul {
+      margin: 0;
+      padding-left: 18px;
+      color: #495058;
+      line-height: 1.7;
+    }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+
+    .process-card {
+      background: var(--text);
+      color: #f3efe8;
+      padding: 20px;
+      border-top: 4px solid var(--gold);
+      min-height: 180px;
+    }
+
+    .process-card .step {
+      display: inline-block;
+      margin-bottom: 12px;
+      color: #d4bc8f;
+      font-size: 12px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .process-card h4 {
+      margin: 0 0 10px;
+      font-size: 20px;
+    }
+
+    .process-card p {
+      margin: 0;
+      color: rgba(243,239,232,0.82);
+      line-height: 1.65;
+      font-size: 14px;
+    }
+
+    .contact-band {
+      margin: 24px 0 34px;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 16px;
+    }
+
+    .contact-main,
+    .contact-side {
+      border: 1px solid var(--line);
+      padding: 26px;
+      background: #fff;
+    }
+
+    .contact-main h3,
+    .contact-side h3 {
+      margin: 0 0 12px;
+      font-size: 24px;
+    }
+
+    .contact-main p,
+    .contact-side p {
+      margin: 0 0 12px;
+      color: #495058;
+      line-height: 1.7;
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .contact-item {
+      padding: 14px 16px;
+      background: var(--surface-2);
+      border-left: 4px solid var(--gold);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .site-footer {
+      border-top: 1px solid var(--line);
+      padding: 18px 0 32px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 1040px) {
+      .site-header-inner {
         grid-template-columns: 1fr;
+        justify-items: start;
+      }
+
+      .nav {
+        justify-content: start;
+        flex-wrap: wrap;
+      }
+
+      .hero-grid,
+      .split-band,
+      .contact-band,
+      .services-grid,
+      .process-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .metrics {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 42px;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .topbar-inner {
+        flex-direction: column;
+        align-items: start;
+      }
+
+      .brand {
+        align-items: center;
+      }
+
+      .brand img {
+        width: 60px;
+        height: 60px;
+      }
+
+      .brand-name {
+        font-size: 26px;
+      }
+
+      .brand-tag {
+        white-space: normal;
+        line-height: 1.4;
+      }
+
+      .hero-main,
+      .hero-panel,
+      .band-left,
+      .band-right,
+      .contact-main,
+      .contact-side,
+      .service-card {
+        padding: 20px;
+      }
+
+      .hero {
+        padding-top: 24px;
+      }
+
+      .hero h1 {
+        font-size: 34px;
+      }
+
+      .section-title {
+        font-size: 24px;
+      }
+
+      .section-title-row {
+        flex-direction: column;
+        align-items: start;
       }
     }
   </style>
 </head>
 <body>
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <div>Private Property Development, Investment and High-Touch Delivery</div>
+      <div>Sydney, Australia</div>
+    </div>
+  </div>
 
-<div class="container">
+  <header class="site-header">
+    <div class="container site-header-inner">
+      <a class="brand" href="/">
+        <img src="assets/images/logo.png" alt="IVOLCO logo">
+        <div class="brand-text">
+          <h2 class="brand-name">IVOLCO</h2>
+          <div class="brand-tag">Property Development &amp; Investment</div>
+        </div>
+      </a>
 
-  <header>
-    <img src="logo.png" alt="IVOLCO logo">
-    <div>
-      <h1>IVOLCO</h1>
-      <div>PROPERTY DEVELOPMENT & INVESTMENT</div>
+      <nav class="nav">
+        <a href="#overview">Overview</a>
+        <a href="#offer">Offer</a>
+        <a href="#process">Process</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <a class="cta" href="#contact">Request Discussion</a>
     </div>
   </header>
 
-  <section>
-    <h2>Overview</h2>
-    <p>
-      Backed by a portfolio of completed properties and active sites currently under construction,
-      IVOLCO is opening its private investment vehicle and service model to a select group of external partners.
-    </p>
-    <p>
-      Whether you are an investor seeking high-yield results or a homeowner looking to build a "forever" residence
-      without the stress, we provide a high-touch, turnkey service built on predictability and coordinated execution.
-    </p>
-  </section>
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-main">
+          <div>
+            <div class="eyebrow">Late 2026 Partner Intake</div>
+            <h1>Property development and investment delivered with fixed-price certainty.</h1>
+            <p class="hero-lead">
+              Backed by a portfolio of completed properties and active sites under construction, IVOLCO is opening its private investment vehicle and service model to a select group of external partners seeking predictable execution, controlled delivery and premium market outcomes.
+            </p>
 
-  <section>
-    <h2>Core Offering</h2>
-    <div class="grid">
+            <div class="hero-actions">
+              <a class="cta" href="#contact">Discuss Your Project</a>
+              <a class="secondary-btn" href="#offer">Explore the Model</a>
+            </div>
+          </div>
 
-      <div class="card">
-        <strong>Fixed-price certainty</strong>
-        <p>
-          Through exclusive partnerships with vetted builders and specialists, we deliver fully inclusive,
-          no-variation construction. We absorb risk so your budget and margins remain protected.
-        </p>
+          <div class="metrics">
+            <div class="metric">
+              <strong>Fixed-price delivery</strong>
+              <span>All-inclusive construction structure designed to reduce cost uncertainty and protect margins.</span>
+            </div>
+            <div class="metric">
+              <strong>Institutional buying power</strong>
+              <span>Enterprise-level access to premium materials, finishes and appliances.</span>
+            </div>
+            <div class="metric">
+              <strong>End-to-end orchestration</strong>
+              <span>Coordination across approvals, design, consultants, builders and site dependencies.</span>
+            </div>
+          </div>
+        </div>
+
+        <aside class="hero-side">
+          <div class="hero-visual">
+            <h2>Built for investors and homeowners who value predictability.</h2>
+            <p>Selective partnerships, tightly coordinated execution and suburb-specific delivery calibrated to the Sydney market.</p>
+          </div>
+
+          <div class="hero-panel">
+            <h3>What IVOLCO manages</h3>
+            <ul class="hero-list">
+              <li>Land sourcing support, feasibility alignment and development positioning.</li>
+              <li>Council, Sydney Water, arborist, engineering and consultant coordination.</li>
+              <li>Builder engagement, supplier sequencing and lead-time management.</li>
+              <li>Interior selections and suburb-matched design execution for stronger market fit.</li>
+            </ul>
+          </div>
+        </aside>
       </div>
+    </section>
 
-      <div class="card">
-        <strong>Institutional buying power</strong>
-        <p>
-          Access enterprise-level pricing on premium materials and appliances, typically reserved for top-tier developers.
-        </p>
+    <section class="section" id="overview">
+      <div class="container">
+        <div class="section-title-row">
+          <h2 class="section-title">Overview</h2>
+          <div class="section-note">
+            IVOLCO combines private development capability with a high-touch delivery model for select external investors and homeowners seeking a turnkey pathway from planning to completion.
+          </div>
+        </div>
+
+        <div class="split-band">
+          <div class="band-left">
+            <h3>Turnkey execution without fragmented management</h3>
+            <p>
+              Whether you are sourcing land, navigating approvals or ready to break ground, IVOLCO can take over at any stage and manage the critical sequence of parties, timelines and decisions needed to keep the project controlled.
+            </p>
+            <p>
+              The model is built for clients who want certainty, fewer moving parts and a stronger line of sight over cost, timing and final market positioning.
+            </p>
+          </div>
+
+          <div class="band-right">
+            <h3>Who this is for</h3>
+            <ul>
+              <li>Private investors seeking higher-yield residential development opportunities.</li>
+              <li>Homeowners building a long-term residence without managing the process themselves.</li>
+              <li>Partners who want premium execution while avoiding Sydney construction volatility.</li>
+            </ul>
+          </div>
+        </div>
       </div>
+    </section>
 
-      <div class="card">
-        <strong>End-to-end orchestration</strong>
-        <p>
-          From land sourcing to approvals and construction, we manage every dependency including council, utilities,
-          engineers and stakeholders.
-        </p>
+    <section class="section" id="offer">
+      <div class="container">
+        <div class="section-title-row">
+          <h2 class="section-title">Core offering</h2>
+          <div class="section-note">
+            The service model is structured around budget protection, procurement leverage, dependency control and suburb-specific delivery decisions.
+          </div>
+        </div>
+
+        <div class="services-grid">
+          <article class="service-card">
+            <div class="num">01</div>
+            <h3>Fixed-price certainty</h3>
+            <p>
+              Through exclusive partnerships with vetted builders and a hand-picked team of specialists and suppliers, IVOLCO provides truly all-inclusive no-variations construction, absorbing risk across a complex Sydney delivery environment.
+            </p>
+          </article>
+
+          <article class="service-card">
+            <div class="num">02</div>
+            <h3>Institutional buying power</h3>
+            <p>
+              Because IVOLCO develops its own assets alongside client projects, premium finishes, materials and appliances can be sourced at pricing levels generally reserved for larger institutional operators.
+            </p>
+          </article>
+
+          <article class="service-card">
+            <div class="num">03</div>
+            <h3>End-to-end orchestration</h3>
+            <p>
+              Council, Sydney Water, arborists, certifiers, engineers, neighbours, consultants and trades all create dependencies that can derail timelines. IVOLCO coordinates that chain centrally so the project remains coherent.
+            </p>
+          </article>
+
+          <article class="service-card">
+            <div class="num">04</div>
+            <h3>Precision timeline management</h3>
+            <p>
+              Built on enterprise program management methodologies, IVOLCO proactively manages lead times and specialist schedules to compress build cycles, reduce delay exposure and minimise holding costs.
+            </p>
+          </article>
+
+          <article class="service-card">
+            <div class="num">05</div>
+            <h3>Market-matched execution</h3>
+            <p>
+              Design palettes, interior selections and suburb-dependent styling are matched to local buyer demographics, balancing customisation flexibility with a finished product that exceeds market benchmarks.
+            </p>
+          </article>
+
+          <article class="service-card">
+            <div class="num">06</div>
+            <h3>Selective partner model</h3>
+            <p>
+              IVOLCO is opening this private investment vehicle and delivery model to a limited number of aligned partners where a high-touch, controlled and performance-driven engagement structure is the right fit.
+            </p>
+          </article>
+        </div>
       </div>
+    </section>
 
-      <div class="card">
-        <strong>Precision timeline management</strong>
-        <p>
-          Using structured program management, we compress build cycles, reduce delays, and minimise holding costs.
-        </p>
+    <section class="section" id="process">
+      <div class="container">
+        <div class="section-title-row">
+          <h2 class="section-title">How engagement works</h2>
+          <div class="section-note">
+            IVOLCO can step in at multiple points of the asset lifecycle, from early feasibility and sourcing through approvals, procurement and construction delivery.
+          </div>
+        </div>
+
+        <div class="process-grid">
+          <div class="process-card">
+            <div class="step">Step 01</div>
+            <h4>Assess</h4>
+            <p>Review objectives, site potential, target market, timing constraints and development economics.</p>
+          </div>
+
+          <div class="process-card">
+            <div class="step">Step 02</div>
+            <h4>Structure</h4>
+            <p>Define the right delivery pathway, consultant stack, build scope and execution framework.</p>
+          </div>
+
+          <div class="process-card">
+            <div class="step">Step 03</div>
+            <h4>Coordinate</h4>
+            <p>Manage approvals, suppliers, builder sequencing and specialist dependencies with central oversight.</p>
+          </div>
+
+          <div class="process-card">
+            <div class="step">Step 04</div>
+            <h4>Deliver</h4>
+            <p>Complete with disciplined timeline control, market-fit design decisions and reduced operational friction.</p>
+          </div>
+        </div>
       </div>
+    </section>
 
-      <div class="card">
-        <strong>Market-matched execution</strong>
-        <p>
-          Designs and finishes tailored to suburb demographics, ensuring strong resale appeal while allowing flexibility.
-        </p>
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="contact-band">
+          <div class="contact-main">
+            <h3>Contact IVOLCO</h3>
+            <p>
+              For partnership discussions, project enquiries or private investment conversations, contact IVOLCO directly. Initial discussions are selective and aligned to project fit, timing and execution requirements.
+            </p>
+            <div class="contact-list">
+              <div class="contact-item"><strong>Email:</strong> contact@ivolco.com.au</div>
+              <div class="contact-item"><strong>Location:</strong> Sydney, Australia</div>
+              <div class="contact-item"><strong>Focus:</strong> Property development, investment and turnkey residential delivery</div>
+            </div>
+          </div>
+
+          <div class="contact-side">
+            <h3>Why partners engage</h3>
+            <p>To reduce construction uncertainty, centralise delivery control and access a more coordinated path to a premium final asset.</p>
+            <p>IVOLCO is suited to clients who prefer disciplined execution, fewer surprises and a direct, fully managed development experience.</p>
+            <a class="cta" href="mailto:contact@ivolco.com.au">Email IVOLCO</a>
+          </div>
+        </div>
       </div>
+    </section>
+  </main>
 
+  <footer class="site-footer">
+    <div class="container">
+      © IVOLCO — Property Development &amp; Investment
     </div>
-  </section>
-
-  <section>
-    <h2>Engagement</h2>
-    <p>
-      We selectively partner with investors and homeowners aligned with our execution model.
-      Engagements range from full development delivery to targeted support across specific project stages.
-    </p>
-  </section>
-
-  <section>
-    <h2>Contact</h2>
-    <p>Email: contact@ivolco.com.au</p>
-  </section>
-
-  <footer>
-    © IVOLCO — Property Development & Investment
   </footer>
-
-</div>
-
 </body>
 </html>
