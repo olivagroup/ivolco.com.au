@@ -48,24 +48,6 @@
       text-decoration: none;
     }
 
-    .topbar {
-      background: #232323;
-      color: #f3efe8;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    }
-
-    .topbar-inner {
-      width: min(var(--max), calc(100% - 32px));
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      padding: 10px 0;
-      font-size: 13px;
-      letter-spacing: 0.4px;
-      font-family: var(--title-font);
-    }
-
     .site-header {
       position: sticky;
       top: 0;
@@ -96,86 +78,42 @@
       width: 70px;
       height: 70px;
       object-fit: contain;
-      display: block;
     }
 
     .brand-name {
       margin: 0;
       font-size: 32px;
-      line-height: 1;
       letter-spacing: 3px;
-      font-weight: 700;
-      white-space: nowrap;
       font-family: var(--title-font);
       text-transform: uppercase;
     }
 
     .brand-tag {
-      margin-top: 7px;
-      color: var(--muted);
+      font-family: var(--title-font);
       font-size: 12px;
       letter-spacing: 2px;
       text-transform: uppercase;
-      font-family: var(--title-font);
+      color: var(--muted);
     }
 
     .nav {
       display: flex;
-      align-items: center;
       justify-content: center;
       gap: 24px;
-      flex-wrap: wrap;
     }
 
     .nav a {
-      position: relative;
-      font-size: 0.82rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--muted);
-      padding: 6px 0;
       font-family: var(--title-font);
-    }
-
-    .nav a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 0;
-      height: 1px;
-      background: var(--accent);
-      transition: width 0.2s ease;
-    }
-
-    .nav a:hover::after,
-    .nav a:focus-visible::after {
-      width: 100%;
+      text-transform: uppercase;
+      font-size: 0.8rem;
     }
 
     .header-cta {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 44px;
-      padding: 0 18px;
-      border: 1px solid var(--accent);
+      font-family: var(--title-font);
       background: var(--accent);
       color: #fff;
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      font-family: var(--title-font);
+      padding: 10px 16px;
       border-radius: 999px;
-      cursor: pointer;
-      transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
-    }
-
-    .header-cta:hover {
-      background: #876738;
-      border-color: #876738;
-      transform: translateY(-1px);
     }
 
     .page {
@@ -187,385 +125,156 @@
     .hero-card {
       background: var(--paper);
       border: 1px solid var(--line);
-      box-shadow: var(--shadow);
       border-radius: 28px;
-      overflow: hidden;
-    }
-
-    .hero-top {
-      padding: 28px 32px 0;
-    }
-
-    .eyebrow {
-      display: inline-block;
-      padding: 7px 11px;
-      border-radius: 999px;
-      background: var(--accent-soft);
-      color: var(--accent);
-      font-size: 0.74rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      font-family: var(--title-font);
-      font-weight: 700;
+      box-shadow: var(--shadow);
     }
 
     .content {
-      padding: 18px 32px 36px;
-    }
-
-    .wall {
-      display: grid;
-      gap: 28px;
+      padding: 32px;
     }
 
     .block {
-      padding: 0 0 28px;
       border-bottom: 1px solid var(--line);
-    }
-
-    .block:last-child {
-      border-bottom: 0;
-      padding-bottom: 0;
+      padding-bottom: 28px;
+      margin-bottom: 28px;
     }
 
     .label {
-      margin: 0 0 14px;
-      color: var(--accent);
-      font-size: 0.78rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
       font-family: var(--title-font);
-      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      color: var(--accent);
+      margin-bottom: 12px;
     }
 
+    /* FORCE LATO everywhere important */
     .block p,
     .bullet-list,
+    .bullet-list li,
     .contact-meta,
+    .contact-meta p,
+    form,
     input,
     textarea {
-      font-family: var(--body-font);
-    }
-
-    .block p {
-      margin: 0;
-      font-size: clamp(1.08rem, 1.65vw, 1.3rem);
-      color: var(--text);
+      font-family: var(--body-font) !important;
     }
 
     .bullet-list {
-      margin: 14px 0 0;
-      padding-left: 1.4em;
-      display: grid;
-      gap: 14px;
-      font-size: clamp(1.02rem, 1.4vw, 1.16rem);
-    }
-
-    .bullet-list li::marker {
-      color: var(--accent);
-    }
-
-    #contact {
-      scroll-margin-top: 120px;
-      padding-top: 10px;
-    }
-
-    .contact-meta {
-      margin-top: 14px;
-      font-size: clamp(1rem, 1.25vw, 1.08rem);
-      color: var(--text);
-    }
-
-    .contact-meta p {
-      margin: 0 0 8px;
-      font-size: inherit;
+      padding-left: 20px;
     }
 
     .contact-form-wrap {
-      margin-top: 22px;
-      padding-top: 22px;
+      margin-top: 24px;
+      padding-top: 20px;
       border-top: 1px solid var(--line);
     }
 
     .contact-form-title {
-      margin: 0 0 14px;
+      font-family: var(--title-font);
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
       color: var(--accent);
-      font-size: 0.78rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      font-family: var(--title-font);
-      font-weight: 700;
+      margin-bottom: 12px;
     }
 
-    form {
-      display: grid;
-      gap: 14px;
-      margin-top: 0;
-    }
-
-    label {
-      font-weight: 700;
-      font-size: 0.82rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--muted);
-      font-family: var(--title-font);
-    }
-
-    input,
-    textarea {
+    input, textarea {
       width: 100%;
+      padding: 12px;
       border: 1px solid var(--line);
-      background: rgba(255, 255, 255, 0.92);
-      padding: 14px 14px;
-      font-size: 1rem;
-      color: var(--text);
-      border-radius: 0;
-      outline: none;
-      line-height: 1.6;
-    }
-
-    input:focus,
-    textarea:focus {
-      border-color: rgba(156, 122, 69, 0.55);
-      box-shadow: 0 0 0 4px rgba(156, 122, 69, 0.08);
-    }
-
-    textarea {
-      min-height: 170px;
-      resize: vertical;
     }
 
     .cta {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: fit-content;
-      min-height: 48px;
-      padding: 0 18px;
-      border: 1px solid var(--accent);
-      border-radius: 999px;
+      font-family: var(--title-font);
       background: var(--accent);
       color: #fff;
-      font-size: 0.78rem;
-      font-weight: 700;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      font-family: var(--title-font);
+      padding: 10px 16px;
+      border-radius: 999px;
+      border: none;
       cursor: pointer;
-      transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
-    }
-
-    .cta:hover {
-      background: #876738;
-      border-color: #876738;
-      transform: translateY(-1px);
-    }
-
-    .cta:disabled {
-      opacity: 0.7;
-      cursor: not-allowed;
-      transform: none;
-    }
-
-    #formStatus {
-      margin-top: 2px;
-      font-weight: 700;
-      min-height: 20px;
-      font-family: var(--title-font);
-      font-size: 0.9rem;
-    }
-
-    .footer {
-      width: min(var(--max), calc(100% - 32px));
-      margin: 0 auto;
-      padding: 0 0 36px;
-      color: var(--muted);
-      font-size: 0.85rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      font-family: var(--title-font);
-    }
-
-    @media (max-width: 1060px) {
-      .header-inner {
-        grid-template-columns: 1fr;
-        justify-items: start;
-      }
-
-      .nav {
-        justify-content: start;
-      }
-    }
-
-    @media (max-width: 760px) {
-      .topbar-inner {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .brand img {
-        width: 58px;
-        height: 58px;
-      }
-
-      .brand-name {
-        font-size: 26px;
-      }
-
-      .hero-top {
-        padding: 22px 20px 0;
-      }
-
-      .content {
-        padding: 14px 20px 24px;
-      }
-
-      .block p,
-      .bullet-list,
-      .contact-meta {
-        font-size: 1rem;
-      }
     }
   </style>
 </head>
 <body>
-  <div class="topbar">
-    <div class="topbar-inner">
-      <div>Private Property Development, Investment and Turnkey Delivery</div>
-      <div>Sydney, Australia</div>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="brand">
+      <img src="assets/images/logo.png" />
+      <div>
+        <div class="brand-name">IVOLCO</div>
+        <div class="brand-tag">Property Development & Investment</div>
+      </div>
+    </div>
+
+    <nav class="nav">
+      <a href="#home">Home</a>
+      <a href="process.html">Process</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <a class="header-cta" href="#contact">Request Discussion</a>
+  </div>
+</header>
+
+<main id="home" class="page">
+  <div class="hero-card">
+    <div class="content">
+
+      <div class="block">
+        <div class="label">Your Objective</div>
+        <p>Whether you are an investor seeking high-yield results or a homeowner looking to build a "forever" residence, you are aiming for a quality residential development within Greater Sydney. You want a transparent, systematic approach that results in a final product that exceeds market benchmarks.</p>
+      </div>
+
+      <div class="block">
+        <div class="label">The Barrier</div>
+        <p>Residential development is often stalled by stress and the risks and unknowns of the Sydney construction landscape. Navigating the complexity of a myriad of critical dependencies – from Council and Sydney Water to arborists, engineers, and neighbours – can be overwhelming. Without predictability, holding costs rise and budget and margins remain unprotected.</p>
+      </div>
+
+      <div class="block">
+        <div class="label">How We Can Help</div>
+        <p>We provide a high-touch, turnkey service built on coordinated execution, managing the full lifecycle from land selection and acquisition through to design, construction, subdivision, and divestment.</p>
+        <ul class="bullet-list">
+          <li>Fixed-price certainty: Truly all-inclusive no-variations construction where we absorb the risks to ensure your budget is protected from the start.</li>
+          <li>Institutional buying power: We pass on enterprise-level discounts for premium materials and high-end appliances – pricing typically reserved for top-tier developers.</li>
+          <li>End-to-end orchestration: We take over at any stage and manage the complexity so you don’t have to.</li>
+          <li>Precision timeline management: Using enterprise program management methodologies, we treat the build as a mission-critical sequence, proactively managing lead times and specialist schedules to compress build cycles.</li>
+          <li>Market-matched execution: Design palettes, interior choices, and suburb-dependent styling are tailored to local buyer demographics.</li>
+        </ul>
+      </div>
+
+      <div class="block" id="contact">
+        <div class="label">The Proof</div>
+        <p>IVOLCO is backed by a portfolio of completed properties and active sites currently under construction, open for inspection [Sutherland Shire]. In late 2026, this private investment vehicle and service model opens to a select group of external partners, supported by exclusive partnerships with vetted builders and a hand-picked team of specialists and suppliers.</p>
+
+        <div class="contact-meta">
+          <p><strong>Email:</strong> contact@ivolco.com.au</p>
+          <p><strong>Location:</strong> Sydney, Australia</p>
+        </div>
+
+        <div class="contact-form-wrap">
+          <div class="contact-form-title">Contact</div>
+          <form id="contactForm">
+            <label>Full name</label>
+            <input name="name" required />
+
+            <label>Phone</label>
+            <input name="phone" required />
+
+            <label>Message</label>
+            <textarea name="message" required></textarea>
+
+            <button class="cta">Send</button>
+            <p id="formStatus"></p>
+          </form>
+        </div>
+      </div>
+
     </div>
   </div>
+</main>
 
-  <header class="site-header">
-    <div class="header-inner">
-      <a class="brand" href="#home">
-        <img src="assets/images/logo.png" alt="IVOLCO logo" />
-        <div>
-          <h1 class="brand-name">IVOLCO</h1>
-          <div class="brand-tag">Property Development &amp; Investment</div>
-        </div>
-      </a>
-
-      <nav class="nav">
-        <a href="#home">Home</a>
-        <a href="process.html">Process</a>
-        <a href="portfolio.html">Portfolio</a>
-        <a href="#contact">Contact</a>
-      </nav>
-
-      <a class="header-cta" href="#contact">Request Discussion</a>
-    </div>
-  </header>
-
-  <main id="home" class="page">
-    <section class="hero-card">
-      <div class="hero-top">
-        <span class="eyebrow">Greater Sydney</span>
-      </div>
-
-      <div class="content">
-        <div class="wall">
-          <section class="block">
-            <h2 class="label">Your Objective</h2>
-            <p>Whether you are an investor seeking high-yield results or a homeowner looking to build a "forever" residence, you are aiming for a quality residential development within Greater Sydney. You want a transparent, systematic approach that results in a final product that exceeds market benchmarks.</p>
-          </section>
-
-          <section class="block">
-            <h2 class="label">The Barrier</h2>
-            <p>Residential development is often stalled by stress and the risks and unknowns of the Sydney construction landscape. Navigating the complexity of a myriad of critical dependencies – from Council and Sydney Water to arborists, engineers, and neighbours – can be overwhelming. Without predictability, holding costs rise and budget and margins remain unprotected.</p>
-          </section>
-
-          <section class="block">
-            <h2 class="label">How We Can Help</h2>
-            <p>We provide a high-touch, turnkey service built on coordinated execution, managing the full lifecycle from land selection and acquisition through to design, construction, subdivision, and divestment.</p>
-            <ul class="bullet-list">
-              <li>Fixed-price certainty: Truly all-inclusive no-variations construction where we absorb the risks to ensure your budget is protected from the start.</li>
-              <li>Institutional buying power: We pass on enterprise-level discounts for premium materials and high-end appliances – pricing typically reserved for top-tier developers.</li>
-              <li>End-to-end orchestration: We take over at any stage and manage the complexity so you don’t have to.</li>
-              <li>Precision timeline management: Using enterprise program management methodologies, we treat the build as a mission-critical sequence, proactively managing lead times and specialist schedules to compress build cycles.</li>
-              <li>Market-matched execution: Design palettes, interior choices, and suburb-dependent styling are tailored to local buyer demographics.</li>
-            </ul>
-          </section>
-
-          <section class="block" id="contact">
-            <h2 class="label">The Proof</h2>
-            <p>IVOLCO is backed by a portfolio of completed properties and active sites currently under construction, open for inspection [Sutherland Shire]. In late 2026, this private investment vehicle and service model opens to a select group of external partners, supported by exclusive partnerships with vetted builders and a hand-picked team of specialists and suppliers.</p>
-
-            <div class="contact-meta">
-              <p><strong>Email:</strong> <a href="mailto:contact@ivolco.com.au">contact@ivolco.com.au</a></p>
-              <p><strong>Location:</strong> Sydney, Australia</p>
-            </div>
-
-            <div class="contact-form-wrap">
-              <h3 class="contact-form-title">Contact</h3>
-              <form id="contactForm" method="POST" action="REPLACE_WITH_YOUR_GAS_WEB_APP_URL">
-                <label for="name">Full name</label>
-                <input id="name" name="name" type="text" required />
-
-                <label for="phone">Phone</label>
-                <input id="phone" name="phone" type="tel" required />
-
-                <label for="message">Message</label>
-                <textarea id="message" name="message" rows="5" required></textarea>
-
-                <button class="cta" type="submit" id="submitBtn">Send</button>
-                <p id="formStatus"></p>
-              </form>
-            </div>
-          </section>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    © IVOLCO — Property Development &amp; Investment
-  </footer>
-
-  <script>
-    const WEB_APP_URL = "REPLACE_WITH_YOUR_GAS_WEB_APP_URL";
-
-    const formEl = document.getElementById("contactForm");
-    const statusEl = document.getElementById("formStatus");
-    const btnEl = document.getElementById("submitBtn");
-
-    formEl.addEventListener("submit", async (e) => {
-      e.preventDefault();
-      statusEl.textContent = "";
-      btnEl.disabled = true;
-
-      try {
-        const fd = new FormData(formEl);
-
-        const res = await fetch(WEB_APP_URL, {
-          method: "POST",
-          body: fd
-        });
-
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
-
-        let data;
-        try {
-          data = await res.json();
-        } catch {
-          data = { result: "success" };
-        }
-
-        if (data.result === "success") {
-          statusEl.style.color = "#2c7a7b";
-          statusEl.textContent = "Thanks! We’ve received your details.";
-          formEl.reset();
-        } else {
-          throw new Error(data.message || "Unknown error");
-        }
-      } catch (err) {
-        console.error(err);
-        statusEl.style.color = "#c53030";
-        statusEl.textContent = "Sorry—something went wrong. Please email us at contact@ivolco.com.au.";
-      } finally {
-        btnEl.disabled = false;
-      }
-    });
-  </script>
 </body>
 </html>
