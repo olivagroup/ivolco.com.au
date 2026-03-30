@@ -227,12 +227,19 @@
       margin-bottom: 10px;
     }
 
-    #contact {
+    #contact-title {
       scroll-margin-top: 120px;
     }
 
+    .contact-form-wrap {
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line);
+      max-width: 640px;
+    }
+
     .contact-meta {
-      margin-top: 14px;
+      margin: 0 0 18px;
       font-size: clamp(1rem, 1.25vw, 1.08rem);
       color: var(--text);
       max-width: 760px;
@@ -241,13 +248,6 @@
     .contact-meta p {
       margin: 0 0 8px;
       font-size: inherit;
-    }
-
-    .contact-form-wrap {
-      margin-top: 24px;
-      padding-top: 20px;
-      border-top: 1px solid var(--line);
-      max-width: 640px;
     }
 
     form {
@@ -328,24 +328,20 @@
       font-size: 0.9rem;
     }
 
-    .stub-page {
-      width: min(900px, calc(100% - 32px));
+    .site-footer {
+      width: min(var(--max), calc(100% - 32px));
       margin: 0 auto;
-      padding: 42px 0 72px;
+      padding: 0 0 36px;
+      color: var(--muted);
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-family: var(--title-font);
+      border-top: 1px solid var(--line);
     }
 
-    .stub-card {
-      background: var(--paper);
-      border: 1px solid var(--line);
-      border-radius: 28px;
-      box-shadow: var(--shadow);
-      padding: 32px;
-    }
-
-    .stub-text {
-      font-size: clamp(1.08rem, 1.65vw, 1.3rem);
-      color: var(--text);
-      margin: 0;
+    .site-footer-inner {
+      padding-top: 18px;
     }
 
     @media (max-width: 1060px) {
@@ -369,8 +365,7 @@
         font-size: 26px;
       }
 
-      .content,
-      .stub-card {
+      .content {
         padding: 20px;
       }
 
@@ -382,8 +377,7 @@
 
       .block p,
       .bullet-list,
-      .contact-meta,
-      .stub-text {
+      .contact-meta {
         font-size: 1rem;
       }
 
@@ -409,10 +403,10 @@
       <a href="#home">Home</a>
       <a href="process.html">Process</a>
       <a href="portfolio.html">Portfolio</a>
-      <a href="#contact">Contact</a>
+      <a href="#contact-title">Contact</a>
     </nav>
 
-    <a class="header-cta" href="#contact">Request Discussion</a>
+    <a class="header-cta" href="#contact-title">Request Discussion</a>
   </div>
 </header>
 
@@ -442,17 +436,18 @@
         </ul>
       </div>
 
-      <div class="block" id="contact">
+      <div class="block">
         <div class="label">The Proof</div>
         <p>IVOLCO is backed by a portfolio of completed properties and active sites currently under construction, open for inspection [Sutherland Shire]. In late 2026, this private investment vehicle and service model opens to a select group of external partners, supported by exclusive partnerships with vetted builders and a hand-picked team of specialists and suppliers.</p>
 
-        <div class="contact-meta">
-          <p><strong>Email:</strong> contact@ivolco.com.au</p>
-          <p><strong>Location:</strong> Sydney, Australia</p>
-        </div>
-
         <div class="contact-form-wrap">
-          <div class="contact-form-title">Contact</div>
+          <div class="contact-form-title" id="contact-title">Contact</div>
+
+          <div class="contact-meta">
+            <p><strong>Email:</strong> <a href="mailto:contact@ivolco.com.au">contact@ivolco.com.au</a></p>
+            <p><strong>Location:</strong> Sydney, Australia</p>
+          </div>
+
           <form id="contactForm" method="POST" action="REPLACE_WITH_YOUR_GAS_WEB_APP_URL">
             <label for="name">Name</label>
             <input id="name" name="name" required />
@@ -472,6 +467,13 @@
     </div>
   </div>
 </main>
+
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    © IVOLCO — Property Development &amp; Investment<br />
+    ABN 80 816 694 840
+  </div>
+</footer>
 
 <script>
   const WEB_APP_URL = "REPLACE_WITH_YOUR_GAS_WEB_APP_URL";
