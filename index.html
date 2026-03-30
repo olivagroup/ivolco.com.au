@@ -78,17 +78,21 @@
       width: 70px;
       height: 70px;
       object-fit: contain;
+      display: block;
     }
 
     .brand-name {
       margin: 0;
       font-size: 32px;
       letter-spacing: 3px;
+      line-height: 1;
       font-family: var(--title-font);
       text-transform: uppercase;
+      font-weight: 700;
     }
 
     .brand-tag {
+      margin-top: 7px;
       font-family: var(--title-font);
       font-size: 12px;
       letter-spacing: 2px;
@@ -100,20 +104,57 @@
       display: flex;
       justify-content: center;
       gap: 24px;
+      flex-wrap: wrap;
     }
 
     .nav a {
+      position: relative;
       font-family: var(--title-font);
       text-transform: uppercase;
-      font-size: 0.8rem;
+      font-size: 0.82rem;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+      padding: 6px 0;
+    }
+
+    .nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 1px;
+      background: var(--accent);
+      transition: width 0.2s ease;
+    }
+
+    .nav a:hover::after,
+    .nav a:focus-visible::after {
+      width: 100%;
     }
 
     .header-cta {
-      font-family: var(--title-font);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0 18px;
+      border: 1px solid var(--accent);
       background: var(--accent);
       color: #fff;
-      padding: 10px 16px;
       border-radius: 999px;
+      font-family: var(--title-font);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .header-cta:hover {
+      background: #876738;
+      border-color: #876738;
+      transform: translateY(-1px);
     }
 
     .page {
@@ -139,16 +180,25 @@
       margin-bottom: 28px;
     }
 
-    .label {
-      font-family: var(--title-font);
-      text-transform: uppercase;
-      font-size: 0.75rem;
-      letter-spacing: 0.15em;
-      color: var(--accent);
-      margin-bottom: 12px;
+    .block:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+      margin-bottom: 0;
     }
 
-    /* FORCE LATO everywhere important */
+    .label,
+    .contact-form-title,
+    .stub-title {
+      font-family: var(--title-font);
+      text-transform: uppercase;
+      font-size: 1.5rem;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      margin-bottom: 16px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+
     .block p,
     .bullet-list,
     .bullet-list li,
@@ -156,43 +206,190 @@
     .contact-meta p,
     form,
     input,
-    textarea {
+    textarea,
+    .stub-text {
       font-family: var(--body-font) !important;
     }
 
+    .block p {
+      margin: 0;
+      font-size: clamp(1.08rem, 1.65vw, 1.3rem);
+      color: var(--text);
+    }
+
     .bullet-list {
+      margin: 14px 0 0;
       padding-left: 20px;
+      font-size: clamp(1.02rem, 1.4vw, 1.16rem);
+    }
+
+    .bullet-list li {
+      margin-bottom: 10px;
+    }
+
+    #contact {
+      scroll-margin-top: 120px;
+    }
+
+    .contact-meta {
+      margin-top: 14px;
+      font-size: clamp(1rem, 1.25vw, 1.08rem);
+      color: var(--text);
+      max-width: 760px;
+    }
+
+    .contact-meta p {
+      margin: 0 0 8px;
+      font-size: inherit;
     }
 
     .contact-form-wrap {
       margin-top: 24px;
       padding-top: 20px;
       border-top: 1px solid var(--line);
+      max-width: 640px;
     }
 
-    .contact-form-title {
+    form {
+      display: grid;
+      gap: 14px;
+    }
+
+    label {
       font-family: var(--title-font);
+      font-weight: 700;
+      font-size: 0.82rem;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
-      font-size: 0.75rem;
-      letter-spacing: 0.15em;
-      color: var(--accent);
-      margin-bottom: 12px;
+      color: var(--muted);
     }
 
-    input, textarea {
+    input,
+    textarea {
       width: 100%;
       padding: 12px;
       border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.92);
+      color: var(--text);
+      font-size: 1rem;
+      line-height: 1.6;
+      border-radius: 0;
+      outline: none;
+    }
+
+    input:focus,
+    textarea:focus {
+      border-color: rgba(156, 122, 69, 0.55);
+      box-shadow: 0 0 0 4px rgba(156, 122, 69, 0.08);
+    }
+
+    textarea {
+      min-height: 170px;
+      resize: vertical;
     }
 
     .cta {
-      font-family: var(--title-font);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: fit-content;
+      min-height: 48px;
+      padding: 0 18px;
+      border: 1px solid var(--accent);
       background: var(--accent);
       color: #fff;
-      padding: 10px 16px;
       border-radius: 999px;
-      border: none;
+      font-family: var(--title-font);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
       cursor: pointer;
+      transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .cta:hover {
+      background: #876738;
+      border-color: #876738;
+      transform: translateY(-1px);
+    }
+
+    .cta:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    #formStatus {
+      margin-top: 2px;
+      font-weight: 700;
+      min-height: 20px;
+      font-family: var(--title-font);
+      font-size: 0.9rem;
+    }
+
+    .stub-page {
+      width: min(900px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 42px 0 72px;
+    }
+
+    .stub-card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      padding: 32px;
+    }
+
+    .stub-text {
+      font-size: clamp(1.08rem, 1.65vw, 1.3rem);
+      color: var(--text);
+      margin: 0;
+    }
+
+    @media (max-width: 1060px) {
+      .header-inner {
+        grid-template-columns: 1fr;
+        justify-items: start;
+      }
+
+      .nav {
+        justify-content: start;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .brand img {
+        width: 58px;
+        height: 58px;
+      }
+
+      .brand-name {
+        font-size: 26px;
+      }
+
+      .content,
+      .stub-card {
+        padding: 20px;
+      }
+
+      .label,
+      .contact-form-title,
+      .stub-title {
+        font-size: 1.15rem;
+      }
+
+      .block p,
+      .bullet-list,
+      .contact-meta,
+      .stub-text {
+        font-size: 1rem;
+      }
+
+      .contact-form-wrap {
+        max-width: 100%;
+      }
     }
   </style>
 </head>
@@ -201,10 +398,10 @@
 <header class="site-header">
   <div class="header-inner">
     <div class="brand">
-      <img src="assets/images/logo.png" />
+      <img src="assets/images/logo.png" alt="IVOLCO logo" />
       <div>
         <div class="brand-name">IVOLCO</div>
-        <div class="brand-tag">Property Development & Investment</div>
+        <div class="brand-tag">Property Development &amp; Investment</div>
       </div>
     </div>
 
@@ -256,17 +453,17 @@
 
         <div class="contact-form-wrap">
           <div class="contact-form-title">Contact</div>
-          <form id="contactForm">
-            <label>Full name</label>
-            <input name="name" required />
+          <form id="contactForm" method="POST" action="REPLACE_WITH_YOUR_GAS_WEB_APP_URL">
+            <label for="name">Name</label>
+            <input id="name" name="name" required />
 
-            <label>Phone</label>
-            <input name="phone" required />
+            <label for="phone">Phone</label>
+            <input id="phone" name="phone" required />
 
-            <label>Message</label>
-            <textarea name="message" required></textarea>
+            <label for="message">Message</label>
+            <textarea id="message" name="message" required></textarea>
 
-            <button class="cta">Send</button>
+            <button class="cta" type="submit" id="submitBtn">Send</button>
             <p id="formStatus"></p>
           </form>
         </div>
@@ -275,6 +472,52 @@
     </div>
   </div>
 </main>
+
+<script>
+  const WEB_APP_URL = "REPLACE_WITH_YOUR_GAS_WEB_APP_URL";
+
+  const formEl = document.getElementById("contactForm");
+  const statusEl = document.getElementById("formStatus");
+  const btnEl = document.getElementById("submitBtn");
+
+  formEl.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    statusEl.textContent = "";
+    btnEl.disabled = true;
+
+    try {
+      const fd = new FormData(formEl);
+
+      const res = await fetch(WEB_APP_URL, {
+        method: "POST",
+        body: fd
+      });
+
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+
+      let data;
+      try {
+        data = await res.json();
+      } catch {
+        data = { result: "success" };
+      }
+
+      if (data.result === "success") {
+        statusEl.style.color = "#2c7a7b";
+        statusEl.textContent = "Thanks! We’ve received your details.";
+        formEl.reset();
+      } else {
+        throw new Error(data.message || "Unknown error");
+      }
+    } catch (err) {
+      console.error(err);
+      statusEl.style.color = "#c53030";
+      statusEl.textContent = "Sorry—something went wrong. Please email us at contact@ivolco.com.au.";
+    } finally {
+      btnEl.disabled = false;
+    }
+  });
+</script>
 
 </body>
 </html>
