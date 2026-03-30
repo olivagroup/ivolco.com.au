@@ -174,6 +174,20 @@
       padding: 32px;
     }
 
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 28px;
+      padding: 7px 11px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 0.74rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-family: var(--title-font);
+      font-weight: 700;
+    }
+
     .block {
       border-bottom: 1px solid var(--line);
       padding-bottom: 28px;
@@ -235,14 +249,14 @@
       margin-top: 24px;
       padding-top: 20px;
       border-top: 1px solid var(--line);
-      max-width: 640px;
+      max-width: 100%;
     }
 
     .contact-meta {
       margin: 0 0 18px;
       font-size: clamp(1rem, 1.25vw, 1.08rem);
       color: var(--text);
-      max-width: 760px;
+      max-width: 100%;
     }
 
     .contact-meta p {
@@ -253,6 +267,7 @@
     form {
       display: grid;
       gap: 14px;
+      width: 100%;
     }
 
     label {
@@ -380,10 +395,6 @@
       .contact-meta {
         font-size: 1rem;
       }
-
-      .contact-form-wrap {
-        max-width: 100%;
-      }
     }
   </style>
 </head>
@@ -414,6 +425,8 @@
   <div class="hero-card">
     <div class="content">
 
+      <div class="eyebrow">Greater Sydney</div>
+
       <div class="block">
         <div class="label">Your Objective</div>
         <p>Whether you are an investor seeking high-yield results or a homeowner looking to build a "forever" residence, you are aiming for a quality residential development within Greater Sydney. You want a transparent, systematic approach that results in a final product that exceeds market benchmarks.</p>
@@ -421,7 +434,7 @@
 
       <div class="block">
         <div class="label">The Barrier</div>
-        <p>Residential development is often stalled by stress and the risks and unknowns of the Sydney construction landscape. Navigating the complexity of a myriad of critical dependencies – from Council and Sydney Water to arborists, engineers, and neighbours – can be overwhelming. Without predictability, holding costs rise and budget and margins remain unprotected.</p>
+        <p>Residential development is often stalled by stress and the risks and unknowns of the Sydney construction landscape. Navigating the complexity of a myriad of critical dependencies - from Council and Sydney Water to arborists, engineers, and neighbours - can be overwhelming. Without predictability, holding costs rise and budget and margins remain unprotected.</p>
       </div>
 
       <div class="block">
@@ -429,7 +442,7 @@
         <p>We provide a high-touch, turnkey service built on coordinated execution, managing the full lifecycle from land selection and acquisition through to design, construction, subdivision, and divestment.</p>
         <ul class="bullet-list">
           <li>Fixed-price certainty: Truly all-inclusive no-variations construction where we absorb the risks to ensure your budget is protected from the start.</li>
-          <li>Institutional buying power: We pass on enterprise-level discounts for premium materials and high-end appliances – pricing typically reserved for top-tier developers.</li>
+          <li>Institutional buying power: We pass on enterprise-level discounts for premium materials and high-end appliances - pricing typically reserved for top-tier developers.</li>
           <li>End-to-end orchestration: We take over at any stage and manage the complexity so you don’t have to.</li>
           <li>Precision timeline management: Using enterprise program management methodologies, we treat the build as a mission-critical sequence, proactively managing lead times and specialist schedules to compress build cycles.</li>
           <li>Market-matched execution: Design palettes, interior choices, and suburb-dependent styling are tailored to local buyer demographics.</li>
@@ -438,14 +451,13 @@
 
       <div class="block">
         <div class="label">The Proof</div>
-        <p>IVOLCO is backed by a portfolio of completed properties and active sites currently under construction, open for inspection [Sutherland Shire]. In late 2026, this private investment vehicle and service model opens to a select group of external partners, supported by exclusive partnerships with vetted builders and a hand-picked team of specialists and suppliers.</p>
+        <p>IVOLCO is backed by a portfolio of completed properties and active sites currently under construction, open for inspection Sutherland Shire. In late 2026, our private investment vehicle and service model opens to a select group of external partners, supported by exclusive partnerships with vetted builders and a hand-picked team of specialists and suppliers.</p>
 
         <div class="contact-form-wrap">
           <div class="contact-form-title" id="contact-title">Contact</div>
 
           <div class="contact-meta">
             <p><strong>Email:</strong> <a href="mailto:contact@ivolco.com.au">contact@ivolco.com.au</a></p>
-            <p><strong>Location:</strong> Sydney, Australia</p>
           </div>
 
           <form id="contactForm" method="POST" action="REPLACE_WITH_YOUR_GAS_WEB_APP_URL">
@@ -470,7 +482,7 @@
 
 <footer class="site-footer">
   <div class="site-footer-inner">
-    © IVOLCO — Property Development &amp; Investment<br />
+    © IVOLCO - Property Development &amp; Investment<br />
     ABN 80 816 694 840
   </div>
 </footer>
@@ -514,7 +526,7 @@
     } catch (err) {
       console.error(err);
       statusEl.style.color = "#c53030";
-      statusEl.textContent = "Sorry—something went wrong. Please email us at contact@ivolco.com.au.";
+      statusEl.textContent = "Sorry-something went wrong. Please email us at contact@ivolco.com.au.";
     } finally {
       btnEl.disabled = false;
     }
