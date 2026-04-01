@@ -17,13 +17,21 @@
       --text: #1e1d1a;
       --muted: #5f5a52;
       --accent: #9c7a45;
+      --accent-soft: rgba(156, 122, 69, 0.12);
       --shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
       --max: 1120px;
       --title-font: Arial, Helvetica, sans-serif;
       --body-font: "Lato", Arial, Helvetica, sans-serif;
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
       font-family: var(--body-font);
@@ -34,11 +42,16 @@
         linear-gradient(180deg, #fbf8f2 0%, var(--bg) 100%);
       line-height: 1.75;
     }
-    a { color: inherit; text-decoration: none; }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
     .site-header {
       position: sticky;
       top: 0;
+      z-index: 20;
       backdrop-filter: blur(14px);
       background: rgba(246, 242, 234, 0.86);
       border-bottom: 1px solid var(--line);
@@ -95,11 +108,29 @@
     }
 
     .nav a {
+      position: relative;
       font-family: var(--title-font);
       text-transform: uppercase;
       font-size: 0.82rem;
       letter-spacing: 0.18em;
       color: var(--muted);
+      padding: 6px 0;
+    }
+
+    .nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 1px;
+      background: var(--accent);
+      transition: width 0.2s ease;
+    }
+
+    .nav a:hover::after,
+    .nav a:focus-visible::after {
+      width: 100%;
     }
 
     .header-cta {
@@ -117,80 +148,193 @@
       font-weight: 700;
       letter-spacing: 1px;
       text-transform: uppercase;
+      transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
     }
 
-    .stub-page {
-      width: min(900px, calc(100% - 32px));
+    .header-cta:hover {
+      background: #876738;
+      border-color: #876738;
+      transform: translateY(-1px);
+    }
+
+    .page {
+      width: min(var(--max), calc(100% - 32px));
       margin: 0 auto;
       padding: 42px 0 72px;
     }
 
-    .stub-card {
+    .hero-card {
       background: var(--paper);
       border: 1px solid var(--line);
       border-radius: 28px;
       box-shadow: var(--shadow);
+    }
+
+    .content {
       padding: 32px;
     }
 
-    .stub-title {
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 28px;
+      padding: 7px 11px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 0.74rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-family: var(--title-font);
+      font-weight: 700;
+    }
+
+    .block {
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 28px;
+      margin-bottom: 28px;
+    }
+
+    .block:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+      margin-bottom: 0;
+    }
+
+    .label {
       font-family: var(--title-font);
       text-transform: uppercase;
       font-size: 1.5rem;
       letter-spacing: 0.12em;
       color: var(--accent);
-      margin: 0 0 16px;
+      margin-bottom: 16px;
       font-weight: 700;
       line-height: 1.15;
     }
 
-    .stub-text {
-      margin: 0;
-      font-family: var(--body-font);
+    .block p {
+      margin: 0 0 10px;
       font-size: clamp(1.08rem, 1.65vw, 1.3rem);
       color: var(--text);
+      font-family: var(--body-font);
+    }
+
+    .block p:last-child {
+      margin-bottom: 0;
+    }
+
+    .site-footer {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+      padding: 0 0 36px;
+      color: var(--muted);
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-family: var(--title-font);
+      border-top: 1px solid var(--line);
+    }
+
+    .site-footer-inner {
+      padding-top: 18px;
+    }
+
+    @media (max-width: 1060px) {
+      .header-inner {
+        grid-template-columns: 1fr;
+        justify-items: start;
+      }
+
+      .nav {
+        justify-content: start;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .brand img {
+        width: 58px;
+        height: 58px;
+      }
+
+      .brand-name {
+        font-size: 26px;
+      }
+
+      .content {
+        padding: 20px;
+      }
+
+      .label {
+        font-size: 1.15rem;
+      }
+
+      .block p {
+        font-size: 1rem;
+      }
     }
   </style>
 </head>
 <body>
-  <header class="site-header">
-    <div class="header-inner">
-      <a class="brand" href="index.html">
-        <img src="assets/images/logo.png" alt="IVOLCO logo" />
-        <div>
-          <div class="brand-name">IVOLCO</div>
-          <div class="brand-tag">Property Development &amp; Investment</div>
-        </div>
-      </a>
 
-      <nav class="nav">
-        <a href="index.html">Home</a>
-        <a href="process.html">Process</a>
-        <a href="portfolio.html">Portfolio</a>
-      </nav>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="index.html">
+      <img src="assets/images/logo.png" alt="IVOLCO logo" />
+      <div>
+        <div class="brand-name">IVOLCO</div>
+        <div class="brand-tag">Property Development &amp; Investment</div>
+      </div>
+    </a>
 
-      <a class="header-cta" href="index.html#contact-title">Request Discussion</a>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="process.html">Process</a>
+      <a href="portfolio.html">Portfolio</a>
+    </nav>
+
+    <a class="header-cta" href="index.html#contact-title">Request Discussion</a>
+  </div>
+</header>
+
+<main class="page">
+  <div class="hero-card">
+    <div class="content">
+
+      <div class="eyebrow">Portfolio</div>
+
+      <div class="block">
+        <div class="label">Project Jannali</div>
+        <p>Status: COMPLETED</p>
+        <p>Timeline (construction): May 2020 - May 2021</p>
+        <p>ROI (excluding interest, before tax): +41%</p>
+        <p>Domain (acquisition): https://www.domain.com.au/130-novara-crescent-jannali-nsw-2226-2015397783</p>
+        <p>Domain (unit 1 sale): https://www.domain.com.au/2-wiak-road-jannali-nsw-2226-2016968816</p>
+        <p>Domain (unit 2 sale): https://www.domain.com.au/4-wiak-road-jannali-nsw-2226-2019249534</p>
+        <p>Photos: TBA</p>
+      </div>
+
+      <div class="block">
+        <div class="label">Project Kirrawee</div>
+        <p>Status: ACTIVE CONSTRUCTION, roof stage</p>
+        <p>Timeline (construction): June 2025 - present </p>
+        <p>Anticipated ROI (excluding interest, before tax): 10%-32%</p>
+        <p>Photos: TBA</p>
+      </div>
+
+      <div class="block">
+        <div class="label">Other Projects</div>
+        <p>Photos of other completed properties by builders we work with: TBA</p>
+      </div>
+
     </div>
-  </header>
+  </div>
+</main>
 
-  <main class="stub-page">
-    <div class="stub-card">
-      <div class="stub-title">Portfolio</div>
-      <p class="stub-text">Project Jannali</p>
-      <p class="stub-text">Status: COMPLETED</p>
-      <p class="stub-text">Timeline (construction): May 2020 - May 2021</p>
-      <p class="stub-text">ROI (excluding interest, before tax): +41%</p>
-      <p class="stub-text">Domain (acquisition): https://www.domain.com.au/130-novara-crescent-jannali-nsw-2226-2015397783</p>
-      <p class="stub-text">Domain (unit 1 sale): https://www.domain.com.au/2-wiak-road-jannali-nsw-2226-2016968816</p>
-      <p class="stub-text">Domain (unit 2 sale): https://www.domain.com.au/4-wiak-road-jannali-nsw-2226-2019249534</p>
-      <p class="stub-text">Photos: TBA</p>
-      <p class="stub-text">Project Kirrawee</p>
-      <p class="stub-text">Status: ACTIVE CONSTRUCTION, roof stage</p>
-      <p class="stub-text">Timeline (construction): June 2025 - present </p>      
-      <p class="stub-text">Anticipated ROI (excluding interest, before tax): 10%-32%</p>
-      <p class="stub-text">Photos: TBA</p>
-      <p class="stub-text">Photos of other completed properties by builders we work with: TBA</p>
-    </div>
-  </main>
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    IVOLCO | Property Development &amp; Investment | Est. 2020 <br />
+    ABN 80 816 694 840
+  </div>
+</footer>
+
 </body>
 </html>
