@@ -17,13 +17,21 @@
       --text: #1e1d1a;
       --muted: #5f5a52;
       --accent: #9c7a45;
+      --accent-soft: rgba(156, 122, 69, 0.12);
       --shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
       --max: 1120px;
       --title-font: Arial, Helvetica, sans-serif;
       --body-font: "Lato", Arial, Helvetica, sans-serif;
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
       font-family: var(--body-font);
@@ -34,11 +42,16 @@
         linear-gradient(180deg, #fbf8f2 0%, var(--bg) 100%);
       line-height: 1.75;
     }
-    a { color: inherit; text-decoration: none; }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
     .site-header {
       position: sticky;
       top: 0;
+      z-index: 20;
       backdrop-filter: blur(14px);
       background: rgba(246, 242, 234, 0.86);
       border-bottom: 1px solid var(--line);
@@ -95,11 +108,29 @@
     }
 
     .nav a {
+      position: relative;
       font-family: var(--title-font);
       text-transform: uppercase;
       font-size: 0.82rem;
       letter-spacing: 0.18em;
       color: var(--muted);
+      padding: 6px 0;
+    }
+
+    .nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 1px;
+      background: var(--accent);
+      transition: width 0.2s ease;
+    }
+
+    .nav a:hover::after,
+    .nav a:focus-visible::after {
+      width: 100%;
     }
 
     .header-cta {
@@ -117,67 +148,230 @@
       font-weight: 700;
       letter-spacing: 1px;
       text-transform: uppercase;
+      transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
     }
 
-    .stub-page {
-      width: min(900px, calc(100% - 32px));
+    .header-cta:hover {
+      background: #876738;
+      border-color: #876738;
+      transform: translateY(-1px);
+    }
+
+    .page {
+      width: min(var(--max), calc(100% - 32px));
       margin: 0 auto;
       padding: 42px 0 72px;
     }
 
-    .stub-card {
+    .hero-card {
       background: var(--paper);
       border: 1px solid var(--line);
       border-radius: 28px;
       box-shadow: var(--shadow);
+    }
+
+    .content {
       padding: 32px;
     }
 
-    .stub-title {
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 28px;
+      padding: 7px 11px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 0.74rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-family: var(--title-font);
+      font-weight: 700;
+    }
+
+    .block {
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 28px;
+      margin-bottom: 28px;
+    }
+
+    .block:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+      margin-bottom: 0;
+    }
+
+    .label {
       font-family: var(--title-font);
       text-transform: uppercase;
       font-size: 1.5rem;
       letter-spacing: 0.12em;
       color: var(--accent);
-      margin: 0 0 16px;
+      margin-bottom: 16px;
       font-weight: 700;
       line-height: 1.15;
     }
 
-    .stub-text {
-      margin: 0;
-      font-family: var(--body-font);
+    .block p,
+    .bullet-list,
+    .bullet-list li {
+      font-family: var(--body-font) !important;
+    }
+
+    .block p {
+      margin: 0 0 14px;
       font-size: clamp(1.08rem, 1.65vw, 1.3rem);
       color: var(--text);
+    }
+
+    .block p:last-child {
+      margin-bottom: 0;
+    }
+
+    .bullet-list {
+      margin: 14px 0 0;
+      padding-left: 20px;
+      font-size: clamp(1.02rem, 1.4vw, 1.16rem);
+    }
+
+    .bullet-list li {
+      margin-bottom: 10px;
+    }
+
+    .bullet-list li:last-child {
+      margin-bottom: 0;
+    }
+
+    .site-footer {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+      padding: 0 0 36px;
+      color: var(--muted);
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-family: var(--title-font);
+      border-top: 1px solid var(--line);
+    }
+
+    .site-footer-inner {
+      padding-top: 18px;
+    }
+
+    @media (max-width: 1060px) {
+      .header-inner {
+        grid-template-columns: 1fr;
+        justify-items: start;
+      }
+
+      .nav {
+        justify-content: start;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .brand img {
+        width: 58px;
+        height: 58px;
+      }
+
+      .brand-name {
+        font-size: 26px;
+      }
+
+      .content {
+        padding: 20px;
+      }
+
+      .label {
+        font-size: 1.15rem;
+      }
+
+      .block p,
+      .bullet-list {
+        font-size: 1rem;
+      }
     }
   </style>
 </head>
 <body>
-  <header class="site-header">
-    <div class="header-inner">
-      <a class="brand" href="index.html">
-        <img src="assets/images/logo.png" alt="IVOLCO logo" />
-        <div>
-          <div class="brand-name">IVOLCO</div>
-          <div class="brand-tag">Property Development &amp; Investment</div>
-        </div>
-      </a>
 
-      <nav class="nav">
-        <a href="index.html">Home</a>
-        <a href="process.html">Process</a>
-        <a href="portfolio.html">Portfolio</a>
-      </nav>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="index.html">
+      <img src="assets/images/logo.png" alt="IVOLCO logo" />
+      <div>
+        <div class="brand-name">IVOLCO</div>
+        <div class="brand-tag">Property Development &amp; Investment</div>
+      </div>
+    </a>
 
-      <a class="header-cta" href="index.html#contact-title">Request Discussion</a>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="process.html">Process</a>
+      <a href="portfolio.html">Portfolio</a>
+    </nav>
+
+    <a class="header-cta" href="index.html#contact-title">Request Discussion</a>
+  </div>
+</header>
+
+<main class="page">
+  <div class="hero-card">
+    <div class="content">
+
+      <div class="eyebrow">Process</div>
+
+      <div class="block">
+        <div class="label">Development Investment Pathways</div>
+        <p>We provide a professional bridge between private capital and high-performance Sydney residential development. Our active track record allows us to offer two distinct, secure structures designed to protect investor capital while maximizing development margins.</p>
+      </div>
+
+      <div class="block">
+        <div class="label">Pathway 01: Bespoke Project Delivery</div>
+        <p>Structure: Development Management Agreement (DMA)</p>
+        <p>Best for: Individuals or Family Offices looking to build a high-quality property portfolio with zero operational friction.</p>
+        <p>In this model, you maintain 100% legal ownership of the asset from day one. We act as your expert delivery partner, navigating the complexities of Sydney’s planning and construction landscape on your behalf.</p>
+        <ul class="bullet-list">
+          <li>Acquisition &amp; Ownership: You (or your entity) purchase the land directly. This ensures the title remains in your name throughout the project lifecycle.</li>
+          <li>End-to-End Management: We manage the entire process: site feasibility, DA/CC/CDC approvals, builder tendering, and construction oversight.</li>
+          <li>Operational Fee Structure: A modest management fee covers our project overheads, ensuring our team is dedicated to your site.</li>
+          <li>Success Alignment: Our primary compensation is a Performance Bonus - a share of the net profit realised upon the sale or valuation of the completed property. We only win when you win.</li>
+        </ul>
+      </div>
+
+      <div class="block">
+        <div class="label">Pathway 02: Strategic Capital Deployment</div>
+        <p>Structure: Private Capital Facility</p>
+        <p>Best for: Sophisticated investors seeking a "revolving" model to deploy capital into the Sydney market for consistent, high-yield returns.</p>
+        <p>This is a speed-to-market model. We identify undervalued or "off-market" opportunities that fit a pre-agreed risk profile, and you provide the liquidity to secure them.</p>
+        <ul class="bullet-list">
+          <li>The "Buy Box": We define a specific set of criteria (suburbs, zoning, and yield targets). When a site meets these metrics, we present a "Ready-to-Go" feasibility study.</li>
+          <li>Agile Execution: Using your capital facility, we move quickly to exchange on land, often securing better prices through speed.</li>
+          <li>Revolving Returns: Upon the sale of the developed duplex units, your principal and a preferred interest return are repaid first. The remaining profit is split, and the principal can be redeployed immediately into the next project.</li>
+          <li>Hands-Off Growth: You provide the "Fuel" (Capital); we provide the "Engine" (Expertise). This allows you to scale a development pipeline without the time commitment of hands-on management.</li>
+        </ul>
+      </div>
+
+      <div class="block">
+        <div class="label">Investor Security &amp; Governance</div>
+        <p>We believe that transparency is the foundation of any successful development partnership. Regardless of the pathway chosen, our process is built on three pillars:</p>
+        <ul class="bullet-list">
+          <li>Full Asset Control: In both models, the investor or their chosen entity retains ownership of the land and the finished product.</li>
+          <li>Reporting Excellence: Via a dedicated mobile app, investors receive monthly "Status &amp; Spend" reports, including updated timelines, budget tracking, and site photos.</li>
+          <li>Legal Rigor: All partnerships are governed by industry-standard Australian legal agreements drafted by specialist property solicitors to ensure clear definitions of roles, responsibilities, and exit strategies.</li>
+        </ul>
+      </div>
+
     </div>
-  </header>
+  </div>
+</main>
 
-  <main class="stub-page">
-    <div class="stub-card">
-      <div class="stub-title">Process</div>
-      <p class="stub-text">Under construction.</p>
-    </div>
-  </main>
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    IVOLCO | Property Development &amp; Investment | Est. 2020 <br />
+    ABN 80 816 694 840
+  </div>
+</footer>
+
 </body>
 </html>
