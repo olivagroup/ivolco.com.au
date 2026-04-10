@@ -32,16 +32,20 @@
       scroll-behavior: smooth;
     }
 
-    body {
-      margin: 0;
-      font-family: var(--body-font);
-      color: var(--text);
-      background:
-        radial-gradient(circle at top left, rgba(156, 122, 69, 0.08), transparent 32%),
-        radial-gradient(circle at bottom right, rgba(156, 122, 69, 0.08), transparent 28%),
-        linear-gradient(180deg, #fbf8f2 0%, var(--bg) 100%);
-      line-height: 1.75;
-    }
+body {
+  margin: 0;
+  font-family: var(--body-font);
+  color: var(--text);
+  background:
+    radial-gradient(circle at top left, rgba(156, 122, 69, 0.08), transparent 32%),
+    radial-gradient(circle at bottom right, rgba(156, 122, 69, 0.08), transparent 28%),
+    linear-gradient(180deg, #fbf8f2 0%, var(--bg) 100%);
+  line-height: 1.75;
+}
+
+html[dir="rtl"] body {
+  font-family: Arial, Helvetica, sans-serif;
+}
 
     a {
       color: inherit;
@@ -107,15 +111,24 @@
       flex-wrap: wrap;
     }
 
-    .nav a {
-      position: relative;
-      font-family: var(--title-font);
-      text-transform: uppercase;
-      font-size: 0.82rem;
-      letter-spacing: 0.18em;
-      color: var(--muted);
-      padding: 6px 0;
-    }
+.nav a {
+  position: relative;
+  font-family: var(--title-font);
+  text-transform: uppercase;
+  font-size: 0.82rem;
+  letter-spacing: 0.18em;
+  color: var(--muted);
+  padding: 6px 0;
+}
+
+html[dir="rtl"] .nav a,
+html[dir="rtl"] .label,
+html[dir="rtl"] .contact-form-title,
+html[dir="rtl"] label,
+html[dir="rtl"] .site-footer {
+  text-transform: none;
+  letter-spacing: normal;
+}
 
     .nav a::after {
       content: "";
@@ -403,18 +416,18 @@
 <header class="site-header">
   <div class="header-inner">
     <div class="brand">
-      <img src="assets/images/logo.png" alt="IVOLCO logo" />
+      <img src="assets/images/logo.png" alt="IVOLCO logo" id="brandLogo" />
       <div>
         <div class="brand-name">IVOLCO</div>
         <div class="brand-tag">Property Development &amp; Investment</div>
       </div>
     </div>
 
-    <nav class="nav">
-      <a href="index.html">Why Us</a>
-      <a href="process.html">The Framework</a>
-      <a href="portfolio.html">Our Portfolio</a>
-    </nav>
+<nav class="nav">
+  <a href="index.html" id="navWhy">Why Us</a>
+  <a href="process.html" id="navFramework">The Framework</a>
+  <a href="portfolio.html" id="navPortfolio">Our Portfolio</a>
+</nav>
 
     <a class="header-cta" href="#contact-title">Request Discussion</a>
   </div>
@@ -425,59 +438,59 @@
     <div class="content">
 
       <div class="block">
-        <div class="label">Your Objective</div>
-        <p>Whether you are an investor seeking high-yield returns or a homeowner looking to build a 'forever' residence, you are aiming for a quality residential development within <strong>Greater Sydney</strong>. You want a transparent, systematic approach that results in a final product that exceeds market benchmarks.</p>
+        <div class="label" id="labelObjective">Your Objective</div>
+<p id="objectiveText">Whether you are an investor seeking high-yield returns or a homeowner looking to build a 'forever' residence, you are aiming for a quality residential development within <strong>Greater Sydney</strong>. You want a transparent, systematic approach that results in a final product that exceeds market benchmarks.</p>
       </div>
 
 <div class="block">
-  <div class="label">The Barrier</div>
-  <p>Residential development in Sydney is often high-risk, defined by a lack of transparency and systemic 'hidden' traps that stall progress and compromise budget or margin.</p>
-  <ul class="bullet-list">
-    <li><strong>Planning limbo</strong>: The Development Approval (DA) process is a primary point of failure. It is common to wait 12 months or more only to face a late-stage Council rejection, leaving you with mounting holding costs and no path forward.</li>
-    <li><strong>Bait pricing & variations trap</strong>: Initial building contracts may appear attractive, yet often exclude critical 'non-negotiables' – like demolition, excavation, or tree management. Combined with unprotected exposure to material price hikes and 'unforeseen' site conditions, this leads to a cascade of expensive variations.</li>
-    <li><strong>Compromised quality</strong>: To recover costs from underquoting or a lack of planning, builders may cut corners on structural integrity or finish quality. This results in a product that fails to meet expectations or, worse, falls short of the building code – leading to failed inspections and costly delays with sales or move-in.</li>
-    <li><strong>Logistical overwhelm</strong>: Navigating the 'invisible' web of dependencies can be paralysing and time-consuming. Without professional orchestration, holding costs rise daily while the project sits idle.</li>
-  </ul>
+<div class="label" id="labelBarrier">The Barrier</div>
+<p id="barrierIntro">Residential development in Sydney is often high-risk, defined by a lack of transparency and systemic 'hidden' traps that stall progress and compromise budget or margin.</p>
+<ul class="bullet-list">
+  <li id="barrierLi1"><strong>Planning limbo</strong>: The Development Approval (DA) process is a primary point of failure. It is common to wait 12 months or more only to face a late-stage Council rejection, leaving you with mounting holding costs and no path forward.</li>
+  <li id="barrierLi2"><strong>Bait pricing & variations trap</strong>: Initial building contracts may appear attractive, yet often exclude critical 'non-negotiables' – like demolition, excavation, or tree management. Combined with unprotected exposure to material price hikes and 'unforeseen' site conditions, this leads to a cascade of expensive variations.</li>
+  <li id="barrierLi3"><strong>Compromised quality</strong>: To recover costs from underquoting or a lack of planning, builders may cut corners on structural integrity or finish quality. This results in a product that fails to meet expectations or, worse, falls short of the building code – leading to failed inspections and costly delays with sales or move-in.</li>
+  <li id="barrierLi4"><strong>Logistical overwhelm</strong>: Navigating the 'invisible' web of dependencies can be paralysing and time-consuming. Without professional orchestration, holding costs rise daily while the project sits idle.</li>
+</ul>
 </div>
 
       <div class="block">
-        <div class="label">How We Can Help</div>
-        <p>We provide a high-touch, turnkey service built on coordinated execution, managing the full lifecycle from land selection and acquisition through to design, construction, subdivision, and divestment.</p>
-        <ul class="bullet-list">
-          <li><strong>Strategic approval navigation</strong>: By leveraging pre-emptive approval, council-resilient strategies, and expert-led feasibility, we ensure your project is 'approval-ready' before the clock starts, protecting the timeline from arbitrary delays.</li>
-          <li><strong>Fixed-price certainty</strong>: Truly all-inclusive no-variation construction where we absorb the risks to ensure your budget or margin is protected from the start. We utilise industry-standard HIA building contracts to ensure complete transparency from day one. This avoids the complex, one-sided custom contracts that often hide risks and lead to legal deadlock.</li>
-          <li><strong>Institutional buying power</strong>: Because we develop our own assets alongside yours, we pass on enterprise-level discounts for premium materials and high-end appliances – pricing typically reserved for top-tier developers.</li>
-          <li><strong>Precision end-to-end orchestration</strong>: Whether you are sourcing land, navigating approvals, or ready to break ground – we take over at any stage and manage the complexity utilising enterprise-level project management methodologies. By treating the construction lifecycle as a mission-critical sequence and proactively managing lead times, we compress build cycles and minimise holding costs, getting you into your home or your asset to market sooner.</li>
-          <li><strong>Market-matched execution</strong>: Our design palettes and suburb-dependent styling are strategically tailored to local buyer demographics, while providing the flexibility to customise premium finishes – ensuring the final product consistently outperforms market benchmarks.</li>
-        </ul>
+<div class="label" id="labelHelp">How We Can Help</div>
+<p id="helpIntro">We provide a high-touch, turnkey service built on coordinated execution, managing the full lifecycle from land selection and acquisition through to design, construction, subdivision, and divestment.</p>
+<ul class="bullet-list">
+  <li id="helpLi1"><strong>Strategic approval navigation</strong>: By leveraging pre-emptive approval, council-resilient strategies, and expert-led feasibility, we ensure your project is 'approval-ready' before the clock starts, protecting the timeline from arbitrary delays.</li>
+  <li id="helpLi2"><strong>Fixed-price certainty</strong>: Truly all-inclusive no-variation construction where we absorb the risks to ensure your budget or margin is protected from the start. We utilise industry-standard HIA building contracts to ensure complete transparency from day one. This avoids the complex, one-sided custom contracts that often hide risks and lead to legal deadlock.</li>
+  <li id="helpLi3"><strong>Institutional buying power</strong>: Because we develop our own assets alongside yours, we pass on enterprise-level discounts for premium materials and high-end appliances – pricing typically reserved for top-tier developers.</li>
+  <li id="helpLi4"><strong>Precision end-to-end orchestration</strong>: Whether you are sourcing land, navigating approvals, or ready to break ground – we take over at any stage and manage the complexity utilising enterprise-level project management methodologies. By treating the construction lifecycle as a mission-critical sequence and proactively managing lead times, we compress build cycles and minimise holding costs, getting you into your home or your asset to market sooner.</li>
+  <li id="helpLi5"><strong>Market-matched execution</strong>: Our design palettes and suburb-dependent styling are strategically tailored to local buyer demographics, while providing the flexibility to customise premium finishes – ensuring the final product consistently outperforms market benchmarks.</li>
+</ul>
       </div>
 
       <div class="block">
-        <div class="label">The Proof</div>
-        <p>Established in 2020, IVOLCO is defined by a track record of high-yield delivery. Our expertise is backed by a portfolio of completed residential developments and active sites currently under construction, <strong>open for inspection in the Sutherland Shire</strong>.</p>
+        <div class="label" id="labelProof">The Proof</div>
+<p id="proofText">Established in 2020, IVOLCO is defined by a track record of high-yield delivery. Our expertise is backed by a portfolio of completed residential developments and active sites currently under construction, <strong>open for inspection in the Sutherland Shire</strong>.</p>
 </div>
       
       <div class="block">
-        <div class="label">Exclusive Access</div>
-        <p>In late 2026, our private investment vehicle and service model, supported by exclusive partnerships with vetted builders and a hand-picked team of specialists and suppliers, <strong>opens to a select group of external partners</strong>. This provides the opportunity to leverage our proven, institutional-grade execution for your own residential developments. Our core operational footprint spans Sydney’s East, South, and West. Please contact us below to discuss your objective or explore current opportunities.</p>
+        <div class="label" id="labelAccess">Exclusive Access</div>
+<p id="accessText">In late 2026, our private investment vehicle and service model, supported by exclusive partnerships with vetted builders and a hand-picked team of specialists and suppliers, <strong>opens to a select group of external partners</strong>. This provides the opportunity to leverage our proven, institutional-grade execution for your own residential developments. Our core operational footprint spans Sydney’s East, South, and West. Please contact us below to discuss your objective or explore current opportunities.</p>
 
       
         <div class="contact-form-wrap">
           <div class="contact-form-title" id="contact-title">Contact</div>
 
           <div class="contact-meta">
-            <p><strong>Email:</strong> <a href="mailto:contact@ivolco.com.au">contact@ivolco.com.au</a></p>
+            <p><strong id="contactEmailLabel">Email:</strong> <a href="mailto:contact@ivolco.com.au">contact@ivolco.com.au</a></p>
           </div>
 
-          <form id="contactForm" method="POST" action="REPLACE_WITH_YOUR_GAS_WEB_APP_URL">
+          <form id="contactForm" method="POST">
             <label for="name">Name</label>
-            <input id="name" name="name" required />
+            <input id="name" name="name" placeholder="Name" required />
 
             <label for="phone">Phone</label>
-            <input id="phone" name="phone" required />
+            <input id="phone" name="phone" placeholder="Phone" required />
 
             <label for="message">Message</label>
-            <textarea id="message" name="message" required></textarea>
+            <textarea id="message" name="message" placeholder="Message" required></textarea>
 
             <button class="cta" type="submit" id="submitBtn">Send</button>
             <p id="formStatus"></p>
@@ -490,14 +503,906 @@
 </main>
 
 <footer class="site-footer">
-  <div class="site-footer-inner">
-    IVOLCO | Property Development &amp; Investment | Est. 2020 <br />
-    ABN 80 816 694 840
-  </div>
+<div class="site-footer-inner">
+  Property Development &amp; Investment | Est. 2020 <br />
+  ABN 80 816 694 840
+</div>
 </footer>
 
 <script>
-  const WEB_APP_URL = "REPLACE_WITH_YOUR_GAS_WEB_APP_URL";
+const savedLang = localStorage.getItem("lang");
+const browserLang = (navigator.languages && navigator.languages[0]) || navigator.language || "en";
+const preferredLang = (savedLang || browserLang).toLowerCase().split("-")[0];
+
+if (!savedLang) localStorage.setItem("lang", preferredLang);
+</script>
+
+
+  <script>
+const translations = {
+
+  
+en: {
+    html_lang: "en",
+    brand_tag: "Property Development & Investment",
+    nav_why: "Why Us",
+    nav_framework: "The Framework",
+    nav_portfolio: "Our Portfolio",
+    cta_request: "Request Discussion",
+    label_objective: "Your Objective",
+    objective_text: "Whether you are an investor seeking high-yield returns or a homeowner looking to build a 'forever' residence, you are aiming for a quality residential development within <strong>Greater Sydney</strong>. You want a transparent, systematic approach that results in a final product that exceeds market benchmarks.",
+    label_barrier: "The Barrier",
+    barrier_intro: "Residential development in Sydney is often high-risk, defined by a lack of transparency and systemic 'hidden' traps that stall progress and compromise budget or margin.",
+    barrier_li_1: "<strong>Planning limbo</strong>: The Development Approval (DA) process is a primary point of failure. It is common to wait 12 months or more only to face a late-stage Council rejection, leaving you with mounting holding costs and no path forward.",
+    barrier_li_2: "<strong>Bait pricing & variations trap</strong>: Initial building contracts may appear attractive, yet often exclude critical 'non-negotiables' – like demolition, excavation, or tree management. Combined with unprotected exposure to material price hikes and 'unforeseen' site conditions, this leads to a cascade of expensive variations.",
+    barrier_li_3: "<strong>Compromised quality</strong>: To recover costs from underquoting or a lack of planning, builders may cut corners on structural integrity or finish quality. This results in a product that fails to meet expectations or, worse, falls short of the building code – leading to failed inspections and costly delays with sales or move-in.",
+    barrier_li_4: "<strong>Logistical overwhelm</strong>: Navigating the 'invisible' web of dependencies can be paralysing and time-consuming. Without professional orchestration, holding costs rise daily while the project sits idle.",
+    label_help: "How We Can Help",
+    help_intro: "We provide a high-touch, turnkey service built on coordinated execution, managing the full lifecycle from land selection and acquisition through to design, construction, subdivision, and divestment.",
+    help_li_1: "<strong>Strategic approval navigation</strong>: By leveraging pre-emptive approval, council-resilient strategies, and expert-led feasibility, we ensure your project is 'approval-ready' before the clock starts, protecting the timeline from arbitrary delays.",
+    help_li_2: "<strong>Fixed-price certainty</strong>: Truly all-inclusive no-variation construction where we absorb the risks to ensure your budget or margin is protected from the start. We utilise industry-standard HIA building contracts to ensure complete transparency from day one. This avoids the complex, one-sided custom contracts that often hide risks and lead to legal deadlock.",
+    help_li_3: "<strong>Institutional buying power</strong>: Because we develop our own assets alongside yours, we pass on enterprise-level discounts for premium materials and high-end appliances – pricing typically reserved for top-tier developers.",
+    help_li_4: "<strong>Precision end-to-end orchestration</strong>: Whether you are sourcing land, navigating approvals, or ready to break ground – we take over at any stage and manage the complexity utilising enterprise-level project management methodologies. By treating the construction lifecycle as a mission-critical sequence and proactively managing lead times, we compress build cycles and minimise holding costs, getting you into your home or your asset to market sooner.",
+    help_li_5: "<strong>Market-matched execution</strong>: Our design palettes and suburb-dependent styling are strategically tailored to local buyer demographics, while providing the flexibility to customise premium finishes – ensuring the final product consistently outperforms market benchmarks.",
+    label_proof: "The Proof",
+    proof_text: "Established in 2020, IVOLCO is defined by a track record of high-yield delivery. Our expertise is backed by a portfolio of completed residential developments and active sites currently under construction, <strong>open for inspection in the Sutherland Shire</strong>.",
+    label_access: "Exclusive Access",
+    access_text: "In late 2026, our private investment vehicle and service model, supported by exclusive partnerships with vetted builders and a hand-picked team of specialists and suppliers, <strong>opens to a select group of external partners</strong>. This provides the opportunity to leverage our proven, institutional-grade execution for your own residential developments. Our core operational footprint spans Sydney’s East, South, and West. Please contact us below to discuss your objective or explore current opportunities.",
+    label_contact: "Contact",
+    contact_email_label: "Email:",
+    form_name: "Name",
+    form_phone: "Phone",
+    form_message: "Message",
+    form_send: "Send",
+    form_unknown_error: "Unknown error",
+    form_success: "Thanks! We’ve received your details.",
+    form_error: "Sorry-something went wrong. Please email us at contact@ivolco.com.au.",
+    footer_text: "Property Development & Investment | Est. 2020 <br />ABN 80 816 694 840"
+  }
+
+
+// Chinese (Simplified)
+zh: {
+  html_lang: "zh",
+  brand_tag: "房地产开发与投资",
+  nav_why: "为什么选择我们",
+  nav_framework: "运作框架",
+  nav_portfolio: "我们的项目",
+  cta_request: "预约洽谈",
+  label_objective: "您的目标",
+  objective_text: "无论您是寻求高收益回报的投资者，还是希望打造“长期居所”的业主，您的目标是在<strong>大悉尼地区</strong>进行高质量住宅开发。您希望采用透明且系统化的方法，最终实现超越市场标准的成果。",
+  label_barrier: "面临的障碍",
+  barrier_intro: "在悉尼进行住宅开发通常风险较高，其特点是缺乏透明度以及存在各种“隐性”陷阱，这些问题会拖慢进度并影响预算或利润。",
+  barrier_li_1: "<strong>审批困境</strong>：开发审批（DA）流程是主要风险点之一。常见情况是等待超过12个月后，在后期被市政否决，导致持有成本不断增加且项目无法推进。",
+  barrier_li_2: "<strong>低价诱导与变更陷阱</strong>：初始建造报价看似有吸引力，但通常不包含关键“必要项目”——如拆除、挖掘或树木处理。再加上材料价格上涨和“不可预见”的现场情况，最终会导致一连串昂贵的额外费用。",
+  barrier_li_3: "<strong>质量妥协</strong>：为了弥补低报价或规划不足带来的成本，施工方可能在结构或施工质量上偷工减料，导致最终成果不达预期，甚至不符合建筑规范，从而在验收或交付时产生延误和额外成本。",
+  barrier_li_4: "<strong>流程复杂难控</strong>：各种“隐形”环节相互依赖，缺乏专业统筹会使项目变得复杂且耗时，期间持有成本持续增加，而项目却停滞不前。",
+  label_help: "我们如何协助",
+  help_intro: "我们提供高端的一站式服务，通过协调执行管理项目全生命周期——从土地筛选与收购，到设计、施工、分割以及最终出售。",
+  help_li_1: "<strong>审批策略优化</strong>：通过前置审批策略、符合市政要求的方案以及专业可行性分析，我们确保项目在启动前已具备审批条件，从而避免不必要的延误。",
+  help_li_2: "<strong>固定价格保障</strong>：提供真正全包、无额外变更的建造方案，由我们承担风险，确保您的预算或利润从一开始就得到保护。我们采用行业标准的HIA合同，确保完全透明，避免复杂且不公平的定制合同带来的风险。",
+  help_li_3: "<strong>规模化采购优势</strong>：由于我们自身也进行开发，我们能够为您提供企业级采购折扣，包括高端材料和设备，这些价格通常仅对大型开发商开放。",
+  help_li_4: "<strong>全流程精准管理</strong>：无论您处于土地获取、审批还是施工阶段，我们都可接管并通过企业级项目管理方法进行统筹。通过优化各阶段流程并提前管理周期，我们缩短建设时间，降低持有成本，加快项目交付或上市速度。",
+  help_li_5: "<strong>市场导向执行</strong>：我们的设计与风格根据不同区域买家需求进行定制，同时提供高端定制选项，确保最终产品持续优于市场标准。",
+  label_proof: "成果验证",
+  proof_text: "IVOLCO成立于2020年，拥有稳定的高收益交付记录。我们的专业能力体现在已完成的住宅项目以及正在建设中的项目组合，<strong>可在萨瑟兰郡预约实地参观</strong>。",
+  label_access: "专属机会",
+  access_text: "自2026年底起，我们的私募投资平台及服务体系将在严格筛选的建筑商合作伙伴和专业团队支持下，<strong>向少数外部合作伙伴开放</strong>。这为您提供利用我们成熟、机构级执行能力开展自身住宅开发项目的机会。我们的核心业务覆盖悉尼东部、南部及西部。欢迎通过下方联系方式与我们探讨您的目标或当前机会。",
+  label_contact: "联系",
+  contact_email_label: "邮箱：",
+  form_name: "姓名",
+  form_phone: "电话",
+  form_message: "留言",
+  form_send: "发送",
+  form_unknown_error: "未知错误",
+  form_success: "感谢您的提交，我们已收到您的信息。",
+  form_error: "出现错误，请通过电子邮件联系我们：contact@ivolco.com.au。",
+  footer_text: "房地产开发与投资 | 成立于 2020 年 <br />ABN 80 816 694 840"
+}
+
+
+// Spanish
+    es: {
+  html_lang: "es",
+  brand_tag: "Desarrollo e Inversión Inmobiliaria",
+  nav_why: "Por qué nosotros",
+  nav_framework: "El Proceso",
+  nav_portfolio: "Nuestro Portafolio",
+  cta_request: "Solicitar reunión",
+  label_objective: "Su objetivo",
+  objective_text: "Ya sea que usted sea un inversor en busca de altos rendimientos o un propietario que desea construir una vivienda “para siempre”, su objetivo es desarrollar un proyecto residencial de alta calidad en <strong>Greater Sydney</strong>. Busca un enfoque transparente y sistemático que supere los estándares del mercado.",
+  label_barrier: "El desafío",
+  barrier_intro: "El desarrollo residencial en Sídney suele implicar altos riesgos, caracterizados por la falta de transparencia y la presencia de “trampas ocultas” que retrasan el progreso y afectan el presupuesto o el margen.",
+  barrier_li_1: "<strong>Retrasos en aprobaciones</strong>: El proceso de aprobación (DA) es uno de los principales puntos de fallo. Es común esperar más de 12 meses y enfrentar un rechazo del consejo en etapas avanzadas, lo que genera costos acumulativos sin un camino claro a seguir.",
+  barrier_li_2: "<strong>Precios engañosos y costos adicionales</strong>: Los contratos iniciales pueden parecer atractivos, pero a menudo excluyen elementos esenciales como demolición, excavación o gestión de árboles. A esto se suman aumentos en materiales y condiciones imprevistas, generando gastos adicionales significativos.",
+  barrier_li_3: "<strong>Compromiso en la calidad</strong>: Para compensar costos, algunos constructores reducen la calidad estructural o de acabados, lo que puede resultar en incumplimientos normativos y retrasos en inspecciones o ventas.",
+  barrier_li_4: "<strong>Complejidad operativa</strong>: La interdependencia entre fases del proyecto puede resultar abrumadora. Sin una gestión profesional, los costos aumentan mientras el proyecto se estanca.",
+  label_help: "Cómo ayudamos",
+  help_intro: "Ofrecemos un servicio integral de alto nivel que gestiona todo el ciclo del proyecto, desde la adquisición del terreno hasta el diseño, construcción, subdivisión y comercialización.",
+  help_li_1: "<strong>Gestión estratégica de aprobaciones</strong>: Mediante planificación anticipada y análisis experto, aseguramos que su proyecto esté listo para aprobación antes de comenzar.",
+  help_li_2: "<strong>Precio fijo garantizado</strong>: Proporcionamos soluciones sin costos ocultos, absorbiendo riesgos para proteger su presupuesto. Utilizamos contratos estándar HIA para total transparencia.",
+  help_li_3: "<strong>Poder de compra institucional</strong>: Gracias a nuestros propios desarrollos, ofrecemos acceso a materiales y equipos premium a precios preferenciales.",
+  help_li_4: "<strong>Gestión integral precisa</strong>: Nos encargamos del proyecto en cualquier etapa, optimizando tiempos y reduciendo costos mediante metodologías avanzadas.",
+  help_li_5: "<strong>Ejecución orientada al mercado</strong>: Adaptamos diseños a la demanda local, asegurando resultados que superan los estándares del mercado.",
+  label_proof: "Resultados comprobados",
+  proof_text: "IVOLCO, fundada en 2020, cuenta con un historial sólido de proyectos exitosos. Nuestro portafolio incluye desarrollos completados y en construcción, <strong>disponibles para inspección en Sutherland Shire</strong>.",
+  label_access: "Acceso exclusivo",
+  access_text: "A finales de 2026, nuestro modelo de inversión y servicios se abrirá <strong>a un grupo selecto de socios externos</strong>. Esto le permitirá aprovechar nuestra experiencia para sus propios proyectos. Operamos principalmente en el este, sur y oeste de Sídney. Contáctenos para más información.",
+  label_contact: "Contacto",
+  contact_email_label: "Correo:",
+  form_name: "Nombre",
+  form_phone: "Teléfono",
+  form_message: "Mensaje",
+  form_send: "Enviar",
+  form_unknown_error: "Error desconocido",
+  form_success: "Gracias, hemos recibido su información.",
+  form_error: "Ocurrió un error. Por favor envíenos un correo a contact@ivolco.com.au.",
+  footer_text: "Desarrollo e Inversión Inmobiliaria | Est. 2020 <br />ABN 80 816 694 840"
+}
+
+    
+// Hindi
+hi: {
+  html_lang: "hi",
+  brand_tag: "रियल एस्टेट विकास और निवेश",
+  nav_why: "हम क्यों",
+  nav_framework: "प्रक्रिया ढांचा",
+  nav_portfolio: "हमारी परियोजनाएँ",
+  cta_request: "चर्चा का अनुरोध करें",
+  label_objective: "आपका उद्देश्य",
+  objective_text: "चाहे आप उच्च रिटर्न की तलाश करने वाले निवेशक हों या “स्थायी घर” बनाने वाले गृहस्वामी, आपका लक्ष्य <strong>ग्रेटर सिडनी</strong> में उच्च गुणवत्ता वाला आवासीय विकास करना है। आप एक पारदर्शी और व्यवस्थित दृष्टिकोण चाहते हैं जो अंतिम परिणाम को बाजार मानकों से ऊपर ले जाए।",
+  label_barrier: "चुनौतियाँ",
+  barrier_intro: "सिडनी में आवासीय विकास अक्सर उच्च जोखिम वाला होता है, जहाँ पारदर्शिता की कमी और कई “छिपे हुए” जाल प्रगति को धीमा करते हैं और बजट या लाभ को प्रभावित करते हैं।",
+  barrier_li_1: "<strong>अनुमोदन में देरी</strong>: डेवलपमेंट अप्रूवल (DA) प्रक्रिया एक प्रमुख जोखिम बिंदु है। अक्सर 12 महीने या उससे अधिक इंतजार के बाद अंतिम चरण में काउंसिल द्वारा अस्वीकृति मिलती है, जिससे लागत बढ़ती जाती है और परियोजना रुक जाती है।",
+  barrier_li_2: "<strong>कम कीमत और अतिरिक्त लागत का जाल</strong>: शुरुआती निर्माण अनुबंध आकर्षक लग सकते हैं, लेकिन उनमें अक्सर आवश्यक कार्य शामिल नहीं होते—जैसे तोड़फोड़, खुदाई या पेड़ों का प्रबंधन। इसके साथ सामग्री की कीमतों में वृद्धि और अप्रत्याशित स्थितियाँ मिलकर अतिरिक्त खर्च बढ़ाती हैं।",
+  barrier_li_3: "<strong>गुणवत्ता में कमी</strong>: कम लागत की भरपाई के लिए निर्माण गुणवत्ता में समझौता किया जा सकता है, जिससे अंतिम उत्पाद अपेक्षाओं या निर्माण मानकों को पूरा नहीं करता और निरीक्षण या बिक्री में देरी होती है।",
+  barrier_li_4: "<strong>प्रक्रिया की जटिलता</strong>: विभिन्न चरणों के बीच निर्भरता के कारण प्रक्रिया जटिल और समय लेने वाली हो जाती है। पेशेवर प्रबंधन के बिना लागत बढ़ती रहती है जबकि परियोजना रुकी रहती है।",
+  label_help: "हम कैसे मदद करते हैं",
+  help_intro: "हम एक समन्वित, एंड-टू-एंड सेवा प्रदान करते हैं जो भूमि चयन और अधिग्रहण से लेकर डिजाइन, निर्माण, विभाजन और बिक्री तक पूरे प्रोजेक्ट का प्रबंधन करती है।",
+  help_li_1: "<strong>रणनीतिक अनुमोदन प्रबंधन</strong>: पूर्व-योजना और विशेषज्ञ विश्लेषण के माध्यम से हम सुनिश्चित करते हैं कि परियोजना शुरुआत से पहले ही अनुमोदन के लिए तैयार हो।",
+  help_li_2: "<strong>निश्चित लागत संरचना</strong>: पूर्णतः समावेशी, बिना अतिरिक्त बदलाव वाले निर्माण समाधान, जिसमें हम जोखिम को संभालते हैं ताकि आपका बजट सुरक्षित रहे। हम HIA मानक अनुबंध का उपयोग करते हैं जिससे पारदर्शिता बनी रहती है।",
+  help_li_3: "<strong>बड़े पैमाने की खरीद क्षमता</strong>: हमारे स्वयं के प्रोजेक्ट्स के कारण हम आपको प्रीमियम सामग्री और उपकरणों पर विशेष छूट प्रदान करते हैं।",
+  help_li_4: "<strong>पूरे प्रोजेक्ट का सटीक प्रबंधन</strong>: किसी भी चरण पर हम प्रोजेक्ट को संभाल सकते हैं और उन्नत प्रबंधन तकनीकों से समय और लागत को कम करते हैं।",
+  help_li_5: "<strong>बाजार आधारित निष्पादन</strong>: हमारे डिजाइन स्थानीय बाजार की मांग के अनुसार तैयार किए जाते हैं, जिससे अंतिम परिणाम बाजार से बेहतर होता है।",
+  label_proof: "साबित परिणाम",
+  proof_text: "IVOLCO की स्थापना 2020 में हुई और तब से यह उच्च प्रदर्शन वाले प्रोजेक्ट्स के लिए जाना जाता है। हमारे पूर्ण और निर्माणाधीन प्रोजेक्ट्स का पोर्टफोलियो <strong>सदरलैंड शायर में निरीक्षण के लिए उपलब्ध है</strong>।",
+  label_access: "विशेष अवसर",
+  access_text: "2026 के अंत में, हमारा निजी निवेश प्लेटफॉर्म और सेवा मॉडल <strong>चुने हुए बाहरी भागीदारों के लिए उपलब्ध होगा</strong>। यह आपको हमारे सिद्ध सिस्टम के माध्यम से अपने आवासीय प्रोजेक्ट विकसित करने का अवसर देता है। हमारा मुख्य कार्यक्षेत्र सिडनी के पूर्व, दक्षिण और पश्चिम क्षेत्रों में है। अधिक जानकारी के लिए हमसे संपर्क करें।",
+  label_contact: "संपर्क",
+  contact_email_label: "ईमेल:",
+  form_name: "नाम",
+  form_phone: "फ़ोन",
+  form_message: "संदेश",
+  form_send: "भेजें",
+  form_unknown_error: "अज्ञात त्रुटि",
+  form_success: "धन्यवाद! हमने आपकी जानकारी प्राप्त कर ली है।",
+  form_error: "कुछ गलत हुआ। कृपया हमें ईमेल करें: contact@ivolco.com.au।",
+  footer_text: "रियल एस्टेट विकास और निवेश | स्थापित 2020 <br />ABN 80 816 694 840"
+}
+
+
+// Arabic
+ar: {
+  html_lang: "ar",
+  brand_tag: "تطوير واستثمار عقاري",
+  nav_why: "لماذا نحن",
+  nav_framework: "الإطار",
+  nav_portfolio: "أعمالنا",
+  cta_request: "طلب مناقشة",
+  label_objective: "هدفك",
+  objective_text: "سواء كنت مستثمرًا تسعى لتحقيق عوائد مرتفعة أو مالك منزل ترغب في بناء منزل “دائم”، فإن هدفك هو تطوير سكني عالي الجودة في <strong>منطقة سيدني الكبرى</strong>. أنت تبحث عن نهج شفاف ومنهجي يحقق نتائج تتجاوز معايير السوق.",
+  label_barrier: "التحديات",
+  barrier_intro: "يُعد التطوير السكني في سيدني غالبًا عالي المخاطر، حيث يتميز بنقص الشفافية ووجود العديد من “العوائق الخفية” التي تؤخر التقدم وتؤثر على الميزانية أو العائد.",
+  barrier_li_1: "<strong>تعقيدات الموافقات</strong>: تُعد عملية الحصول على موافقة التطوير (DA) من أبرز نقاط المخاطرة. من الشائع الانتظار لأكثر من 12 شهرًا ثم مواجهة رفض من المجلس في مرحلة متأخرة، مما يؤدي إلى ارتفاع تكاليف الاحتفاظ وعدم وجود مسار واضح للمضي قدمًا.",
+  barrier_li_2: "<strong>فخ الأسعار المنخفضة والتكاليف الإضافية</strong>: قد تبدو عقود البناء الأولية جذابة، لكنها غالبًا لا تشمل عناصر أساسية مثل الهدم أو الحفر أو إدارة الأشجار. ومع ارتفاع أسعار المواد والظروف غير المتوقعة، تتراكم التكاليف الإضافية بشكل كبير.",
+  barrier_li_3: "<strong>تراجع الجودة</strong>: لتعويض التكاليف الناتجة عن التسعير المنخفض أو ضعف التخطيط، قد يتم تقليل جودة التنفيذ أو المواد، مما يؤدي إلى نتائج دون المستوى أو مخالفة لمعايير البناء، وبالتالي تأخيرات في الفحص أو التسليم.",
+  barrier_li_4: "<strong>تعقيد العمليات</strong>: الترابط بين مراحل المشروع المختلفة يجعل العملية معقدة وتستغرق وقتًا طويلاً. بدون إدارة احترافية، ترتفع التكاليف اليومية بينما يظل المشروع متوقفًا.",
+  label_help: "كيف نساعد",
+  help_intro: "نقدم خدمة متكاملة وعالية المستوى تدير المشروع من البداية إلى النهاية، بدءًا من اختيار الأرض وشرائها، مرورًا بالتصميم والبناء، وصولًا إلى التقسيم والبيع.",
+  help_li_1: "<strong>إدارة استراتيجية للموافقات</strong>: من خلال التخطيط المسبق والتحليل المتخصص، نضمن أن يكون مشروعك جاهزًا للموافقة قبل بدء التنفيذ، مما يقلل من التأخيرات.",
+  help_li_2: "<strong>تكلفة ثابتة ومضمونة</strong>: نقدم حلول بناء شاملة بدون تكاليف إضافية مفاجئة، حيث نتحمل المخاطر لضمان حماية ميزانيتك. نستخدم عقود HIA القياسية لضمان الشفافية الكاملة.",
+  help_li_3: "<strong>قوة شراء على مستوى مؤسسي</strong>: بفضل مشاريعنا الخاصة، نوفر لك خصومات على المواد والمعدات عالية الجودة، وهي أسعار مخصصة عادةً لكبار المطورين.",
+  help_li_4: "<strong>إدارة دقيقة شاملة</strong>: يمكننا تولي المشروع في أي مرحلة وإدارته باستخدام منهجيات متقدمة لتقليل الوقت والتكاليف وتسريع الإنجاز.",
+  help_li_5: "<strong>تنفيذ موجه للسوق</strong>: يتم تصميم المشاريع بما يتناسب مع احتياجات السوق المحلية، مع إمكانية تخصيص التشطيبات لضمان تحقيق نتائج تفوق المعايير.",
+  label_proof: "النتائج",
+  proof_text: "تأسست IVOLCO في عام 2020 وتتميز بسجل قوي في تنفيذ مشاريع عالية الأداء. يشمل ذلك مشاريع مكتملة وأخرى قيد التنفيذ، <strong>متاحة للمعاينة في منطقة ساذرلاند شاير</strong>.",
+  label_access: "فرص حصرية",
+  access_text: "ابتداءً من أواخر عام 2026، سيتم فتح منصتنا الاستثمارية الخاصة ونموذج خدماتنا <strong>لمجموعة مختارة من الشركاء الخارجيين</strong>. يتيح لك ذلك الاستفادة من خبرتنا لتنفيذ مشاريعك الخاصة. يتركز نشاطنا في شرق وجنوب وغرب سيدني. تواصل معنا لمناقشة أهدافك أو الفرص المتاحة.",
+  label_contact: "تواصل",
+  contact_email_label: "البريد الإلكتروني:",
+  form_name: "الاسم",
+  form_phone: "الهاتف",
+  form_message: "الرسالة",
+  form_send: "إرسال",
+  form_unknown_error: "خطأ غير معروف",
+  form_success: "شكرًا لك! تم استلام بياناتك.",
+  form_error: "حدث خطأ. يرجى مراسلتنا عبر البريد الإلكتروني: contact@ivolco.com.au.",
+  footer_text: "تطوير واستثمار عقاري | تأسست 2020 <br />ABN 80 816 694 840"
+}
+
+
+
+    
+    // Portuguese
+pt: {
+  html_lang: "pt",
+  brand_tag: "Desenvolvimento e Investimento Imobiliário",
+  nav_why: "Por que nós",
+  nav_framework: "O Processo",
+  nav_portfolio: "Nosso Portfólio",
+  cta_request: "Solicitar reunião",
+  label_objective: "Seu objetivo",
+  objective_text: "Seja você um investidor em busca de altos retornos ou um proprietário que deseja construir uma residência “definitiva”, seu objetivo é desenvolver um projeto residencial de alta qualidade em <strong>Greater Sydney</strong>. Você procura uma abordagem transparente e estruturada que supere os padrões do mercado.",
+  label_barrier: "O desafio",
+  barrier_intro: "O desenvolvimento residencial em Sydney costuma envolver altos riscos, caracterizado pela falta de transparência e pela presença de “armadilhas ocultas” que atrasam o progresso e impactam o orçamento ou a margem.",
+  barrier_li_1: "<strong>Atrasos em aprovações</strong>: O processo de aprovação (DA) é um dos principais pontos de risco. É comum aguardar mais de 12 meses e enfrentar rejeição do conselho em estágio avançado, gerando custos contínuos sem um caminho claro.",
+  barrier_li_2: "<strong>Preços iniciais enganosos</strong>: Contratos iniciais podem parecer atrativos, mas frequentemente excluem itens essenciais como demolição, escavação ou gestão de árvores. Somado a aumentos de materiais e imprevistos, isso gera custos adicionais elevados.",
+  barrier_li_3: "<strong>Comprometimento da qualidade</strong>: Para compensar custos, construtores podem reduzir a qualidade estrutural ou de acabamento, resultando em não conformidade e atrasos em inspeções ou vendas.",
+  barrier_li_4: "<strong>Complexidade operacional</strong>: A interdependência das etapas torna o processo complexo e demorado. Sem gestão profissional, os custos aumentam enquanto o projeto permanece parado.",
+  label_help: "Como ajudamos",
+  help_intro: "Oferecemos um serviço completo de alto padrão que gerencia todo o ciclo do projeto, desde a aquisição do terreno até o design, construção, subdivisão e comercialização.",
+  help_li_1: "<strong>Gestão estratégica de aprovações</strong>: Com planejamento antecipado e análise especializada, garantimos que seu projeto esteja pronto para aprovação antes do início.",
+  help_li_2: "<strong>Preço fixo garantido</strong>: Fornecemos soluções sem custos ocultos, assumindo os riscos para proteger seu orçamento. Utilizamos contratos padrão HIA para total transparência.",
+  help_li_3: "<strong>Poder de compra institucional</strong>: Graças aos nossos próprios projetos, oferecemos acesso a materiais e equipamentos premium com preços diferenciados.",
+  help_li_4: "<strong>Gestão completa e precisa</strong>: Assumimos o projeto em qualquer fase, otimizando prazos e reduzindo custos com metodologias avançadas.",
+  help_li_5: "<strong>Execução orientada ao mercado</strong>: Adaptamos o design às demandas locais, garantindo resultados que superam os padrões do mercado.",
+  label_proof: "Resultados comprovados",
+  proof_text: "Fundada em 2020, a IVOLCO possui um histórico sólido de projetos de alto desempenho. Nosso portfólio inclui empreendimentos concluídos e em construção, <strong>disponíveis para inspeção em Sutherland Shire</strong>.",
+  label_access: "Acesso exclusivo",
+  access_text: "No final de 2026, nosso modelo de investimento e serviços será aberto <strong>a um grupo seleto de parceiros externos</strong>. Isso permite que você utilize nossa experiência para seus próprios projetos. Atuamos principalmente nas regiões leste, sul e oeste de Sydney. Entre em contato para mais informações.",
+  label_contact: "Contato",
+  contact_email_label: "Email:",
+  form_name: "Nome",
+  form_phone: "Telefone",
+  form_message: "Mensagem",
+  form_send: "Enviar",
+  form_unknown_error: "Erro desconhecido",
+  form_success: "Obrigado! Recebemos suas informações.",
+  form_error: "Ocorreu um erro. Por favor envie um email para contact@ivolco.com.au.",
+  footer_text: "Desenvolvimento e Investimento Imobiliário | Est. 2020 <br />ABN 80 816 694 840"
+}
+
+
+
+    // Bengali
+bn: {
+  html_lang: "bn",
+  brand_tag: "রিয়েল এস্টেট উন্নয়ন ও বিনিয়োগ",
+  nav_why: "কেন আমরা",
+  nav_framework: "প্রক্রিয়া কাঠামো",
+  nav_portfolio: "আমাদের প্রকল্পসমূহ",
+  cta_request: "আলোচনা অনুরোধ করুন",
+  label_objective: "আপনার লক্ষ্য",
+  objective_text: "আপনি যদি উচ্চ রিটার্নের জন্য একজন বিনিয়োগকারী হন বা একটি “স্থায়ী” বাড়ি নির্মাণ করতে চান, তাহলে আপনার লক্ষ্য <strong>গ্রেটার সিডনি</strong> অঞ্চলে একটি উচ্চমানের আবাসিক উন্নয়ন করা। আপনি এমন একটি স্বচ্ছ এবং পদ্ধতিগত পদ্ধতি চান যা বাজারের মান অতিক্রম করে।",
+  label_barrier: "চ্যালেঞ্জ",
+  barrier_intro: "সিডনিতে আবাসিক উন্নয়ন প্রায়ই উচ্চ ঝুঁকিপূর্ণ হয়, যেখানে স্বচ্ছতার অভাব এবং বিভিন্ন “গোপন” সমস্যার কারণে অগ্রগতি বাধাগ্রস্ত হয় এবং বাজেট বা মুনাফা ক্ষতিগ্রস্ত হয়।",
+  barrier_li_1: "<strong>অনুমোদনের জটিলতা</strong>: ডেভেলপমেন্ট অনুমোদন (DA) প্রক্রিয়া একটি বড় ঝুঁকির জায়গা। প্রায়ই ১২ মাসের বেশি অপেক্ষার পর শেষ পর্যায়ে প্রত্যাখ্যানের সম্মুখীন হতে হয়, ফলে খরচ বাড়তে থাকে এবং প্রকল্প থেমে যায়।",
+  barrier_li_2: "<strong>কম দামের ফাঁদ</strong>: প্রাথমিক নির্মাণ চুক্তি আকর্ষণীয় মনে হলেও, এগুলো প্রায়ই গুরুত্বপূর্ণ কাজ যেমন ভাঙা, খনন বা গাছ ব্যবস্থাপনা অন্তর্ভুক্ত করে না। এর সাথে উপকরণের মূল্য বৃদ্ধি ও অপ্রত্যাশিত পরিস্থিতি মিলিয়ে অতিরিক্ত খরচ বাড়ে।",
+  barrier_li_3: "<strong>গুণগত মানের হ্রাস</strong>: খরচ সামাল দিতে নির্মাতারা কখনও কখনও গুণগত মান কমিয়ে দেয়, ফলে চূড়ান্ত ফলাফল মানদণ্ড পূরণ করতে ব্যর্থ হয় এবং বিলম্ব ঘটে।",
+  barrier_li_4: "<strong>প্রক্রিয়ার জটিলতা</strong>: প্রকল্পের বিভিন্ন ধাপের পারস্পরিক নির্ভরতা পুরো প্রক্রিয়াকে জটিল করে তোলে। পেশাদার ব্যবস্থাপনা ছাড়া খরচ বাড়তে থাকে এবং কাজ থেমে যায়।",
+  label_help: "আমরা কীভাবে সাহায্য করি",
+  help_intro: "আমরা একটি সম্পূর্ণ পরিষেবা প্রদান করি যা জমি নির্বাচন থেকে শুরু করে নকশা, নির্মাণ, বিভাজন এবং বিক্রয় পর্যন্ত পুরো প্রকল্প পরিচালনা করে।",
+  help_li_1: "<strong>কৌশলগত অনুমোদন ব্যবস্থাপনা</strong>: পরিকল্পিত পদ্ধতির মাধ্যমে আমরা নিশ্চিত করি যে প্রকল্প শুরু হওয়ার আগেই অনুমোদনের জন্য প্রস্তুত।",
+  help_li_2: "<strong>নির্দিষ্ট খরচের নিশ্চয়তা</strong>: আমরা এমন সমাধান দিই যেখানে অতিরিক্ত খরচের ঝুঁকি নেই এবং আপনার বাজেট সুরক্ষিত থাকে।",
+  help_li_3: "<strong>প্রাতিষ্ঠানিক ক্রয় সুবিধা</strong>: আমাদের নিজস্ব প্রকল্পের কারণে আমরা প্রিমিয়াম উপকরণ ও সরঞ্জামে বিশেষ মূল্য দিতে পারি।",
+  help_li_4: "<strong>সম্পূর্ণ প্রকল্প ব্যবস্থাপনা</strong>: আমরা যেকোনো পর্যায়ে প্রকল্প গ্রহণ করে সময় ও খরচ কমিয়ে কার্যকরভাবে পরিচালনা করি।",
+  help_li_5: "<strong>বাজারভিত্তিক বাস্তবায়ন</strong>: স্থানীয় বাজারের চাহিদা অনুযায়ী নকশা তৈরি করে আমরা উন্নত ফলাফল নিশ্চিত করি।",
+  label_proof: "প্রমাণিত ফলাফল",
+  proof_text: "২০২০ সালে প্রতিষ্ঠিত IVOLCO উচ্চ মানের প্রকল্প বাস্তবায়নের জন্য পরিচিত। আমাদের সম্পন্ন এবং নির্মাণাধীন প্রকল্পসমূহের মধ্যে কিছু <strong>সাদারল্যান্ড শায়ারে পরিদর্শনের জন্য উন্মুক্ত</strong>।",
+  label_access: "বিশেষ সুযোগ",
+  access_text: "২০২৬ সালের শেষের দিকে, আমাদের বিনিয়োগ প্ল্যাটফর্ম <strong>নির্বাচিত অংশীদারদের জন্য উন্মুক্ত হবে</strong>। এটি আপনাকে আমাদের অভিজ্ঞতা ব্যবহার করে নিজের প্রকল্প তৈরি করার সুযোগ দেবে।",
+  label_contact: "যোগাযোগ",
+  contact_email_label: "ইমেইল:",
+  form_name: "নাম",
+  form_phone: "ফোন",
+  form_message: "বার্তা",
+  form_send: "পাঠান",
+  form_unknown_error: "অজানা ত্রুটি",
+  form_success: "ধন্যবাদ! আমরা আপনার তথ্য পেয়েছি।",
+  form_error: "কিছু সমস্যা হয়েছে। অনুগ্রহ করে contact@ivolco.com.au এ ইমেইল করুন।",
+  footer_text: "রিয়েল এস্টেট উন্নয়ন ও বিনিয়োগ | প্রতিষ্ঠিত ২০২০ <br />ABN 80 816 694 840"
+}
+
+
+    
+    // Russian
+ru: {
+  html_lang: "ru",
+  brand_tag: "Девелопмент и инвестиции в недвижимость",
+  nav_why: "Почему мы",
+  nav_framework: "Подход",
+  nav_portfolio: "Наши проекты",
+  cta_request: "Запросить консультацию",
+  label_objective: "Ваша цель",
+  objective_text: "Независимо от того, являетесь ли вы инвестором, стремящимся к высокой доходности, или владельцем, желающим построить «дом на всю жизнь», ваша цель — реализовать качественный жилой проект в <strong>Greater Sydney</strong>. Вам нужен прозрачный и системный подход, обеспечивающий результат выше рыночных стандартов.",
+  label_barrier: "Сложности",
+  barrier_intro: "Жилое строительство в Сиднее часто сопряжено с высокими рисками из-за недостаточной прозрачности и наличия «скрытых» факторов, которые замедляют процесс и влияют на бюджет или прибыль.",
+  barrier_li_1: "<strong>Задержки с разрешениями</strong>: Процесс получения разрешения на застройку (DA) является одним из ключевых рисков. Нередко ожидание превышает 12 месяцев и заканчивается отказом на позднем этапе, что ведёт к росту затрат без возможности продолжения проекта.",
+  barrier_li_2: "<strong>Заниженные цены и дополнительные расходы</strong>: Первоначальные контракты могут выглядеть привлекательно, но часто не включают обязательные работы, такие как снос, выемка грунта или управление растительностью. В сочетании с ростом цен на материалы и непредвиденными условиями это приводит к значительным дополнительным затратам.",
+  barrier_li_3: "<strong>Снижение качества</strong>: Чтобы компенсировать издержки, подрядчики могут снижать качество работ или материалов, что приводит к несоответствию стандартам и задержкам при проверках или продаже.",
+  barrier_li_4: "<strong>Сложность процессов</strong>: Взаимосвязь всех этапов проекта делает его сложным и длительным. Без профессионального управления затраты растут, а проект может простаивать.",
+  label_help: "Как мы помогаем",
+  help_intro: "Мы предоставляем комплексный сервис полного цикла — от выбора и приобретения участка до проектирования, строительства, разделения и реализации.",
+  help_li_1: "<strong>Стратегическое управление разрешениями</strong>: Благодаря предварительной подготовке и экспертному анализу мы обеспечиваем готовность проекта к утверждению до начала работ.",
+  help_li_2: "<strong>Фиксированная стоимость</strong>: Полностью прозрачная модель без скрытых расходов — мы берём на себя риски, защищая ваш бюджет. Используем стандартные контракты HIA для полной ясности.",
+  help_li_3: "<strong>Закупки на уровне крупных девелоперов</strong>: Благодаря нашим собственным проектам вы получаете доступ к премиальным материалам и оборудованию по выгодным ценам.",
+  help_li_4: "<strong>Точное управление проектом</strong>: Мы подключаемся на любом этапе и управляем процессом, сокращая сроки и минимизируя расходы.",
+  help_li_5: "<strong>Ориентация на рынок</strong>: Дизайн и решения адаптируются под спрос в конкретных районах, обеспечивая результат выше рыночных ожиданий.",
+  label_proof: "Результаты",
+  proof_text: "Компания IVOLCO, основанная в 2020 году, имеет подтверждённый опыт реализации высокоэффективных проектов. В нашем портфеле — завершённые и строящиеся объекты, <strong>доступные для осмотра в Sutherland Shire</strong>.",
+  label_access: "Эксклюзивный доступ",
+  access_text: "С конца 2026 года наша инвестиционная платформа и модель услуг будут <strong>доступны ограниченному кругу внешних партнёров</strong>. Это даёт возможность использовать наш опыт для реализации собственных проектов. Основные регионы работы — восток, юг и запад Сиднея. Свяжитесь с нами для обсуждения возможностей.",
+  label_contact: "Контакты",
+  contact_email_label: "Email:",
+  form_name: "Имя",
+  form_phone: "Телефон",
+  form_message: "Сообщение",
+  form_send: "Отправить",
+  form_unknown_error: "Неизвестная ошибка",
+  form_success: "Спасибо! Мы получили вашу информацию.",
+  form_error: "Произошла ошибка. Пожалуйста, напишите нам на contact@ivolco.com.au.",
+  footer_text: "Девелопмент и инвестиции в недвижимость | Основано в 2020 <br />ABN 80 816 694 840"
+}
+
+
+// Japanese
+ja: {
+  html_lang: "ja",
+  brand_tag: "不動産開発および投資",
+  nav_why: "選ばれる理由",
+  nav_framework: "プロセス",
+  nav_portfolio: "実績",
+  cta_request: "ご相談を依頼",
+  label_objective: "お客様の目的",
+  objective_text: "高い利回りを求める投資家の方でも、「長く住める住まい」を建てたい方でも、目標は<strong>グレーターシドニー</strong>における高品質な住宅開発です。市場基準を上回る成果を実現するため、透明性が高く体系的なアプローチを求めています。",
+  label_barrier: "課題",
+  barrier_intro: "シドニーでの住宅開発は、多くの場合リスクが高く、透明性の欠如や「見えにくい」問題によって進行が遅れ、予算や利益に影響を及ぼします。",
+  barrier_li_1: "<strong>承認プロセスの停滞</strong>：開発承認（DA）は主要なリスク要因です。12か月以上待った末に最終段階で却下され、コストだけが増加し、前進できなくなるケースも少なくありません。",
+  barrier_li_2: "<strong>低価格提示と追加費用の落とし穴</strong>：初期の建設契約は魅力的に見えますが、解体・掘削・樹木管理などの重要項目が含まれていないことがあります。資材価格の上昇や予期せぬ状況と相まって、追加費用が膨らみます。",
+  barrier_li_3: "<strong>品質の低下</strong>：コストを補うために施工品質が犠牲になる場合があり、基準未達や検査の遅延、引き渡しの遅れにつながります。",
+  barrier_li_4: "<strong>プロセスの複雑さ</strong>：工程間の依存関係により、全体が複雑化・長期化します。専門的な統括がないと、コストが増え続ける一方で進捗が停滞します。",
+  label_help: "私たちの支援",
+  help_intro: "用地選定・取得から設計、建設、分譲、売却まで、プロジェクトの全工程を一貫して管理するハイレベルなワンストップサービスを提供します。",
+  help_li_1: "<strong>承認取得の戦略的管理</strong>：事前計画と専門的な分析により、着手前に承認取得の準備を整え、遅延リスクを低減します。",
+  help_li_2: "<strong>固定価格の確実性</strong>：追加費用のない包括的な契約でリスクを当社が負担し、予算を保護します。HIA標準契約を採用し、透明性を確保します。",
+  help_li_3: "<strong>大規模調達のメリット</strong>：自社開発の実績により、プレミアム資材や設備を優遇価格で提供します。",
+  help_li_4: "<strong>エンドツーエンドの精密管理</strong>：どの段階からでも参画し、高度な手法で期間短縮とコスト最適化を実現します。",
+  help_li_5: "<strong>市場志向の実行</strong>：地域ニーズに合わせた設計で、常に市場基準を上回る成果を目指します。",
+  label_proof: "実績",
+  proof_text: "2020年に設立されたIVOLCOは、高収益プロジェクトの実績を有しています。完成済みおよび建設中の案件があり、<strong>サザランドシャイアで内覧可能</strong>です。",
+  label_access: "限定アクセス",
+  access_text: "2026年後半より、当社の投資プラットフォームとサービスは<strong>厳選された外部パートナーに限定して公開</strong>されます。当社のノウハウを活用し、ご自身の住宅開発に展開いただけます。主な対応エリアはシドニー東部・南部・西部です。詳細はお問い合わせください。",
+  label_contact: "お問い合わせ",
+  contact_email_label: "メール：",
+  form_name: "お名前",
+  form_phone: "電話番号",
+  form_message: "メッセージ",
+  form_send: "送信",
+  form_unknown_error: "不明なエラー",
+  form_success: "ありがとうございます。内容を受け付けました。",
+  form_error: "エラーが発生しました。contact@ivolco.com.au までメールでご連絡ください。",
+  footer_text: "不動産開発および投資 | 設立 2020年 <br />ABN 80 816 694 840"
+}
+
+
+
+    // Punjabi
+pa: {
+  html_lang: "pa",
+  brand_tag: "ਰੀਅਲ ਐਸਟੇਟ ਵਿਕਾਸ ਅਤੇ ਨਿਵੇਸ਼",
+  nav_why: "ਸਾਨੂੰ ਕਿਉਂ ਚੁਣੋ",
+  nav_framework: "ਪ੍ਰਕਿਰਿਆ ਢਾਂਚਾ",
+  nav_portfolio: "ਸਾਡੀਆਂ ਪ੍ਰੋਜੈਕਟਾਂ",
+  cta_request: "ਚਰਚਾ ਲਈ ਬੇਨਤੀ ਕਰੋ",
+  label_objective: "ਤੁਹਾਡਾ ਉਦੇਸ਼",
+  objective_text: "ਚਾਹੇ ਤੁਸੀਂ ਉੱਚ ਮੁਨਾਫ਼ੇ ਦੀ ਖੋਜ ਕਰਦੇ ਨਿਵੇਸ਼ਕ ਹੋ ਜਾਂ ਇੱਕ “ਸਥਾਈ” ਘਰ ਬਣਾਉਣ ਵਾਲੇ ਮਾਲਕ, ਤੁਹਾਡਾ ਉਦੇਸ਼ <strong>ਗ੍ਰੇਟਰ ਸਿਡਨੀ</strong> ਵਿੱਚ ਉੱਚ ਗੁਣਵੱਤਾ ਵਾਲਾ ਰਿਹਾਇਸ਼ੀ ਵਿਕਾਸ ਕਰਨਾ ਹੈ। ਤੁਸੀਂ ਇੱਕ ਪਾਰਦਰਸ਼ੀ ਅਤੇ ਪ੍ਰਣਾਲੀਬੱਧ ਤਰੀਕੇ ਦੀ ਖੋਜ ਕਰਦੇ ਹੋ ਜੋ ਮਾਰਕੀਟ ਮਿਆਰਾਂ ਤੋਂ ਉੱਪਰ ਨਤੀਜੇ ਦਿੰਦਾ ਹੈ।",
+  label_barrier: "ਚੁਣੌਤੀਆਂ",
+  barrier_intro: "ਸਿਡਨੀ ਵਿੱਚ ਰਿਹਾਇਸ਼ੀ ਵਿਕਾਸ ਅਕਸਰ ਉੱਚ ਜੋਖਮ ਵਾਲਾ ਹੁੰਦਾ ਹੈ, ਜਿਸ ਵਿੱਚ ਪਾਰਦਰਸ਼ਤਾ ਦੀ ਘਾਟ ਅਤੇ ਕਈ “ਛੁਪੇ” ਮੁੱਦੇ ਹੁੰਦੇ ਹਨ ਜੋ ਪ੍ਰਗਤੀ ਨੂੰ ਰੋਕਦੇ ਹਨ ਅਤੇ ਬਜਟ ਜਾਂ ਲਾਭ ਨੂੰ ਪ੍ਰਭਾਵਿਤ ਕਰਦੇ ਹਨ।",
+  barrier_li_1: "<strong>ਮੰਜ਼ੂਰੀ ਵਿੱਚ ਦੇਰੀ</strong>: ਡਿਵੈਲਪਮੈਂਟ ਅਪ੍ਰੂਵਲ (DA) ਪ੍ਰਕਿਰਿਆ ਇੱਕ ਮੁੱਖ ਜੋਖਮ ਬਿੰਦੂ ਹੈ। ਆਮ ਤੌਰ 'ਤੇ 12 ਮਹੀਨੇ ਤੋਂ ਵੱਧ ਉਡੀਕ ਕਰਨ ਤੋਂ ਬਾਅਦ ਵੀ ਆਖਰੀ ਪੜਾਅ 'ਤੇ ਇਨਕਾਰ ਮਿਲ ਸਕਦਾ ਹੈ, ਜਿਸ ਨਾਲ ਖਰਚ ਵੱਧਦਾ ਹੈ ਅਤੇ ਪ੍ਰੋਜੈਕਟ ਅੱਗੇ ਨਹੀਂ ਵਧਦਾ।",
+  barrier_li_2: "<strong>ਘੱਟ ਕੀਮਤ ਅਤੇ ਵਾਧੂ ਖਰਚੇ</strong>: ਸ਼ੁਰੂਆਤੀ ਕਾਂਟ੍ਰੈਕਟ ਆਕਰਸ਼ਕ ਲੱਗ ਸਕਦੇ ਹਨ, ਪਰ ਅਕਸਰ ਇਹਨਾਂ ਵਿੱਚ ਜ਼ਰੂਰੀ ਕੰਮ ਸ਼ਾਮਲ ਨਹੀਂ ਹੁੰਦੇ ਜਿਵੇਂ ਤੋੜਫੋੜ, ਖੁਦਾਈ ਜਾਂ ਦਰੱਖਤ ਪ੍ਰਬੰਧਨ। ਸਮੱਗਰੀ ਦੀ ਕੀਮਤ ਵਾਧੇ ਅਤੇ ਅਣਅੰਦਾਜ਼ੇ ਹਾਲਾਤ ਨਾਲ ਇਹ ਖਰਚ ਵੱਧ ਜਾਂਦੇ ਹਨ।",
+  barrier_li_3: "<strong>ਗੁਣਵੱਤਾ ਵਿੱਚ ਕਮੀ</strong>: ਖਰਚ ਪੂਰਾ ਕਰਨ ਲਈ ਨਿਰਮਾਤਾ ਗੁਣਵੱਤਾ ਵਿੱਚ ਕਮੀ ਕਰ ਸਕਦੇ ਹਨ, ਜਿਸ ਨਾਲ ਨਤੀਜਾ ਮਿਆਰਾਂ ਨੂੰ ਪੂਰਾ ਨਹੀਂ ਕਰਦਾ ਅਤੇ ਦੇਰੀ ਹੁੰਦੀ ਹੈ।",
+  barrier_li_4: "<strong>ਪ੍ਰਕਿਰਿਆ ਦੀ ਜਟਿਲਤਾ</strong>: ਵੱਖ-ਵੱਖ ਪੜਾਅ ਦੀ ਆਪਸੀ ਨਿਰਭਰਤਾ ਕਾਰਨ ਪ੍ਰਕਿਰਿਆ ਜਟਿਲ ਅਤੇ ਸਮੇਂ ਲੈਣ ਵਾਲੀ ਬਣ ਜਾਂਦੀ ਹੈ। ਪੇਸ਼ੇਵਰ ਪ੍ਰਬੰਧਨ ਬਿਨਾਂ ਖਰਚ ਵਧਦਾ ਰਹਿੰਦਾ ਹੈ ਅਤੇ ਕੰਮ ਰੁਕ ਜਾਂਦਾ ਹੈ।",
+  label_help: "ਅਸੀਂ ਕਿਵੇਂ ਮਦਦ ਕਰਦੇ ਹਾਂ",
+  help_intro: "ਅਸੀਂ ਪੂਰੀ ਸੇਵਾ ਪ੍ਰਦਾਨ ਕਰਦੇ ਹਾਂ ਜੋ ਜ਼ਮੀਨ ਦੀ ਚੋਣ ਤੋਂ ਲੈ ਕੇ ਡਿਜ਼ਾਈਨ, ਨਿਰਮਾਣ, ਵੰਡ ਅਤੇ ਵਿਕਰੀ ਤੱਕ ਪੂਰੇ ਪ੍ਰੋਜੈਕਟ ਦਾ ਪ੍ਰਬੰਧਨ ਕਰਦੀ ਹੈ।",
+  help_li_1: "<strong>ਰਣਨੀਤਿਕ ਮੰਜ਼ੂਰੀ ਪ੍ਰਬੰਧਨ</strong>: ਅੱਗੇ ਤੋਂ ਯੋਜਨਾ ਅਤੇ ਮਾਹਰ ਵਿਸ਼ਲੇਸ਼ਣ ਨਾਲ ਅਸੀਂ ਯਕੀਨੀ ਬਣਾਉਂਦੇ ਹਾਂ ਕਿ ਪ੍ਰੋਜੈਕਟ ਸ਼ੁਰੂ ਤੋਂ ਪਹਿਲਾਂ ਹੀ ਮੰਜ਼ੂਰੀ ਲਈ ਤਿਆਰ ਹੋਵੇ।",
+  help_li_2: "<strong>ਨਿਸ਼ਚਿਤ ਕੀਮਤ ਦੀ ਗਾਰੰਟੀ</strong>: ਅਸੀਂ ਐਸੀ ਸੇਵਾਵਾਂ ਦਿੰਦੇ ਹਾਂ ਜਿੱਥੇ ਕੋਈ ਲੁਕੇ ਹੋਏ ਖਰਚ ਨਹੀਂ ਹੁੰਦੇ ਅਤੇ ਤੁਹਾਡਾ ਬਜਟ ਸੁਰੱਖਿਅਤ ਰਹਿੰਦਾ ਹੈ।",
+  help_li_3: "<strong>ਵੱਡੇ ਪੱਧਰ ਦੀ ਖਰੀਦ ਸਮਰੱਥਾ</strong>: ਸਾਡੇ ਆਪਣੇ ਪ੍ਰੋਜੈਕਟਾਂ ਦੇ ਕਾਰਨ ਅਸੀਂ ਉੱਚ ਗੁਣਵੱਤਾ ਵਾਲੇ ਸਮਾਨ ਲਈ ਵਧੀਆ ਕੀਮਤਾਂ ਪ੍ਰਦਾਨ ਕਰਦੇ ਹਾਂ।",
+  help_li_4: "<strong>ਪੂਰਾ ਪ੍ਰੋਜੈਕਟ ਪ੍ਰਬੰਧਨ</strong>: ਅਸੀਂ ਕਿਸੇ ਵੀ ਪੜਾਅ 'ਤੇ ਪ੍ਰੋਜੈਕਟ ਸੰਭਾਲ ਸਕਦੇ ਹਾਂ ਅਤੇ ਸਮਾਂ ਤੇ ਖਰਚ ਘਟਾਉਂਦੇ ਹਾਂ।",
+  help_li_5: "<strong>ਮਾਰਕੀਟ ਅਧਾਰਿਤ ਕਾਰਵਾਈ</strong>: ਸਥਾਨਕ ਮੰਗ ਦੇ ਅਨੁਸਾਰ ਡਿਜ਼ਾਈਨ ਕਰਕੇ ਅਸੀਂ ਵਧੀਆ ਨਤੀਜੇ ਯਕੀਨੀ ਬਣਾਉਂਦੇ ਹਾਂ।",
+  label_proof: "ਸਾਬਤ ਨਤੀਜੇ",
+  proof_text: "IVOLCO, ਜੋ 2020 ਵਿੱਚ ਸਥਾਪਿਤ ਹੋਈ, ਉੱਚ ਪ੍ਰਦਰਸ਼ਨ ਵਾਲੇ ਪ੍ਰੋਜੈਕਟਾਂ ਲਈ ਜਾਣੀ ਜਾਂਦੀ ਹੈ। ਸਾਡੇ ਪੂਰੇ ਅਤੇ ਚੱਲ ਰਹੇ ਪ੍ਰੋਜੈਕਟਾਂ ਵਿੱਚੋਂ ਕੁਝ <strong>Sutherland Shire ਵਿੱਚ ਦੇਖਣ ਲਈ ਉਪਲਬਧ ਹਨ</strong>।",
+  label_access: "ਖਾਸ ਪਹੁੰਚ",
+  access_text: "2026 ਦੇ ਅੰਤ ਵਿੱਚ, ਸਾਡਾ ਨਿਵੇਸ਼ ਮਾਡਲ <strong>ਚੁਣੇ ਹੋਏ ਸਾਥੀਆਂ ਲਈ ਖੋਲ੍ਹਿਆ ਜਾਵੇਗਾ</strong>। ਇਹ ਤੁਹਾਨੂੰ ਸਾਡੀ ਮਹਾਰਤ ਦੀ ਵਰਤੋਂ ਕਰਕੇ ਆਪਣੇ ਪ੍ਰੋਜੈਕਟ ਵਿਕਸਿਤ ਕਰਨ ਦਾ ਮੌਕਾ ਦਿੰਦਾ ਹੈ।",
+  label_contact: "ਸੰਪਰਕ",
+  contact_email_label: "ਈਮੇਲ:",
+  form_name: "ਨਾਮ",
+  form_phone: "ਫੋਨ",
+  form_message: "ਸੁਨੇਹਾ",
+  form_send: "ਭੇਜੋ",
+  form_unknown_error: "ਅਣਜਾਣ ਗਲਤੀ",
+  form_success: "ਧੰਨਵਾਦ! ਅਸੀਂ ਤੁਹਾਡੀ ਜਾਣਕਾਰੀ ਪ੍ਰਾਪਤ ਕਰ ਲਈ ਹੈ।",
+  form_error: "ਕੁਝ ਗਲਤ ਹੋਇਆ। ਕਿਰਪਾ ਕਰਕੇ contact@ivolco.com.au 'ਤੇ ਈਮੇਲ ਕਰੋ।",
+  footer_text: "ਰੀਅਲ ਐਸਟੇਟ ਵਿਕਾਸ ਅਤੇ ਨਿਵੇਸ਼ | ਸਥਾਪਨਾ 2020 <br />ABN 80 816 694 840"
+}
+
+    
+
+    // German
+de: {
+  html_lang: "de",
+  brand_tag: "Immobilienentwicklung und Investition",
+  nav_why: "Warum wir",
+  nav_framework: "Der Prozess",
+  nav_portfolio: "Unsere Projekte",
+  cta_request: "Gespräch anfragen",
+  label_objective: "Ihr Ziel",
+  objective_text: "Ob Sie ein Investor sind, der hohe Renditen anstrebt, oder ein Eigentümer, der ein „dauerhaftes“ Zuhause bauen möchte – Ihr Ziel ist eine hochwertige Wohnentwicklung im <strong>Großraum Sydney</strong>. Sie suchen einen transparenten und systematischen Ansatz, der die Marktstandards übertrifft.",
+  label_barrier: "Die Herausforderung",
+  barrier_intro: "Wohnbauprojekte in Sydney sind oft mit hohen Risiken verbunden, geprägt von mangelnder Transparenz und „versteckten“ Hindernissen, die den Fortschritt verzögern und Budget oder Rendite beeinträchtigen.",
+  barrier_li_1: "<strong>Genehmigungsverzögerungen</strong>: Der Entwicklungsantrag (DA) ist ein zentraler Risikofaktor. Häufig wartet man über 12 Monate und wird dann in einer späten Phase abgelehnt, wodurch Kosten steigen und kein klarer Weg nach vorn besteht.",
+  barrier_li_2: "<strong>Irreführende Preisgestaltung</strong>: Anfangsangebote wirken attraktiv, schließen jedoch oft wesentliche Leistungen wie Abriss, Aushub oder Baummanagement aus. Zusammen mit steigenden Materialkosten und unvorhergesehenen Bedingungen führt dies zu erheblichen Mehrkosten.",
+  barrier_li_3: "<strong>Qualitätskompromisse</strong>: Um Kosten auszugleichen, kann die Bauqualität leiden, was zu Mängeln, Verzögerungen bei Abnahmen oder Problemen beim Verkauf führt.",
+  barrier_li_4: "<strong>Komplexität der Abläufe</strong>: Die Abhängigkeiten zwischen den Projektphasen machen den Prozess komplex und zeitaufwendig. Ohne professionelle Steuerung steigen die Kosten, während das Projekt stagniert.",
+  label_help: "Wie wir helfen",
+  help_intro: "Wir bieten einen umfassenden Service, der den gesamten Projektzyklus abdeckt – von der Grundstücksauswahl und dem Erwerb bis hin zu Planung, Bau, Aufteilung und Vermarktung.",
+  help_li_1: "<strong>Strategisches Genehmigungsmanagement</strong>: Durch frühzeitige Planung und fachkundige Analyse stellen wir sicher, dass Ihr Projekt bereits vor Beginn genehmigungsbereit ist.",
+  help_li_2: "<strong>Festpreisgarantie</strong>: Wir bieten transparente Lösungen ohne versteckte Kosten und übernehmen Risiken, um Ihr Budget zu schützen. Dabei nutzen wir standardisierte HIA-Verträge.",
+  help_li_3: "<strong>Einkaufsvorteile auf Unternehmensebene</strong>: Durch unsere eigenen Projekte ermöglichen wir Zugang zu hochwertigen Materialien und Ausstattung zu besseren Konditionen.",
+  help_li_4: "<strong>Ganzheitliches Projektmanagement</strong>: Wir übernehmen Ihr Projekt in jeder Phase und optimieren Zeit und Kosten durch strukturierte Abläufe.",
+  help_li_5: "<strong>Marktorientierte Umsetzung</strong>: Unsere Designs sind auf lokale Nachfrage abgestimmt und sorgen für Ergebnisse über dem Marktniveau.",
+  label_proof: "Ergebnisse",
+  proof_text: "IVOLCO wurde 2020 gegründet und verfügt über eine nachgewiesene Erfolgsbilanz. Unser Portfolio umfasst abgeschlossene und laufende Projekte, <strong>die im Sutherland Shire besichtigt werden können</strong>.",
+  label_access: "Exklusiver Zugang",
+  access_text: "Ende 2026 wird unser Investitionsmodell <strong>für eine ausgewählte Gruppe externer Partner geöffnet</strong>. Dies ermöglicht Ihnen, unsere Erfahrung für eigene Projekte zu nutzen. Unsere Kernregionen sind Ost-, Süd- und West-Sydney. Kontaktieren Sie uns für weitere Informationen.",
+  label_contact: "Kontakt",
+  contact_email_label: "E-Mail:",
+  form_name: "Name",
+  form_phone: "Telefon",
+  form_message: "Nachricht",
+  form_send: "Senden",
+  form_unknown_error: "Unbekannter Fehler",
+  form_success: "Vielen Dank! Wir haben Ihre Angaben erhalten.",
+  form_error: "Es ist ein Fehler aufgetreten. Bitte senden Sie uns eine E-Mail an contact@ivolco.com.au.",
+  footer_text: "Immobilienentwicklung und Investition | Gegründet 2020 <br />ABN 80 816 694 840"
+}
+
+
+// Javanese
+jv: {
+  html_lang: "jv",
+  brand_tag: "Pangembangan lan Investasi Properti",
+  nav_why: "Napa milih kita",
+  nav_framework: "Kerangka proses",
+  nav_portfolio: "Proyek kita",
+  cta_request: "Ajukan diskusi",
+  label_objective: "Tujuan sampeyan",
+  objective_text: "Apa sampeyan investor sing golek hasil dhuwur utawa pemilik omah sing pengin mbangun omah “selawase”, tujuan sampeyan yaiku ngembangake proyek perumahan berkualitas tinggi ing <strong>Greater Sydney</strong>. Sampeyan nggoleki pendekatan sing transparan lan sistematis sing ngasilake asil luwih apik tinimbang standar pasar.",
+  label_barrier: "Tantangan",
+  barrier_intro: "Pangembangan perumahan ing Sydney asring nduweni risiko dhuwur, ditandhani karo kurang transparansi lan akeh “jebakan sing ora katon” sing ngalangi kemajuan lan mengaruhi anggaran utawa keuntungan.",
+  barrier_li_1: "<strong>Penundaan persetujuan</strong>: Proses persetujuan pembangunan (DA) minangka titik risiko utama. Asring kudu ngenteni luwih saka 12 wulan lan pungkasane ditolak ing tahap akhir, sing nyebabake biaya mundhak lan ora ana arah maju.",
+  barrier_li_2: "<strong>Rega murah nanging biaya tambahan</strong>: Kontrak awal katon menarik nanging asring ora kalebu kerja penting kayata pembongkaran, penggalian utawa pengelolaan wit. Ditambah kenaikan harga bahan lan kondisi tak terduga, biaya dadi luwih gedhe.",
+  barrier_li_3: "<strong>Penurunan kualitas</strong>: Kanggo nutupi biaya, kontraktor bisa nyuda kualitas bangunan utawa finishing, sing nyebabake asil ora sesuai standar lan telat inspeksi utawa penjualan.",
+  barrier_li_4: "<strong>Kerumitan proses</strong>: Ketergantungan antar tahap nggawe proyek dadi rumit lan suwe. Tanpa manajemen profesional, biaya terus nambah nalika proyek mandheg.",
+  label_help: "Carane kita mbantu",
+  help_intro: "Kita nyedhiyakake layanan lengkap sing ngatur kabeh siklus proyek saka pemilihan lahan nganti desain, konstruksi, subdivisi lan penjualan.",
+  help_li_1: "<strong>Manajemen persetujuan strategis</strong>: Kanthi perencanaan awal lan analisis ahli, kita mesthekake proyek wis siap disetujoni sadurunge diwiwiti.",
+  help_li_2: "<strong>Biaya tetep</strong>: Kita nawakake solusi tanpa biaya tambahan lan nanggung risiko supaya anggaran sampeyan aman.",
+  help_li_3: "<strong>Keuntungan pembelian skala besar</strong>: Amarga proyek kita dhewe, kita bisa menehi akses menyang bahan lan peralatan premium kanthi rega luwih apik.",
+  help_li_4: "<strong>Manajemen proyek lengkap</strong>: Kita bisa njupuk alih proyek ing tahap apa wae lan ngoptimalake wektu lan biaya.",
+  help_li_5: "<strong>Eksekusi adhedhasar pasar</strong>: Desain kita disesuaikan karo kebutuhan pasar lokal supaya asil luwih unggul.",
+  label_proof: "Bukti hasil",
+  proof_text: "IVOLCO, didegaké ing 2020, nduweni rekam jejak proyek berkinerja tinggi. Portofolio kita kalebu proyek rampung lan sing lagi dibangun, <strong>kasedhiya kanggo ditinjau ing Sutherland Shire</strong>.",
+  label_access: "Akses eksklusif",
+  access_text: "Ing akhir 2026, model investasi kita bakal <strong>dibukak kanggo mitra eksternal sing dipilih</strong>. Iki menehi kesempatan kanggo nggunakake pengalaman kita kanggo proyek sampeyan dhewe.",
+  label_contact: "Kontak",
+  contact_email_label: "Email:",
+  form_name: "Jeneng",
+  form_phone: "Telpon",
+  form_message: "Pesan",
+  form_send: "Kirim",
+  form_unknown_error: "Kesalahan ora dikenal",
+  form_success: "Matur nuwun! Kita wis nampa informasi sampeyan.",
+  form_error: "Ana kesalahan. Mangga kirim email menyang contact@ivolco.com.au.",
+  footer_text: "Pangembangan lan Investasi Properti | Didegaké 2020 <br />ABN 80 816 694 840"
+}
+
+
+    // Korean
+ko: {
+  html_lang: "ko",
+  brand_tag: "부동산 개발 및 투자",
+  nav_why: "왜 우리인가",
+  nav_framework: "프로세스",
+  nav_portfolio: "프로젝트",
+  cta_request: "상담 요청",
+  label_objective: "목표",
+  objective_text: "고수익을 추구하는 투자자이든, 평생 거주할 집을 짓고자 하는 주택 소유자이든, 귀하의 목표는 <strong>그레이터 시드니</strong>에서 고품질 주거 개발을 수행하는 것입니다. 시장 기준을 뛰어넘는 결과를 위해 투명하고 체계적인 접근 방식을 원합니다.",
+  label_barrier: "과제",
+  barrier_intro: "시드니의 주거 개발은 종종 높은 위험을 동반하며, 투명성 부족과 다양한 “숨겨진” 문제로 인해 진행이 지연되고 예산이나 수익성에 영향을 미칩니다.",
+  barrier_li_1: "<strong>승인 지연</strong>: 개발 승인(DA) 과정은 주요 리스크 요소입니다. 12개월 이상 대기한 후 후반 단계에서 거절되는 경우가 많아 비용이 증가하고 프로젝트가 중단됩니다.",
+  barrier_li_2: "<strong>낮은 가격과 추가 비용</strong>: 초기 계약은 매력적으로 보일 수 있지만 철거, 굴착, 수목 관리 등 필수 작업이 포함되지 않는 경우가 많습니다. 여기에 자재 가격 상승과 예기치 않은 상황이 더해져 추가 비용이 발생합니다.",
+  barrier_li_3: "<strong>품질 저하</strong>: 비용을 맞추기 위해 시공 품질이 낮아질 수 있으며, 이는 기준 미달이나 검사 지연으로 이어질 수 있습니다.",
+  barrier_li_4: "<strong>프로세스의 복잡성</strong>: 각 단계 간의 의존성으로 인해 프로젝트는 복잡하고 시간이 많이 소요됩니다. 전문적인 관리가 없으면 비용이 증가하고 진행이 정체됩니다.",
+  label_help: "지원 방법",
+  help_intro: "토지 선정과 취득부터 설계, 시공, 분할 및 판매까지 전체 프로젝트를 관리하는 통합 서비스를 제공합니다.",
+  help_li_1: "<strong>전략적 승인 관리</strong>: 사전 계획과 전문가 분석을 통해 프로젝트 시작 전에 승인 준비를 완료합니다.",
+  help_li_2: "<strong>고정 비용 보장</strong>: 숨겨진 비용 없이 예산을 보호하는 솔루션을 제공하며, 표준 HIA 계약을 사용해 투명성을 확보합니다.",
+  help_li_3: "<strong>대규모 구매 혜택</strong>: 자체 개발 경험을 바탕으로 프리미엄 자재와 장비를 유리한 가격에 제공합니다.",
+  help_li_4: "<strong>전 과정 관리</strong>: 어느 단계에서든 프로젝트를 맡아 시간과 비용을 효율적으로 관리합니다.",
+  help_li_5: "<strong>시장 중심 실행</strong>: 지역 수요에 맞춘 설계를 통해 시장 기준을 초과하는 결과를 제공합니다.",
+  label_proof: "성과",
+  proof_text: "IVOLCO는 2020년에 설립되어 높은 성과의 프로젝트 실적을 보유하고 있습니다. 완료된 프로젝트와 진행 중인 프로젝트는 <strong>서덜랜드 샤이어에서 확인 가능합니다</strong>.",
+  label_access: "독점 기회",
+  access_text: "2026년 말부터 당사의 투자 모델은 <strong>선별된 외부 파트너에게 개방됩니다</strong>. 이를 통해 귀하의 프로젝트에 당사의 전문성을 활용할 수 있습니다.",
+  label_contact: "문의",
+  contact_email_label: "이메일:",
+  form_name: "이름",
+  form_phone: "전화번호",
+  form_message: "메시지",
+  form_send: "전송",
+  form_unknown_error: "알 수 없는 오류",
+  form_success: "감사합니다. 정보가 접수되었습니다.",
+  form_error: "문제가 발생했습니다. contact@ivolco.com.au로 이메일을 보내주세요.",
+  footer_text: "부동산 개발 및 투자 | 설립 2020 <br />ABN 80 816 694 840"
+}
+
+
+    
+    // French
+fr: {
+  html_lang: "fr",
+  brand_tag: "Développement et investissement immobilier",
+  nav_why: "Pourquoi nous",
+  nav_framework: "Le processus",
+  nav_portfolio: "Nos projets",
+  cta_request: "Demander un échange",
+  label_objective: "Votre objectif",
+  objective_text: "Que vous soyez un investisseur à la recherche de rendements élevés ou un propriétaire souhaitant construire une résidence « définitive », votre objectif est de réaliser un projet résidentiel de haute qualité dans le <strong>Greater Sydney</strong>. Vous recherchez une approche transparente et structurée permettant de dépasser les standards du marché.",
+  label_barrier: "Les défis",
+  barrier_intro: "Le développement résidentiel à Sydney présente souvent des risques élevés, caractérisés par un manque de transparence et des « pièges cachés » qui ralentissent l’avancement et impactent le budget ou la rentabilité.",
+  barrier_li_1: "<strong>Retards d’approbation</strong> : Le processus d’approbation (DA) constitue un risque majeur. Il est fréquent d’attendre plus de 12 mois avant de faire face à un refus tardif du conseil, entraînant une hausse des coûts sans solution claire.",
+  barrier_li_2: "<strong>Prix trompeurs et coûts supplémentaires</strong> : Les contrats initiaux peuvent sembler attractifs, mais excluent souvent des éléments essentiels comme la démolition, l’excavation ou la gestion des arbres. Combiné à la hausse des coûts des matériaux et à des imprévus, cela engendre des dépenses importantes.",
+  barrier_li_3: "<strong>Compromis sur la qualité</strong> : Pour compenser les coûts, certains constructeurs peuvent réduire la qualité, ce qui entraîne des non-conformités et des retards lors des inspections ou de la mise en vente.",
+  barrier_li_4: "<strong>Complexité opérationnelle</strong> : L’interdépendance des étapes rend le projet complexe et chronophage. Sans gestion professionnelle, les coûts augmentent tandis que le projet stagne.",
+  label_help: "Comment nous aidons",
+  help_intro: "Nous proposons un service complet couvrant l’ensemble du cycle du projet, de l’acquisition du terrain jusqu’à la conception, la construction, la subdivision et la commercialisation.",
+  help_li_1: "<strong>Gestion stratégique des approbations</strong> : Grâce à une planification anticipée et à une analyse experte, nous assurons que votre projet est prêt à être approuvé avant son lancement.",
+  help_li_2: "<strong>Prix fixe garanti</strong> : Nous offrons des solutions sans coûts cachés en assumant les risques afin de protéger votre budget. Nous utilisons des contrats standards HIA pour une transparence totale.",
+  help_li_3: "<strong>Pouvoir d’achat institutionnel</strong> : Grâce à nos propres projets, nous vous donnons accès à des matériaux et équipements premium à des conditions avantageuses.",
+  help_li_4: "<strong>Gestion complète et précise</strong> : Nous prenons en charge votre projet à n’importe quelle étape et optimisons délais et coûts grâce à des méthodes avancées.",
+  help_li_5: "<strong>Exécution orientée marché</strong> : Nos conceptions sont adaptées aux attentes locales afin de garantir des résultats supérieurs aux standards du marché.",
+  label_proof: "Résultats",
+  proof_text: "Fondée en 2020, IVOLCO dispose d’un solide historique de projets performants. Notre portefeuille comprend des projets achevés et en cours, <strong>disponibles pour visite dans le Sutherland Shire</strong>.",
+  label_access: "Accès exclusif",
+  access_text: "Fin 2026, notre modèle d’investissement sera <strong>ouvert à un groupe restreint de partenaires externes</strong>. Cela vous permet de tirer parti de notre expertise pour vos propres projets. Nous opérons principalement dans l’est, le sud et l’ouest de Sydney. Contactez-nous pour en savoir plus.",
+  label_contact: "Contact",
+  contact_email_label: "Email :",
+  form_name: "Nom",
+  form_phone: "Téléphone",
+  form_message: "Message",
+  form_send: "Envoyer",
+  form_unknown_error: "Erreur inconnue",
+  form_success: "Merci, nous avons bien reçu vos informations.",
+  form_error: "Une erreur s’est produite. Veuillez nous contacter à contact@ivolco.com.au.",
+  footer_text: "Développement et investissement immobilier | Fondé en 2020 <br />ABN 80 816 694 840"
+}
+
+
+// Telugu
+te: {
+  html_lang: "te",
+  brand_tag: "రియల్ ఎస్టేట్ అభివృద్ధి మరియు పెట్టుబడి",
+  nav_why: "మేమే ఎందుకు",
+  nav_framework: "ప్రక్రియ",
+  nav_portfolio: "మా ప్రాజెక్టులు",
+  cta_request: "చర్చకు అభ్యర్థించండి",
+  label_objective: "మీ లక్ష్యం",
+  objective_text: "మీరు అధిక లాభాలను కోరుకునే పెట్టుబడిదారుడైనా లేదా “శాశ్వత నివాసం” నిర్మించాలనుకునే గృహ యజమానైనా, మీ లక్ష్యం <strong>గ్రేటర్ సిడ్నీ</strong>లో ఉన్నత ప్రమాణాల గల నివాస అభివృద్ధిని సాధించడం. మీరు మార్కెట్ ప్రమాణాలను మించిపోయే ఫలితాలను అందించే పారదర్శకమైన మరియు వ్యవస్థీకృత విధానాన్ని కోరుకుంటున్నారు.",
+  label_barrier: "సవాళ్లు",
+  barrier_intro: "సిడ్నీలో నివాస అభివృద్ధి సాధారణంగా అధిక ప్రమాదంతో కూడుకున్నది, ఇది పారదర్శకత లోపం మరియు ప్రగతిని అడ్డుకునే “దాగిన” సమస్యలతో గుర్తించబడుతుంది, ఇవి బడ్జెట్ లేదా లాభాలను ప్రభావితం చేస్తాయి.",
+  barrier_li_1: "<strong>అనుమతుల ఆలస్యం</strong>: డెవలప్మెంట్ అనుమతి (DA) ప్రక్రియ ప్రధాన ప్రమాదాంశం. సాధారణంగా 12 నెలలకుపైగా వేచి ఉండి చివరి దశలో తిరస్కరణ ఎదురవుతుంది, దీని వలన ఖర్చులు పెరుగుతాయి మరియు ప్రాజెక్ట్ నిలిచిపోతుంది.",
+  barrier_li_2: "<strong>తక్కువ ధరల ఉచ్చు</strong>: ప్రారంభ ఒప్పందాలు ఆకర్షణీయంగా కనిపించినా, అవి తరచుగా కూల్చివేత, తవ్వకం లేదా చెట్ల నిర్వహణ వంటి కీలక అంశాలను కలిగి ఉండవు. దీనికి తోడు పదార్థాల ధరలు పెరగడం మరియు అనుకోని పరిస్థితులు అదనపు ఖర్చులకు దారి తీస్తాయి.",
+  barrier_li_3: "<strong>నాణ్యత తగ్గడం</strong>: ఖర్చులను తగ్గించడానికి నిర్మాణ నాణ్యత తగ్గించబడవచ్చు, దీని వలన ప్రమాణాలకు తగ్గకుండా ఉండటం మరియు ఆలస్యం జరుగుతుంది.",
+  barrier_li_4: "<strong>ప్రక్రియలో క్లిష్టత</strong>: వివిధ దశల మధ్య పరస్పర ఆధారితత కారణంగా ప్రాజెక్ట్ క్లిష్టంగా మారుతుంది. నిపుణుల నిర్వహణ లేకపోతే ఖర్చులు పెరుగుతాయి మరియు పనులు నిలిచిపోతాయి.",
+  label_help: "మేము ఎలా సహాయపడతాము",
+  help_intro: "మేము భూమి ఎంపిక మరియు కొనుగోలు నుండి డిజైన్, నిర్మాణం, విభజన మరియు అమ్మకం వరకు మొత్తం ప్రాజెక్ట్ జీవితచక్రాన్ని నిర్వహించే సమగ్ర సేవను అందిస్తాము.",
+  help_li_1: "<strong>వ్యూహాత్మక అనుమతి నిర్వహణ</strong>: ముందస్తు ప్రణాళిక మరియు నిపుణుల విశ్లేషణ ద్వారా ప్రాజెక్ట్ ప్రారంభానికి ముందే అనుమతికి సిద్ధంగా ఉండేలా చేస్తాము.",
+  help_li_2: "<strong>స్థిర ధర హామీ</strong>: అదనపు ఖర్చులు లేకుండా పారదర్శక పరిష్కారాలను అందించి మీ బడ్జెట్‌ను రక్షిస్తాము.",
+  help_li_3: "<strong>పెద్ద స్థాయి కొనుగోలు ప్రయోజనాలు</strong>: మా స్వంత ప్రాజెక్టుల కారణంగా మేము ప్రీమియం పదార్థాలు మరియు పరికరాలను మెరుగైన ధరలకు అందిస్తాము.",
+  help_li_4: "<strong>పూర్తి ప్రాజెక్ట్ నిర్వహణ</strong>: ఏ దశలోనైనా ప్రాజెక్ట్‌ను స్వీకరించి సమయం మరియు ఖర్చులను తగ్గిస్తాము.",
+  help_li_5: "<strong>మార్కెట్ ఆధారిత అమలు</strong>: స్థానిక డిమాండ్‌కు అనుగుణంగా డిజైన్‌లను రూపొందించి మెరుగైన ఫలితాలను అందిస్తాము.",
+  label_proof: "ఫలితాలు",
+  proof_text: "2020లో స్థాపించబడిన IVOLCO, ఉన్నత పనితీరు గల ప్రాజెక్టుల కోసం ప్రసిద్ధి చెందింది. పూర్తయిన మరియు నిర్మాణంలో ఉన్న ప్రాజెక్టులు <strong>Sutherland Shireలో పరిశీలనకు అందుబాటులో ఉన్నాయి</strong>.",
+  label_access: "ప్రత్యేక అవకాశం",
+  access_text: "2026 చివర్లో, మా పెట్టుబడి మోడల్ <strong>ఎంచుకున్న భాగస్వాములకు అందుబాటులో ఉంటుంది</strong>. ఇది మీ ప్రాజెక్టులకు మా అనుభవాన్ని ఉపయోగించుకునే అవకాశాన్ని ఇస్తుంది.",
+  label_contact: "సంప్రదించండి",
+  contact_email_label: "ఇమెయిల్:",
+  form_name: "పేరు",
+  form_phone: "ఫోన్",
+  form_message: "సందేశం",
+  form_send: "పంపండి",
+  form_unknown_error: "తెలియని లోపం",
+  form_success: "ధన్యవాదాలు! మీ వివరాలు మాకు అందాయి.",
+  form_error: "లోపం సంభవించింది. దయచేసి contact@ivolco.com.au కు ఇమెయిల్ చేయండి.",
+  footer_text: "రియల్ ఎస్టేట్ అభివృద్ధి మరియు పెట్టుబడి | స్థాపించబడింది 2020 <br />ABN 80 816 694 840"
+}
+
+
+
+// Marathi
+mr: {
+  html_lang: "mr",
+  brand_tag: "रिअल इस्टेट विकास आणि गुंतवणूक",
+  nav_why: "आम्ही का",
+  nav_framework: "प्रक्रिया",
+  nav_portfolio: "आमचे प्रकल्प",
+  cta_request: "चर्चेसाठी विनंती करा",
+  label_objective: "आपले उद्दिष्ट",
+  objective_text: "आपण उच्च परताव्याच्या शोधात असलेले गुंतवणूकदार असाल किंवा “आयुष्यभरासाठी” घर बांधू इच्छिणारे गृहस्वामी असाल, आपले उद्दिष्ट <strong>ग्रेटर सिडनी</strong> मध्ये उच्च दर्जाचा निवासी विकास करणे आहे. आपण पारदर्शक आणि संरचित दृष्टिकोन शोधत आहात जो बाजार मानकांपेक्षा अधिक परिणाम देतो.",
+  label_barrier: "आव्हाने",
+  barrier_intro: "सिडनीमधील निवासी विकास प्रकल्पांमध्ये अनेकदा उच्च जोखीम असते, ज्यामध्ये पारदर्शकतेचा अभाव आणि “लपलेले” अडथळे प्रगती मंदावतात आणि बजेट किंवा नफ्यावर परिणाम करतात.",
+  barrier_li_1: "<strong>मंजुरीतील विलंब</strong>: विकास मंजुरी (DA) प्रक्रिया ही एक महत्त्वाची जोखीम आहे. अनेकदा 12 महिन्यांपेक्षा जास्त प्रतीक्षा केल्यानंतर शेवटच्या टप्प्यावर नकार मिळतो, ज्यामुळे खर्च वाढतो आणि प्रकल्प अडकतो.",
+  barrier_li_2: "<strong>कमी किंमत आणि अतिरिक्त खर्च</strong>: सुरुवातीचे करार आकर्षक वाटतात, परंतु त्यात तोडफोड, उत्खनन किंवा झाड व्यवस्थापन यांसारख्या आवश्यक बाबींचा समावेश नसतो. साहित्याच्या किंमती वाढणे आणि अनपेक्षित परिस्थिती यामुळे खर्च वाढतो.",
+  barrier_li_3: "<strong>गुणवत्तेतील तडजोड</strong>: खर्च भरून काढण्यासाठी बांधकामाची गुणवत्ता कमी केली जाऊ शकते, ज्यामुळे मानकांचे पालन होत नाही आणि विलंब होतो.",
+  barrier_li_4: "<strong>प्रक्रियेची गुंतागुंत</strong>: प्रकल्पातील विविध टप्प्यांमधील परस्पर अवलंबित्वामुळे प्रक्रिया गुंतागुंतीची होते. व्यावसायिक व्यवस्थापनाशिवाय खर्च वाढतो आणि प्रकल्प थांबतो.",
+  label_help: "आम्ही कसे मदत करतो",
+  help_intro: "आम्ही जमीन निवड आणि खरेदीपासून ते डिझाइन, बांधकाम, विभाजन आणि विक्रीपर्यंत संपूर्ण प्रकल्प व्यवस्थापन सेवा देतो.",
+  help_li_1: "<strong>रणनीतिक मंजुरी व्यवस्थापन</strong>: पूर्व नियोजन आणि तज्ज्ञ विश्लेषणाद्वारे आम्ही प्रकल्प सुरू होण्यापूर्वीच मंजुरीसाठी तयार ठेवतो.",
+  help_li_2: "<strong>निश्चित किंमत हमी</strong>: कोणतेही लपलेले खर्च नसलेले उपाय देऊन आम्ही आपला बजेट सुरक्षित ठेवतो.",
+  help_li_3: "<strong>मोठ्या प्रमाणातील खरेदी लाभ</strong>: आमच्या स्वतःच्या प्रकल्पांमुळे आम्ही उच्च दर्जाच्या साहित्यावर चांगल्या किंमती देऊ शकतो.",
+  help_li_4: "<strong>पूर्ण प्रकल्प व्यवस्थापन</strong>: कोणत्याही टप्प्यावर आम्ही प्रकल्प हाताळून वेळ आणि खर्च कमी करतो.",
+  help_li_5: "<strong>बाजाराधारित अंमलबजावणी</strong>: स्थानिक मागणीनुसार डिझाइन करून आम्ही अधिक चांगले परिणाम देतो.",
+  label_proof: "परिणाम",
+  proof_text: "2020 मध्ये स्थापन झालेली IVOLCO उच्च दर्जाच्या प्रकल्पांसाठी ओळखली जाते. आमचे पूर्ण आणि सुरू असलेले प्रकल्प <strong>Sutherland Shire मध्ये पाहण्यासाठी उपलब्ध आहेत</strong>.",
+  label_access: "विशेष संधी",
+  access_text: "2026 च्या अखेरीस, आमचा गुंतवणूक मॉडेल <strong>निवडक भागीदारांसाठी उपलब्ध होईल</strong>. यामुळे आपण आमच्या अनुभवाचा वापर करून आपले प्रकल्प विकसित करू शकता.",
+  label_contact: "संपर्क",
+  contact_email_label: "ईमेल:",
+  form_name: "नाव",
+  form_phone: "फोन",
+  form_message: "संदेश",
+  form_send: "पाठवा",
+  form_unknown_error: "अज्ञात त्रुटी",
+  form_success: "धन्यवाद! आम्हाला आपली माहिती मिळाली आहे.",
+  form_error: "काहीतरी चूक झाली. कृपया contact@ivolco.com.au वर ईमेल करा.",
+  footer_text: "रिअल इस्टेट विकास आणि गुंतवणूक | स्थापन 2020 <br />ABN 80 816 694 840"
+}
+
+
+    
+    // Turkish
+tr: {
+  html_lang: "tr",
+  brand_tag: "Gayrimenkul Geliştirme ve Yatırım",
+  nav_why: "Neden biz",
+  nav_framework: "Süreç",
+  nav_portfolio: "Projelerimiz",
+  cta_request: "Görüşme talep et",
+  label_objective: "Hedefiniz",
+  objective_text: "İster yüksek getiri arayan bir yatırımcı olun ister “ömür boyu” yaşayacağınız bir ev inşa etmek isteyen bir ev sahibi, hedefiniz <strong>Greater Sydney</strong> bölgesinde yüksek kaliteli bir konut projesi geliştirmektir. Pazar standartlarını aşan sonuçlar sunan şeffaf ve sistematik bir yaklaşım arıyorsunuz.",
+  label_barrier: "Zorluklar",
+  barrier_intro: "Sydney’de konut geliştirme projeleri genellikle yüksek risklidir; şeffaflık eksikliği ve ilerlemeyi yavaşlatan “gizli” sorunlar bütçe veya kârlılığı etkiler.",
+  barrier_li_1: "<strong>Onay gecikmeleri</strong>: Geliştirme onayı (DA) süreci önemli bir risk noktasıdır. Çoğu zaman 12 aydan fazla beklenir ve son aşamada reddedilerek maliyetlerin artmasına neden olur.",
+  barrier_li_2: "<strong>Düşük fiyat tuzağı</strong>: İlk sözleşmeler cazip görünse de çoğu zaman yıkım, kazı veya ağaç yönetimi gibi kritik unsurları içermez. Malzeme fiyat artışları ve beklenmeyen durumlarla birlikte maliyetler yükselir.",
+  barrier_li_3: "<strong>Kalite düşüşü</strong>: Maliyetleri dengelemek için kalite düşürülebilir, bu da standartlara uyumsuzluk ve gecikmelere yol açar.",
+  barrier_li_4: "<strong>Süreç karmaşıklığı</strong>: Aşamalar arasındaki bağımlılık süreci karmaşık hale getirir. Profesyonel yönetim olmadan maliyetler artar ve proje durur.",
+  label_help: "Nasıl yardımcı oluruz",
+  help_intro: "Arsa seçimi ve alımından tasarım, inşaat, bölme ve satışa kadar tüm proje sürecini yöneten kapsamlı bir hizmet sunuyoruz.",
+  help_li_1: "<strong>Stratejik onay yönetimi</strong>: Önceden planlama ve uzman analiz ile projenizin başlangıçtan önce onaya hazır olmasını sağlarız.",
+  help_li_2: "<strong>Sabit fiyat garantisi</strong>: Gizli maliyetler olmadan çözümler sunar, riskleri üstlenerek bütçenizi koruruz.",
+  help_li_3: "<strong>Kurumsal satın alma gücü</strong>: Kendi projelerimiz sayesinde premium malzeme ve ekipmanlara avantajlı fiyatlarla erişim sağlarız.",
+  help_li_4: "<strong>Uçtan uca proje yönetimi</strong>: Projenizi her aşamada devralarak süreyi ve maliyetleri optimize ederiz.",
+  help_li_5: "<strong>Pazar odaklı uygulama</strong>: Tasarımlarımız yerel talebe göre uyarlanır ve üstün sonuçlar sağlar.",
+  label_proof: "Sonuçlar",
+  proof_text: "2020 yılında kurulan IVOLCO, yüksek performanslı projelerde güçlü bir geçmişe sahiptir. Tamamlanan ve devam eden projelerimiz <strong>Sutherland Shire’da incelenebilir</strong>.",
+  label_access: "Özel erişim",
+  access_text: "2026’nın sonlarında yatırım modelimiz <strong>seçili dış ortaklara açılacaktır</strong>. Bu, kendi projelerinizde uzmanlığımızdan yararlanmanızı sağlar.",
+  label_contact: "İletişim",
+  contact_email_label: "E-posta:",
+  form_name: "Ad",
+  form_phone: "Telefon",
+  form_message: "Mesaj",
+  form_send: "Gönder",
+  form_unknown_error: "Bilinmeyen hata",
+  form_success: "Teşekkürler! Bilgilerinizi aldık.",
+  form_error: "Bir hata oluştu. Lütfen contact@ivolco.com.au adresine e-posta gönderin.",
+  footer_text: "Gayrimenkul Geliştirme ve Yatırım | Kuruluş 2020 <br />ABN 80 816 694 840"
+}
+
+
+    
+    // Tamil
+ta: {
+  html_lang: "ta",
+  brand_tag: "நில உரிமை மேம்பாடு மற்றும் முதலீடு",
+  nav_why: "ஏன் எங்களை தேர்வு செய்ய வேண்டும்",
+  nav_framework: "செயல்முறை",
+  nav_portfolio: "எங்கள் திட்டங்கள்",
+  cta_request: "ஆலோசனை கோருங்கள்",
+  label_objective: "உங்கள் நோக்கம்",
+  objective_text: "நீங்கள் அதிக வருமானத்தை நாடும் முதலீட்டாளராக இருந்தாலும் அல்லது “நிலையான” வீட்டை கட்ட விரும்பும் வீட்டு உரிமையாளராக இருந்தாலும், உங்கள் நோக்கம் <strong>Greater Sydney</strong> பகுதியில் உயர்தர குடியிருப்பு மேம்பாட்டை உருவாக்குவது. சந்தை தரத்தை மீறும் விளைவுகளை வழங்கும் வெளிப்படையான மற்றும் முறையான அணுகுமுறையை நீங்கள் எதிர்பார்க்கிறீர்கள்.",
+  label_barrier: "சவால்கள்",
+  barrier_intro: "சிட்னியில் குடியிருப்பு மேம்பாடு பெரும்பாலும் அதிக ஆபத்துகளைக் கொண்டது, இது வெளிப்படைத்தன்மை குறைவு மற்றும் “மறைந்த” பிரச்சினைகளால் முன்னேற்றத்தை தாமதப்படுத்துகிறது மற்றும் பட்ஜெட் அல்லது லாபத்தை பாதிக்கிறது.",
+  barrier_li_1: "<strong>அனுமதி தாமதங்கள்</strong>: மேம்பாட்டு அனுமதி (DA) செயல்முறை முக்கிய ஆபத்து பகுதியாகும். பல நேரங்களில் 12 மாதங்களுக்கு மேல் காத்திருந்து இறுதி கட்டத்தில் மறுப்பு கிடைக்கிறது, இதனால் செலவுகள் அதிகரிக்கின்றன.",
+  barrier_li_2: "<strong>குறைந்த விலை மற்றும் கூடுதல் செலவுகள்</strong>: ஆரம்ப ஒப்பந்தங்கள் கவர்ச்சியாக தோன்றினாலும், அவை இடிப்பு, அகழ்வு அல்லது மர மேலாண்மை போன்ற முக்கிய பணிகளை உள்ளடக்காது. பொருட்களின் விலை உயர்வு மற்றும் எதிர்பாராத சூழ்நிலைகள் கூடுதல் செலவுகளை உருவாக்குகின்றன.",
+  barrier_li_3: "<strong>தரத்தில் குறைவு</strong>: செலவுகளை சமநிலைப்படுத்த கட்டுமான தரம் குறைக்கப்படலாம், இதனால் தரநிலைகள் பூர்த்தி செய்யப்படாது மற்றும் தாமதங்கள் ஏற்படுகின்றன.",
+  barrier_li_4: "<strong>செயல்முறை சிக்கல்</strong>: திட்ட கட்டங்களின் பரஸ்பர சார்பு செயல்முறையை சிக்கலாக்குகிறது. தொழில்முறை மேலாண்மை இல்லாமல் செலவுகள் அதிகரித்து திட்டம் நின்றுவிடும்.",
+  label_help: "நாங்கள் எப்படி உதவுகிறோம்",
+  help_intro: "நிலத் தேர்வு மற்றும் வாங்குதல் முதல் வடிவமைப்பு, கட்டிடம், பிரிப்பு மற்றும் விற்பனை வரை முழு திட்ட வாழ்க்கைச் சுழற்சியையும் நிர்வகிக்கும் ஒருங்கிணைந்த சேவையை வழங்குகிறோம்.",
+  help_li_1: "<strong>முன்னோக்கிய அனுமதி மேலாண்மை</strong>: முன்கூட்டிய திட்டமிடல் மற்றும் நிபுணர் ஆய்வின் மூலம் திட்டம் தொடங்கும் முன்பே அனுமதிக்குத் தயாராக இருப்பதை உறுதி செய்கிறோம்.",
+  help_li_2: "<strong>நிலையான செலவு உறுதி</strong>: மறைமுக செலவுகள் இல்லாமல் உங்கள் பட்ஜெட்டை பாதுகாக்கும் தீர்வுகளை வழங்குகிறோம்.",
+  help_li_3: "<strong>பெரிய அளவிலான கொள்முதல் நன்மை</strong>: எங்கள் சொந்த திட்டங்களின் மூலம் உயர்தர பொருட்களை சிறந்த விலையில் வழங்குகிறோம்.",
+  help_li_4: "<strong>முழுமையான திட்ட மேலாண்மை</strong>: எந்த கட்டத்திலும் திட்டத்தை ஏற்று நேரம் மற்றும் செலவை குறைக்கிறோம்.",
+  help_li_5: "<strong>சந்தை நோக்கிய செயல்பாடு</strong>: உள்ளூர் தேவைகளுக்கு ஏற்ப வடிவமைப்புகளை உருவாக்கி சிறந்த முடிவுகளை வழங்குகிறோம்.",
+  label_proof: "முடிவுகள்",
+  proof_text: "2020 இல் நிறுவப்பட்ட IVOLCO, உயர்தர திட்டங்களில் வலுவான அனுபவம் கொண்டது. முடிக்கப்பட்ட மற்றும் நடைபெற்று வரும் திட்டங்கள் <strong>Sutherland Shire இல் பார்வைக்கு கிடைக்கின்றன</strong>.",
+  label_access: "சிறப்பு அணுகல்",
+  access_text: "2026 இறுதியில், எங்கள் முதலீட்டு முறை <strong>தேர்ந்தெடுக்கப்பட்ட கூட்டாளர்களுக்கு திறக்கப்படும்</strong>. இது உங்கள் சொந்த திட்டங்களில் எங்கள் அனுபவத்தை பயன்படுத்தும் வாய்ப்பை வழங்குகிறது.",
+  label_contact: "தொடர்பு",
+  contact_email_label: "மின்னஞ்சல்:",
+  form_name: "பெயர்",
+  form_phone: "தொலைபேசி",
+  form_message: "செய்தி",
+  form_send: "அனுப்பு",
+  form_unknown_error: "தெரியாத பிழை",
+  form_success: "நன்றி! உங்கள் தகவலை பெற்றுள்ளோம்.",
+  form_error: "பிழை ஏற்பட்டது. தயவுசெய்து contact@ivolco.com.au க்கு மின்னஞ்சல் அனுப்பவும்.",
+  footer_text: "நில உரிமை மேம்பாடு மற்றும் முதலீடு | நிறுவப்பட்டது 2020 <br />ABN 80 816 694 840"
+}
+
+
+    
+    // Urdu
+ur: {
+  html_lang: "ur",
+  brand_tag: "ریئل اسٹیٹ ڈیولپمنٹ اور سرمایہ کاری",
+  nav_why: "ہم کیوں",
+  nav_framework: "عملی ڈھانچہ",
+  nav_portfolio: "ہمارے منصوبے",
+  cta_request: "ملاقات کی درخواست کریں",
+  label_objective: "آپ کا مقصد",
+  objective_text: "چاہے آپ زیادہ منافع کے خواہاں سرمایہ کار ہوں یا ایک “مستقل” گھر تعمیر کرنے والے مالک، آپ کا مقصد <strong>گریٹر سڈنی</strong> میں اعلیٰ معیار کی رہائشی ترقی ہے۔ آپ ایک شفاف اور منظم طریقہ کار چاہتے ہیں جو مارکیٹ کے معیار سے بہتر نتائج فراہم کرے۔",
+  label_barrier: "چیلنجز",
+  barrier_intro: "سڈنی میں رہائشی ترقی اکثر زیادہ خطرے سے بھرپور ہوتی ہے، جہاں شفافیت کی کمی اور “چھپے ہوئے” مسائل پیش رفت کو سست کرتے ہیں اور بجٹ یا منافع کو متاثر کرتے ہیں۔",
+  barrier_li_1: "<strong>منظوری میں تاخیر</strong>: ڈیولپمنٹ اپروول (DA) کا عمل ایک بڑا خطرہ ہے۔ اکثر 12 ماہ سے زیادہ انتظار کے بعد آخری مرحلے میں مسترد ہونے کا سامنا کرنا پڑتا ہے، جس سے اخراجات بڑھ جاتے ہیں۔",
+  barrier_li_2: "<strong>کم قیمت اور اضافی اخراجات</strong>: ابتدائی معاہدے پرکشش لگ سکتے ہیں لیکن اکثر اہم کام شامل نہیں ہوتے جیسے انہدام، کھدائی یا درختوں کا انتظام۔ مواد کی قیمتوں میں اضافہ اور غیر متوقع حالات اخراجات کو مزید بڑھاتے ہیں۔",
+  barrier_li_3: "<strong>معیار میں کمی</strong>: اخراجات پورے کرنے کے لیے تعمیراتی معیار میں کمی کی جا سکتی ہے، جس سے معیار پر پورا نہ اترنے اور تاخیر کا خطرہ ہوتا ہے۔",
+  barrier_li_4: "<strong>عمل کی پیچیدگی</strong>: مختلف مراحل کے درمیان انحصار عمل کو پیچیدہ بنا دیتا ہے۔ پیشہ ورانہ نگرانی کے بغیر اخراجات بڑھتے رہتے ہیں اور منصوبہ رک جاتا ہے۔",
+  label_help: "ہم کیسے مدد کرتے ہیں",
+  help_intro: "ہم زمین کے انتخاب اور خریداری سے لے کر ڈیزائن، تعمیر، تقسیم اور فروخت تک پورے منصوبے کا انتظام کرنے والی مکمل سروس فراہم کرتے ہیں۔",
+  help_li_1: "<strong>اسٹریٹجک منظوری کا انتظام</strong>: پیشگی منصوبہ بندی اور ماہر تجزیہ کے ذریعے ہم منصوبے کو شروع سے پہلے منظوری کے لیے تیار کرتے ہیں۔",
+  help_li_2: "<strong>مقررہ قیمت کی ضمانت</strong>: ہم بغیر کسی چھپے ہوئے اخراجات کے حل فراہم کرتے ہیں اور آپ کے بجٹ کو محفوظ رکھتے ہیں۔",
+  help_li_3: "<strong>ادارہ جاتی خریداری کی طاقت</strong>: ہمارے اپنے منصوبوں کی وجہ سے ہم اعلیٰ معیار کے مواد اور آلات بہتر قیمت پر فراہم کرتے ہیں۔",
+  help_li_4: "<strong>مکمل منصوبہ جاتی انتظام</strong>: ہم کسی بھی مرحلے پر منصوبہ سنبھال کر وقت اور اخراجات کو کم کرتے ہیں۔",
+  help_li_5: "<strong>مارکیٹ کے مطابق عملدرآمد</strong>: ہم مقامی ضروریات کے مطابق ڈیزائن تیار کرتے ہیں تاکہ بہتر نتائج حاصل ہوں۔",
+  label_proof: "نتائج",
+  proof_text: "IVOLCO، جو 2020 میں قائم ہوئی، اعلیٰ کارکردگی والے منصوبوں کا مضبوط ریکارڈ رکھتی ہے۔ مکمل اور جاری منصوبے <strong>Sutherland Shire میں دیکھنے کے لیے دستیاب ہیں</strong>۔",
+  label_access: "خصوصی رسائی",
+  access_text: "2026 کے آخر میں، ہمارا سرمایہ کاری ماڈل <strong>منتخب شراکت داروں کے لیے کھولا جائے گا</strong>۔ یہ آپ کو ہمارے تجربے سے فائدہ اٹھانے کا موقع دیتا ہے۔",
+  label_contact: "رابطہ",
+  contact_email_label: "ای میل:",
+  form_name: "نام",
+  form_phone: "فون",
+  form_message: "پیغام",
+  form_send: "بھیجیں",
+  form_unknown_error: "نامعلوم خرابی",
+  form_success: "شکریہ! ہم نے آپ کی معلومات وصول کر لی ہیں۔",
+  form_error: "کچھ غلط ہو گیا۔ براہ کرم contact@ivolco.com.au پر ای میل کریں۔",
+  footer_text: "ریئل اسٹیٹ ڈیولپمنٹ اور سرمایہ کاری | قائم شدہ 2020 <br />ABN 80 816 694 840"
+}
+
+
+    // Italian
+it: {
+  html_lang: "it",
+  brand_tag: "Sviluppo e Investimento Immobiliare",
+  nav_why: "Perché noi",
+  nav_framework: "Il processo",
+  nav_portfolio: "I nostri progetti",
+  cta_request: "Richiedi un incontro",
+  label_objective: "Il tuo obiettivo",
+  objective_text: "Che tu sia un investitore alla ricerca di alti rendimenti o un proprietario che desidera costruire una casa “per sempre”, il tuo obiettivo è sviluppare un progetto residenziale di alta qualità nella <strong>Greater Sydney</strong>. Cerchi un approccio trasparente e strutturato che superi gli standard di mercato.",
+  label_barrier: "Le sfide",
+  barrier_intro: "Lo sviluppo residenziale a Sydney comporta spesso rischi elevati, caratterizzati da mancanza di trasparenza e da “insidie nascoste” che rallentano il progresso e incidono su budget o margini.",
+  barrier_li_1: "<strong>Ritardi nelle approvazioni</strong>: Il processo di approvazione (DA) rappresenta un rischio significativo. È comune attendere oltre 12 mesi e affrontare un rifiuto nelle fasi finali, con conseguente aumento dei costi.",
+  barrier_li_2: "<strong>Prezzi iniziali ingannevoli</strong>: I contratti iniziali possono sembrare vantaggiosi ma spesso escludono attività essenziali come demolizione, scavi o gestione degli alberi. A ciò si aggiungono aumenti dei materiali e imprevisti, che generano costi aggiuntivi.",
+  barrier_li_3: "<strong>Compromesso sulla qualità</strong>: Per compensare i costi, la qualità costruttiva può essere ridotta, causando non conformità e ritardi nelle verifiche o nella vendita.",
+  barrier_li_4: "<strong>Complessità del processo</strong>: Le interdipendenze tra le fasi rendono il progetto complesso e lungo. Senza una gestione professionale, i costi aumentano e il progetto si blocca.",
+  label_help: "Come aiutiamo",
+  help_intro: "Offriamo un servizio completo che gestisce l’intero ciclo del progetto, dalla selezione del terreno fino alla progettazione, costruzione, suddivisione e vendita.",
+  help_li_1: "<strong>Gestione strategica delle approvazioni</strong>: Con pianificazione anticipata e analisi esperta, assicuriamo che il progetto sia pronto per l’approvazione prima dell’avvio.",
+  help_li_2: "<strong>Prezzo fisso garantito</strong>: Offriamo soluzioni senza costi nascosti, assumendo i rischi per proteggere il tuo budget.",
+  help_li_3: "<strong>Potere d’acquisto istituzionale</strong>: Grazie ai nostri progetti, offriamo accesso a materiali e attrezzature premium a condizioni vantaggiose.",
+  help_li_4: "<strong>Gestione completa del progetto</strong>: Interveniamo in qualsiasi fase per ottimizzare tempi e costi.",
+  help_li_5: "<strong>Esecuzione orientata al mercato</strong>: Adattiamo i progetti alle esigenze locali per garantire risultati superiori agli standard.",
+  label_proof: "Risultati",
+  proof_text: "Fondata nel 2020, IVOLCO vanta una solida esperienza in progetti ad alte prestazioni. I progetti completati e in corso sono <strong>disponibili per visita nel Sutherland Shire</strong>.",
+  label_access: "Accesso esclusivo",
+  access_text: "Alla fine del 2026, il nostro modello di investimento sarà <strong>aperto a un gruppo selezionato di partner esterni</strong>. Questo ti permette di sfruttare la nostra esperienza per i tuoi progetti.",
+  label_contact: "Contatto",
+  contact_email_label: "Email:",
+  form_name: "Nome",
+  form_phone: "Telefono",
+  form_message: "Messaggio",
+  form_send: "Invia",
+  form_unknown_error: "Errore sconosciuto",
+  form_success: "Grazie! Abbiamo ricevuto le tue informazioni.",
+  form_error: "Si è verificato un errore. Invia un’email a contact@ivolco.com.au.",
+  footer_text: "Sviluppo e Investimento Immobiliare | Fondato nel 2020 <br />ABN 80 816 694 840"
+}
+
+    
+};
+</script>
+
+  
+
+
+
+  
+<script>
+const baseT = translations.en;
+const t = { ...baseT, ...(translations[preferredLang] || {}) };
+
+document.documentElement.lang = t.html_lang || "en";
+document.documentElement.dir = ["ar", "ur"].includes(preferredLang) ? "rtl" : "ltr";
+document.title = "IVOLCO";
+
+if (!document.getElementById("labelObjective")) throw new Error("Translation target missing");
+
+document.querySelector(".brand-tag").textContent = t.brand_tag;
+document.getElementById("brandLogo").alt = "IVOLCO logo";
+
+document.getElementById("navWhy").textContent = t.nav_why;
+document.getElementById("navFramework").textContent = t.nav_framework;
+document.getElementById("navPortfolio").textContent = t.nav_portfolio;
+document.querySelector(".header-cta").textContent = t.cta_request;
+
+document.getElementById("labelObjective").textContent = t.label_objective;
+document.getElementById("objectiveText").innerHTML = t.objective_text;
+
+document.getElementById("labelBarrier").textContent = t.label_barrier;
+document.getElementById("barrierIntro").innerHTML = t.barrier_intro;
+document.getElementById("barrierLi1").innerHTML = t.barrier_li_1;
+document.getElementById("barrierLi2").innerHTML = t.barrier_li_2;
+document.getElementById("barrierLi3").innerHTML = t.barrier_li_3;
+document.getElementById("barrierLi4").innerHTML = t.barrier_li_4;
+
+document.getElementById("labelHelp").textContent = t.label_help;
+document.getElementById("helpIntro").innerHTML = t.help_intro;
+document.getElementById("helpLi1").innerHTML = t.help_li_1;
+document.getElementById("helpLi2").innerHTML = t.help_li_2;
+document.getElementById("helpLi3").innerHTML = t.help_li_3;
+document.getElementById("helpLi4").innerHTML = t.help_li_4;
+document.getElementById("helpLi5").innerHTML = t.help_li_5;
+
+document.getElementById("labelProof").textContent = t.label_proof;
+document.getElementById("proofText").innerHTML = t.proof_text;
+
+document.getElementById("labelAccess").textContent = t.label_access;
+document.getElementById("accessText").innerHTML = t.access_text;
+
+document.getElementById("contact-title").textContent = t.label_contact;
+document.getElementById("contactEmailLabel").textContent = t.contact_email_label;
+
+document.querySelector("label[for='name']").textContent = t.form_name;
+document.querySelector("label[for='phone']").textContent = t.form_phone;
+document.querySelector("label[for='message']").textContent = t.form_message;
+document.getElementById("submitBtn").textContent = t.form_send;
+
+document.getElementById("name").placeholder = t.form_name;
+document.getElementById("phone").placeholder = t.form_phone;
+document.getElementById("message").placeholder = t.form_message;
+
+document.querySelector(".site-footer-inner").innerHTML = t.footer_text;
+</script>
+
+
+
+
+  
+<script>
+  const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbyI7iz61GESDqqMAw6vlSMGlx8NGvNCiMo5etqaK4Hrm82fguiFlUC_zo6n-ENkSQA3Xw/exec";
 
   const formEl = document.getElementById("contactForm");
   const statusEl = document.getElementById("formStatus");
@@ -527,15 +1432,15 @@
 
       if (data.result === "success") {
         statusEl.style.color = "#2c7a7b";
-        statusEl.textContent = "Thanks! We’ve received your details.";
+        statusEl.textContent = t.form_success;
         formEl.reset();
       } else {
-        throw new Error(data.message || "Unknown error");
+        throw new Error(data.message || t.form_unknown_error);
       }
     } catch (err) {
       console.error(err);
       statusEl.style.color = "#c53030";
-      statusEl.textContent = "Sorry-something went wrong. Please email us at contact@ivolco.com.au.";
+      statusEl.textContent = t.form_error;
     } finally {
       btnEl.disabled = false;
     }
