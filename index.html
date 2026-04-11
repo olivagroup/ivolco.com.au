@@ -1382,25 +1382,7 @@ it: {
     
 };
 
-const langSelect = document.getElementById("langSelect");
-if (langSelect) {
-  langSelect.value =
-    manualLang && availableLangs.includes(manualLang)
-      ? manualLang
-      : selectedLang;
 
-  langSelect.addEventListener("change", (e) => {
-    const value = e.target.value;
-
-    if (availableLangs.includes(value)) {
-      localStorage.setItem("manualLang", value);
-    } else {
-      localStorage.removeItem("manualLang");
-    }
-
-    location.reload();
-  });
-}
 </script>
 
   
@@ -1424,6 +1406,33 @@ const selectedLang =
 
 const baseT = translations.en;
 const t = { ...baseT, ...(translations[selectedLang] || {}) };
+
+
+
+const langSelect = document.getElementById("langSelect");
+if (langSelect) {
+  langSelect.value =
+    manualLang && availableLangs.includes(manualLang)
+      ? manualLang
+      : selectedLang;
+
+  langSelect.addEventListener("change", (e) => {
+    const value = e.target.value;
+
+    if (availableLangs.includes(value)) {
+      localStorage.setItem("manualLang", value);
+    } else {
+      localStorage.removeItem("manualLang");
+    }
+
+    location.reload();
+  });
+}
+
+
+
+
+  
 
 document.documentElement.lang = t.html_lang || "en";
 document.documentElement.dir = ["ar", "ur"].includes(selectedLang) ? "rtl" : "ltr";
