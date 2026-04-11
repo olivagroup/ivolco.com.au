@@ -512,9 +512,7 @@ html[dir="rtl"] .site-footer {
 <script>
 const savedLang = localStorage.getItem("lang");
 const browserLang = (navigator.languages && navigator.languages[0]) || navigator.language || "en";
-const preferredLang = (savedLang || browserLang).toLowerCase().split("-")[0];
-
-if (!savedLang) localStorage.setItem("lang", preferredLang);
+const preferredLang = (savedLang ? savedLang : browserLang).toLowerCase().split("-")[0];
 </script>
 
 
