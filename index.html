@@ -556,11 +556,6 @@ html[dir="rtl"] #langSelect {
 </div>
 </footer>
 
-<script>
-const manualLang = localStorage.getItem("manualLang");
-const browserLang = ((navigator.languages && navigator.languages[0]) || navigator.language || "en").toLowerCase().split("-")[0];
-</script>
-
 
   <script>
 const translations = {
@@ -1387,11 +1382,22 @@ it: {
     
 };
 
-    const langSelect = document.getElementById("langSelect");
+const langSelect = document.getElementById("langSelect");
 if (langSelect) {
-  langSelect.value = selectedLang;
+  langSelect.value =
+    manualLang && availableLangs.includes(manualLang)
+      ? manualLang
+      : selectedLang;
+
   langSelect.addEventListener("change", (e) => {
-    localStorage.setItem("manualLang", e.target.value);
+    const value = e.target.value;
+
+    if (availableLangs.includes(value)) {
+      localStorage.setItem("manualLang", value);
+    } else {
+      localStorage.removeItem("manualLang");
+    }
+
     location.reload();
   });
 }
@@ -1404,9 +1410,17 @@ if (langSelect) {
   
 <script>
 const availableLangs = Object.keys(translations);
-const selectedLang = availableLangs.includes(manualLang)
-  ? manualLang
-  : (availableLangs.includes(browserLang) ? browserLang : "en");
+
+const browserLang = ((navigator.languages && navigator.languages[0]) || navigator.language || "en")
+  .toLowerCase()
+  .split("-")[0];
+
+const manualLang = localStorage.getItem("manualLang");
+
+const selectedLang =
+  manualLang && availableLangs.includes(manualLang)
+    ? manualLang
+    : (availableLangs.includes(browserLang) ? browserLang : "en");
 
 const baseT = translations.en;
 const t = { ...baseT, ...(translations[selectedLang] || {}) };
