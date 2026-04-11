@@ -125,7 +125,8 @@ html[dir="rtl"] .nav a,
 html[dir="rtl"] .label,
 html[dir="rtl"] .contact-form-title,
 html[dir="rtl"] label,
-html[dir="rtl"] .site-footer {
+html[dir="rtl"] .site-footer,
+html[dir="rtl"] #langSelect {
   text-transform: none;
   letter-spacing: normal;
 }
@@ -146,23 +147,49 @@ html[dir="rtl"] .site-footer {
       width: 100%;
     }
 
-    .header-cta {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 44px;
-      padding: 0 18px;
-      border: 1px solid var(--accent);
-      background: var(--accent);
-      color: #fff;
-      border-radius: 999px;
-      font-family: var(--title-font);
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
-    }
+    .header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  justify-self: end;
+}
+
+#langSelect {
+  min-height: 44px;
+  padding: 0 14px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--text);
+  border-radius: 999px;
+  font-family: var(--title-font);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  outline: none;
+}
+
+#langSelect:focus {
+  border-color: rgba(156, 122, 69, 0.55);
+  box-shadow: 0 0 0 4px rgba(156, 122, 69, 0.08);
+}
+
+.header-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0 18px;
+  border: 1px solid var(--accent);
+  background: var(--accent);
+  color: #fff;
+  border-radius: 999px;
+  font-family: var(--title-font);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
 
     .header-cta:hover {
       background: #876738;
@@ -381,6 +408,10 @@ html[dir="rtl"] .site-footer {
       .nav {
         justify-content: start;
       }
+
+      .header-actions {
+  justify-self: start;
+}
     }
 
     @media (max-width: 760px) {
@@ -429,7 +460,23 @@ html[dir="rtl"] .site-footer {
   <a href="portfolio.html" id="navPortfolio">Our Portfolio</a>
 </nav>
 
-    <a class="header-cta" href="#contact-title">Request Discussion</a>
+<div class="header-actions">
+  <select id="langSelect" aria-label="Language selector">
+    <option value="en">English</option>
+    <option value="ru">Русский</option>
+    <option value="zh">中文</option>
+    <option value="es">Español</option>
+    <option value="hi">हिन्दी</option>
+    <option value="ar">العربية</option>
+    <option value="pt">Português</option>
+    <option value="bn">বাংলা</option>
+    <option value="ja">日本語</option>
+    <option value="pa">ਪੰਜਾਬੀ</option>
+    <option value="de">Deutsch</option>
+  </select>
+
+  <a class="header-cta" href="#contact-title">Request Discussion</a>
+</div>
   </div>
 </header>
 
@@ -511,8 +558,7 @@ html[dir="rtl"] .site-footer {
 
 <script>
 const manualLang = localStorage.getItem("manualLang");
-const browserLang = (navigator.languages && navigator.languages[0]) || navigator.language || "en";
-const preferredLang = (manualLang || browserLang).toLowerCase().split("-")[0];
+const browserLang = ((navigator.languages && navigator.languages[0]) || navigator.language || "en").toLowerCase().split("-")[0];
 </script>
 
 
@@ -1340,6 +1386,15 @@ it: {
 
     
 };
+
+    const langSelect = document.getElementById("langSelect");
+if (langSelect) {
+  langSelect.value = selectedLang;
+  langSelect.addEventListener("change", (e) => {
+    localStorage.setItem("manualLang", e.target.value);
+    location.reload();
+  });
+}
 </script>
 
   
@@ -1348,11 +1403,16 @@ it: {
 
   
 <script>
+const availableLangs = Object.keys(translations);
+const selectedLang = availableLangs.includes(manualLang)
+  ? manualLang
+  : (availableLangs.includes(browserLang) ? browserLang : "en");
+
 const baseT = translations.en;
-const t = { ...baseT, ...(translations[preferredLang] || {}) };
+const t = { ...baseT, ...(translations[selectedLang] || {}) };
 
 document.documentElement.lang = t.html_lang || "en";
-document.documentElement.dir = ["ar", "ur"].includes(preferredLang) ? "rtl" : "ltr";
+document.documentElement.dir = ["ar", "ur"].includes(selectedLang) ? "rtl" : "ltr";
 document.title = "IVOLCO";
 
 if (!document.getElementById("labelObjective")) throw new Error("Translation target missing");
