@@ -1,550 +1,545 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>IVOLCO</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IVOLCO</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet" />
 
-<style>
-:root {
---bg: #f6f2ea;
---paper: rgba(255, 255, 255, 0.78);
---line: rgba(34, 34, 34, 0.1);
---text: #1e1d1a;
---muted: #5f5a52;
---accent: #9c7a45;
---accent-soft: rgba(156, 122, 69, 0.12);
---shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
---max: 1120px;
---title-font: Arial, Helvetica, sans-serif;
---body-font: "Lato", Arial, Helvetica, sans-serif;
-}
+  <style>
+    :root {
+      --bg: #f6f2ea;
+      --paper: rgba(255, 255, 255, 0.78);
+      --line: rgba(34, 34, 34, 0.1);
+      --text: #1e1d1a;
+      --muted: #5f5a52;
+      --accent: #9c7a45;
+      --accent-soft: rgba(156, 122, 69, 0.12);
+      --shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+      --max: 1120px;
+      --title-font: Arial, Helvetica, sans-serif;
+      --body-font: "Lato", Arial, Helvetica, sans-serif;
+    }
 
-* {
-box-sizing: border-box;
-}
+    * {
+      box-sizing: border-box;
+    }
 
-html {
-scroll-behavior: smooth;
-}
+    html {
+      scroll-behavior: smooth;
+    }
 
-body {
-margin: 0;
-font-family: var(--body-font);
-color: var(--text);
-background:
-radial-gradient(circle at top left, rgba(156, 122, 69, 0.08), transparent 32%),
-radial-gradient(circle at bottom right, rgba(156, 122, 69, 0.08), transparent 28%),
-linear-gradient(180deg, #fbf8f2 0%, var(--bg) 100%);
-line-height: 1.75;
-}
+    body {
+      margin: 0;
+      font-family: var(--body-font);
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(156, 122, 69, 0.08), transparent 32%),
+        radial-gradient(circle at bottom right, rgba(156, 122, 69, 0.08), transparent 28%),
+        linear-gradient(180deg, #fbf8f2 0%, var(--bg) 100%);
+      line-height: 1.75;
+    }
 
-a {
-color: inherit;
-text-decoration: none;
-}
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-.site-header {
-position: sticky;
-top: 0;
-z-index: 20;
-backdrop-filter: blur(14px);
-background: rgba(246, 242, 234, 0.86);
-border-bottom: 1px solid var(--line);
-}
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(14px);
+      background: rgba(246, 242, 234, 0.86);
+      border-bottom: 1px solid var(--line);
+    }
 
-.header-inner {
-width: min(var(--max), calc(100% - 32px));
-margin: 0 auto;
-min-height: 92px;
-display: grid;
-grid-template-columns: auto 1fr auto;
-align-items: center;
-gap: 24px;
-padding: 14px 0;
-}
+    .header-inner {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+      min-height: 92px;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 24px;
+      padding: 14px 0;
+    }
 
-.brand {
-display: flex;
-align-items: center;
-gap: 14px;
-}
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
 
-.brand img {
-width: 70px;
-height: 70px;
-object-fit: contain;
-display: block;
-}
+    .brand img {
+      width: 70px;
+      height: 70px;
+      object-fit: contain;
+      display: block;
+    }
 
-.brand-name {
-margin: 0;
-font-size: 32px;
-letter-spacing: 3px;
-line-height: 1;
-font-family: var(--title-font);
-text-transform: uppercase;
-font-weight: 700;
-}
+    .brand-name {
+      margin: 0;
+      font-size: 32px;
+      letter-spacing: 3px;
+      line-height: 1;
+      font-family: var(--title-font);
+      text-transform: uppercase;
+      font-weight: 700;
+    }
 
-.brand-tag {
-margin-top: 7px;
-font-family: var(--title-font);
-font-size: 12px;
-letter-spacing: 2px;
-text-transform: uppercase;
-color: var(--muted);
-}
+    .brand-tag {
+      margin-top: 7px;
+      font-family: var(--title-font);
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
 
-.nav {
-display: flex;
-justify-content: center;
-gap: 24px;
-flex-wrap: wrap;
-}
+    .nav {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
 
-.nav a {
-position: relative;
-font-family: var(--title-font);
-text-transform: uppercase;
-font-size: 0.82rem;
-letter-spacing: 0.18em;
-color: var(--muted);
-padding: 6px 0;
-}
+    .nav a {
+      position: relative;
+      font-family: var(--title-font);
+      text-transform: uppercase;
+      font-size: 0.82rem;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+      padding: 6px 0;
+    }
 
-.nav a::after {
-content: "";
-position: absolute;
-left: 0;
-bottom: 0;
-width: 0;
-height: 1px;
-background: var(--accent);
-transition: width 0.2s ease;
-}
+    .nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 1px;
+      background: var(--accent);
+      transition: width 0.2s ease;
+    }
 
-.nav a:hover::after,
-.nav a:focus-visible::after {
-width: 100%;
-}
+    .nav a:hover::after,
+    .nav a:focus-visible::after {
+      width: 100%;
+    }
 
-.header-cta {
-display: inline-flex;
-align-items: center;
-justify-content: center;
-min-height: 44px;
-padding: 0 18px;
-border: 1px solid var(--accent);
-background: var(--accent);
-color: #fff;
-border-radius: 999px;
-font-family: var(--title-font);
-font-size: 13px;
-font-weight: 700;
-letter-spacing: 1px;
-text-transform: uppercase;
-transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
-}
+    .header-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0 18px;
+      border: 1px solid var(--accent);
+      background: var(--accent);
+      color: #fff;
+      border-radius: 999px;
+      font-family: var(--title-font);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+    }
 
-.header-cta:hover {
-background: #876738;
-border-color: #876738;
-transform: translateY(-1px);
-}
+    .header-cta:hover {
+      background: #876738;
+      border-color: #876738;
+      transform: translateY(-1px);
+    }
 
-.page {
-width: min(var(--max), calc(100% - 32px));
-margin: 0 auto;
-padding: 42px 0 72px;
-}
+    .page {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+      padding: 42px 0 72px;
+    }
 
-.hero-card {
-background: var(--paper);
-border: 1px solid var(--line);
-border-radius: 28px;
-box-shadow: var(--shadow);
-}
+    .hero-card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+    }
 
-.content {
-padding: 32px;
-}
+    .content {
+      padding: 32px;
+    }
 
-.eyebrow {
-display: inline-block;
-margin-bottom: 28px;
-padding: 7px 11px;
-border-radius: 999px;
-background: var(--accent-soft);
-color: var(--accent);
-font-size: 0.74rem;
-letter-spacing: 0.16em;
-text-transform: uppercase;
-font-family: var(--title-font);
-font-weight: 700;
-}
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 28px;
+      padding: 7px 11px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 0.74rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-family: var(--title-font);
+      font-weight: 700;
+    }
 
-.block {
-border-bottom: 1px solid var(--line);
-padding-bottom: 28px;
-margin-bottom: 28px;
-}
+    .block {
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 28px;
+      margin-bottom: 28px;
+    }
 
-.block:last-child {
-border-bottom: 0;
-padding-bottom: 0;
-margin-bottom: 0;
-}
+    .block:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+      margin-bottom: 0;
+    }
 
-.label,
-.contact-form-title,
-.stub-title {
-font-family: var(--title-font);
-text-transform: uppercase;
-font-size: 1.5rem;
-letter-spacing: 0.12em;
-color: var(--accent);
-margin-bottom: 16px;
-font-weight: 700;
-line-height: 1.15;
-}
+    .label,
+    .contact-form-title,
+    .stub-title {
+      font-family: var(--title-font);
+      text-transform: uppercase;
+      font-size: 1.5rem;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      margin-bottom: 16px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
 
-.block p,
-.bullet-list,
-.bullet-list li,
-.contact-meta,
-.contact-meta p,
-form,
-input,
-textarea,
-.stub-text {
-font-family: var(--body-font) !important;
-}
+    .block p,
+    .bullet-list,
+    .bullet-list li,
+    .contact-meta,
+    .contact-meta p,
+    form,
+    input,
+    textarea,
+    .stub-text {
+      font-family: var(--body-font) !important;
+    }
 
-.block p {
-margin: 0;
-font-size: clamp(1.08rem, 1.65vw, 1.3rem);
-color: var(--text);
-}
+    .block p {
+      margin: 0;
+      font-size: clamp(1.08rem, 1.65vw, 1.3rem);
+      color: var(--text);
+    }
 
-.bullet-list {
-margin: 14px 0 0;
-padding-left: 20px;
-font-size: clamp(1.02rem, 1.4vw, 1.16rem);
-}
+    .bullet-list {
+      margin: 14px 0 0;
+      padding-left: 20px;
+      font-size: clamp(1.02rem, 1.4vw, 1.16rem);
+    }
 
-.bullet-list li {
-margin-bottom: 10px;
-}
+    .bullet-list li {
+      margin-bottom: 10px;
+    }
 
-#contact-title {
-scroll-margin-top: 120px;
-}
+    #contact-title {
+      scroll-margin-top: 120px;
+    }
 
-.contact-form-wrap {
-margin-top: 24px;
-padding-top: 20px;
-border-top: 1px solid var(--line);
-max-width: 100%;
-}
+    .contact-form-wrap {
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line);
+      max-width: 100%;
+    }
 
-.contact-meta {
-margin: 0 0 18px;
-font-size: clamp(1rem, 1.25vw, 1.08rem);
-color: var(--text);
-max-width: 100%;
-}
+    .contact-meta {
+      margin: 0 0 18px;
+      font-size: clamp(1rem, 1.25vw, 1.08rem);
+      color: var(--text);
+      max-width: 100%;
+    }
 
-.contact-meta p {
-margin: 0 0 8px;
-font-size: inherit;
-}
+    .contact-meta p {
+      margin: 0 0 8px;
+      font-size: inherit;
+    }
 
-form {
-display: grid;
-gap: 14px;
-width: 100%;
-}
+    form {
+      display: grid;
+      gap: 14px;
+      width: 100%;
+    }
 
-label {
-font-family: var(--title-font);
-font-weight: 700;
-font-size: 0.82rem;
-letter-spacing: 0.12em;
-text-transform: uppercase;
-color: var(--muted);
-}
+    label {
+      font-family: var(--title-font);
+      font-weight: 700;
+      font-size: 0.82rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
 
-input,
-textarea {
-width: 100%;
-padding: 12px;
-border: 1px solid var(--line);
-background: rgba(255, 255, 255, 0.92);
-color: var(--text);
-font-size: 1rem;
-line-height: 1.6;
-border-radius: 0;
-outline: none;
-}
+    input,
+    textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.92);
+      color: var(--text);
+      font-size: 1rem;
+      line-height: 1.6;
+      border-radius: 0;
+      outline: none;
+    }
 
-input:focus,
-textarea:focus {
-border-color: rgba(156, 122, 69, 0.55);
-box-shadow: 0 0 0 4px rgba(156, 122, 69, 0.08);
-}
+    input:focus,
+    textarea:focus {
+      border-color: rgba(156, 122, 69, 0.55);
+      box-shadow: 0 0 0 4px rgba(156, 122, 69, 0.08);
+    }
 
-textarea {
-min-height: 170px;
-resize: vertical;
-}
+    textarea {
+      min-height: 170px;
+      resize: vertical;
+    }
 
-.cta {
-display: inline-flex;
-align-items: center;
-justify-content: center;
-width: fit-content;
-min-height: 48px;
-padding: 0 18px;
-border: 1px solid var(--accent);
-background: var(--accent);
-color: #fff;
-border-radius: 999px;
-font-family: var(--title-font);
-font-size: 0.78rem;
-font-weight: 700;
-letter-spacing: 0.16em;
-text-transform: uppercase;
-cursor: pointer;
-transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
-}
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: fit-content;
+      min-height: 48px;
+      padding: 0 18px;
+      border: 1px solid var(--accent);
+      background: var(--accent);
+      color: #fff;
+      border-radius: 999px;
+      font-family: var(--title-font);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+    }
 
-.cta:hover {
-background: #876738;
-border-color: #876738;
-transform: translateY(-1px);
-}
+    .cta:hover {
+      background: #876738;
+      border-color: #876738;
+      transform: translateY(-1px);
+    }
 
-.cta:disabled {
-opacity: 0.7;
-cursor: not-allowed;
-transform: none;
-}
+    .cta:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+      transform: none;
+    }
 
-#formStatus {
-margin-top: 2px;
-font-weight: 700;
-min-height: 20px;
-font-family: var(--title-font);
-font-size: 0.9rem;
-}
+    #formStatus {
+      margin-top: 2px;
+      font-weight: 700;
+      min-height: 20px;
+      font-family: var(--title-font);
+      font-size: 0.9rem;
+    }
 
-.site-footer {
-width: min(var(--max), calc(100% - 32px));
-margin: 0 auto;
-padding: 0 0 36px;
-color: var(--muted);
-font-size: 0.85rem;
-letter-spacing: 0.08em;
-text-transform: uppercase;
-font-family: var(--title-font);
-border-top: 1px solid var(--line);
-}
+    .site-footer {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+      padding: 0 0 36px;
+      color: var(--muted);
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-family: var(--title-font);
+      border-top: 1px solid var(--line);
+    }
 
-.site-footer-inner {
-padding-top: 18px;
-}
+    .site-footer-inner {
+      padding-top: 18px;
+    }
 
-@media (max-width: 1060px) {
-.header-inner {
-grid-template-columns: 1fr;
-justify-items: start;
-}
+    @media (max-width: 1060px) {
+      .header-inner {
+        grid-template-columns: 1fr;
+        justify-items: start;
+      }
 
-.nav {
-justify-content: start;
-}
-}
+      .nav {
+        justify-content: start;
+      }
+    }
 
-@media (max-width: 760px) {
-.brand img {
-width: 58px;
-height: 58px;
-}
+    @media (max-width: 760px) {
+      .brand img {
+        width: 58px;
+        height: 58px;
+      }
 
-.brand-name {
-font-size: 26px;
-}
+      .brand-name {
+        font-size: 26px;
+      }
 
-.content {
-padding: 20px;
-}
+      .content {
+        padding: 20px;
+      }
 
-.label,
-.contact-form-title,
-.stub-title {
-font-size: 1.15rem;
-}
+      .label,
+      .contact-form-title,
+      .stub-title {
+        font-size: 1.15rem;
+      }
 
-.block p,
-.bullet-list,
-.contact-meta {
-font-size: 1rem;
-}
-}
-</style>
+      .block p,
+      .bullet-list,
+      .contact-meta {
+        font-size: 1rem;
+      }
+    }
+  </style>
 </head>
 <body>
 
 <header class="site-header">
-<div class="header-inner">
-<div class="brand">
-<img src="assets/images/logo.png" alt="IVOLCO logo" />
-<div>
-<div class="brand-name">IVOLCO</div>
-<div class="brand-tag">Property Development &amp; Investment</div>
-</div>
-</div>
+  <div class="header-inner">
+    <div class="brand">
+      <img src="assets/images/logo.png" alt="IVOLCO logo" />
+      <div>
+        <div class="brand-name">IVOLCO</div>
+        <div class="brand-tag">Property Development &amp; Investment</div>
+      </div>
+    </div>
 
-<nav class="nav">
-<a href="index.html">Why Us</a>
-<a href="process.html">The Framework</a>
-<a href="portfolio.html">Our Portfolio</a>
-</nav>
+    <nav class="nav">
+      <a href="index.html">Why Us</a>
+      <a href="process.html">The Framework</a>
+      <a href="portfolio.html">Our Portfolio</a>
+    </nav>
 
-<a class="header-cta" href="#contact-title">Request Discussion</a>
-</div>
+    <a class="header-cta" href="#contact-title">Request Discussion</a>
+  </div>
 </header>
 
 <main id="home" class="page">
-<div class="hero-card">
-<div class="content">
+  <div class="hero-card">
+    <div class="content">
+
+      <div class="block">
+        <div class="label">Your Objective</div>
+        <p>Whether you are an investor seeking high-yield returns or a homeowner looking to build a 'forever' residence, you are aiming for a quality residential development within <strong>Greater Sydney</strong>. You want a transparent, systematic approach that results in a final product that exceeds market benchmarks.</p>
+      </div>
 
 <div class="block">
-<div class="label">Your Objective</div>
-<p>Whether you are an investor seeking high-yield returns or a homeowner looking to build a 'forever' residence, you are aiming for a quality residential development within <strong>Greater Sydney</strong>. You want a transparent, systematic approach that results in a final product that exceeds market benchmarks.</p>
-</div>
-
-<div class="block">
-<div class="label">The Barrier</div>
-<p>Residential development in Sydney is often high-risk, defined by a lack of transparency and systemic 'hidden' traps that stall progress and compromise budget or margin.</p>
-<ul class="bullet-list">
-<li><strong>Planning limbo</strong>: The Development Approval (DA) process is a primary point of failure. It is common to wait 12 months or more only to face a late-stage Council rejection, leaving you with mounting holding costs and no path forward.</li>
-    <li><strong>Bait pricing & variations trap</strong>: Initial building contracts may appear attractive, yet often exclude critical 'non-negotiables' - like demolition, excavation, or tree management. Combined with unprotected exposure to material price hikes and 'unforeseen' site conditions, this leads to a cascade of expensive variations.</li>
-    <li><strong>Compromised quality</strong>: To recover costs from underquoting or a lack of planning, builders may cut corners on structural integrity or finish quality. This results in a product that fails to meet expectations or, worse, falls short of the building code - leading to failed inspections and costly delays with sales or move-in.</li>
+  <div class="label">The Barrier</div>
+  <p>Residential development in Sydney is often high-risk, defined by a lack of transparency and systemic 'hidden' traps that stall progress and compromise budget or margin.</p>
+  <ul class="bullet-list">
+    <li><strong>Planning limbo</strong>: The Development Approval (DA) process is a primary point of failure. It is common to wait 12 months or more only to face a late-stage Council rejection, leaving you with mounting holding costs and no path forward.</li>
     <li><strong>Bait pricing & variations trap</strong>: Initial building contracts may appear attractive, yet often exclude critical 'non-negotiables' – like demolition, excavation, or tree management. Combined with unprotected exposure to material price hikes and 'unforeseen' site conditions, this leads to a cascade of expensive variations.</li>
     <li><strong>Compromised quality</strong>: To recover costs from underquoting or a lack of planning, builders may cut corners on structural integrity or finish quality. This results in a product that fails to meet expectations or, worse, falls short of the building code – leading to failed inspections and costly delays with sales or move-in.</li>
-<li><strong>Logistical overwhelm</strong>: Navigating the 'invisible' web of dependencies can be paralysing and time-consuming. Without professional orchestration, holding costs rise daily while the project sits idle.</li>
-</ul>
+    <li><strong>Logistical overwhelm</strong>: Navigating the 'invisible' web of dependencies can be paralysing and time-consuming. Without professional orchestration, holding costs rise daily while the project sits idle.</li>
+  </ul>
 </div>
 
-<div class="block">
-<div class="label">How We Can Help</div>
-<p>We provide a high-touch, turnkey service built on coordinated execution, managing the full lifecycle from land selection and acquisition through to design, construction, subdivision, and divestment.</p>
-<ul class="bullet-list">
-<li><strong>Strategic approval navigation</strong>: By leveraging pre-emptive approval, council-resilient strategies, and expert-led feasibility, we ensure your project is 'approval-ready' before the clock starts, protecting the timeline from arbitrary delays.</li>
-<li><strong>Fixed-price certainty</strong>: Truly all-inclusive no-variation construction where we absorb the risks to ensure your budget or margin is protected from the start. We utilise industry-standard HIA building contracts to ensure complete transparency from day one. This avoids the complex, one-sided custom contracts that often hide risks and lead to legal deadlock.</li>
-          <li><strong>Institutional buying power</strong>: Because we develop our own assets alongside yours, we pass on enterprise-level discounts for premium materials and high-end appliances - pricing typically reserved for top-tier developers.</li>
-          <li><strong>Precision end-to-end orchestration</strong>: Whether you are sourcing land, navigating approvals, or ready to break ground - we take over at any stage and manage the complexity utilising enterprise-level project management methodologies. By treating the construction lifecycle as a mission-critical sequence and proactively managing lead times, we compress build cycles and minimise holding costs, getting you into your home or your asset to market sooner.</li>
-          <li><strong>Market-matched execution</strong>: Our design palettes and suburb-dependent styling are strategically tailored to local buyer demographics, while providing the flexibility to customise premium finishes - ensuring the final product consistently outperforms market benchmarks.</li>
+      <div class="block">
+        <div class="label">How We Can Help</div>
+        <p>We provide a high-touch, turnkey service built on coordinated execution, managing the full lifecycle from land selection and acquisition through to design, construction, subdivision, and divestment.</p>
+        <ul class="bullet-list">
+          <li><strong>Strategic approval navigation</strong>: By leveraging pre-emptive approval, council-resilient strategies, and expert-led feasibility, we ensure your project is 'approval-ready' before the clock starts, protecting the timeline from arbitrary delays.</li>
+          <li><strong>Fixed-price certainty</strong>: Truly all-inclusive no-variation construction where we absorb the risks to ensure your budget or margin is protected from the start. We utilise industry-standard HIA building contracts to ensure complete transparency from day one. This avoids the complex, one-sided custom contracts that often hide risks and lead to legal deadlock.</li>
           <li><strong>Institutional buying power</strong>: Because we develop our own assets alongside yours, we pass on enterprise-level discounts for premium materials and high-end appliances – pricing typically reserved for top-tier developers.</li>
           <li><strong>Precision end-to-end orchestration</strong>: Whether you are sourcing land, navigating approvals, or ready to break ground – we take over at any stage and manage the complexity utilising enterprise-level project management methodologies. By treating the construction lifecycle as a mission-critical sequence and proactively managing lead times, we compress build cycles and minimise holding costs, getting you into your home or your asset to market sooner.</li>
           <li><strong>Market-matched execution</strong>: Our design palettes and suburb-dependent styling are strategically tailored to local buyer demographics, while providing the flexibility to customise premium finishes – ensuring the final product consistently outperforms market benchmarks.</li>
-</ul>
+        </ul>
+      </div>
+
+      <div class="block">
+        <div class="label">The Proof</div>
+        <p>Established in 2020, IVOLCO is defined by a track record of high-yield delivery. Our expertise is backed by a portfolio of completed residential developments and active sites currently under construction, <strong>open for inspection in the Sutherland Shire</strong>.</p>
 </div>
+      
+      <div class="block">
+        <div class="label">Exclusive Access</div>
+        <p>In late 2026, our private investment vehicle and service model, supported by exclusive partnerships with vetted builders and a hand-picked team of specialists and suppliers, <strong>opens to a select group of external partners</strong>. This provides the opportunity to leverage our proven, institutional-grade execution for your own residential developments. Our core operational footprint spans Sydney’s East, South, and West. Please contact us below to discuss your objective or explore current opportunities.</p>
 
-<div class="block">
-<div class="label">The Proof</div>
-<p>Established in 2020, IVOLCO is defined by a track record of high-yield delivery. Our expertise is backed by a portfolio of completed residential developments and active sites currently under construction, <strong>open for inspection in the Sutherland Shire</strong>.</p>
-</div>
+      
+        <div class="contact-form-wrap">
+          <div class="contact-form-title" id="contact-title">Contact</div>
 
-<div class="block">
-<div class="label">Exclusive Access</div>
-<p>In late 2026, our private investment vehicle and service model, supported by exclusive partnerships with vetted builders and a hand-picked team of specialists and suppliers, <strong>opens to a select group of external partners</strong>. This provides the opportunity to leverage our proven, institutional-grade execution for your own residential developments. Our core operational footprint spans Sydney’s East, South, and West. Please contact us below to discuss your objective or explore current opportunities.</p>
+          <div class="contact-meta">
+            <p><strong>Email:</strong> <a href="mailto:contact@ivolco.com.au">contact@ivolco.com.au</a></p>
+          </div>
 
+          <form id="contactForm" method="POST" action="https://script.google.com/macros/s/AKfycbyI7iz61GESDqqMAw6vlSMGlx8NGvNCiMo5etqaK4Hrm82fguiFlUC_zo6n-ENkSQA3Xw/exec">
+            <label for="name">Name</label>
+            <input id="name" name="name" required />
 
-<div class="contact-form-wrap">
-<div class="contact-form-title" id="contact-title">Contact</div>
+            <label for="phone">Phone</label>
+            <input id="phone" name="phone" required />
 
-<div class="contact-meta">
-<p><strong>Email:</strong> <a href="mailto:contact@ivolco.com.au">contact@ivolco.com.au</a></p>
-</div>
+            <label for="message">Message</label>
+            <textarea id="message" name="message" required></textarea>
 
-<form id="contactForm" method="POST" action="REPLACE_WITH_YOUR_GAS_WEB_APP_URL">
-<label for="name">Name</label>
-<input id="name" name="name" required />
+            <button class="cta" type="submit" id="submitBtn">Send</button>
+            <p id="formStatus"></p>
+          </form>
+        </div>
+      </div>
 
-<label for="phone">Phone</label>
-<input id="phone" name="phone" required />
-
-<label for="message">Message</label>
-<textarea id="message" name="message" required></textarea>
-
-<button class="cta" type="submit" id="submitBtn">Send</button>
-<p id="formStatus"></p>
-</form>
-</div>
-</div>
-
-</div>
-</div>
+    </div>
+  </div>
 </main>
 
 <footer class="site-footer">
-<div class="site-footer-inner">
-IVOLCO | Property Development &amp; Investment | Est. 2020 <br />
-ABN 80 816 694 840
-</div>
+  <div class="site-footer-inner">
+    IVOLCO | Property Development &amp; Investment | Est. 2020 <br />
+    ABN 80 816 694 840
+  </div>
 </footer>
 
 <script>
-const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbyI7iz61GESDqqMAw6vlSMGlx8NGvNCiMo5etqaK4Hrm82fguiFlUC_zo6n-ENkSQA3Xw/exec";
+  const WEB_APP_URL = "REPLACE_WITH_YOUR_GAS_WEB_APP_URL";
 
-const formEl = document.getElementById("contactForm");
-const statusEl = document.getElementById("formStatus");
-const btnEl = document.getElementById("submitBtn");
+  const formEl = document.getElementById("contactForm");
+  const statusEl = document.getElementById("formStatus");
+  const btnEl = document.getElementById("submitBtn");
 
-formEl.addEventListener("submit", async (e) => {
-e.preventDefault();
-statusEl.textContent = "";
-btnEl.disabled = true;
+  formEl.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    statusEl.textContent = "";
+    btnEl.disabled = true;
 
-try {
-const fd = new FormData(formEl);
+    try {
+      const fd = new FormData(formEl);
 
-const res = await fetch(WEB_APP_URL, {
-method: "POST",
-body: fd
-});
+      const res = await fetch(WEB_APP_URL, {
+        method: "POST",
+        body: fd
+      });
 
-if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
 
-let data;
-try {
-data = await res.json();
-} catch {
-data = { result: "success" };
-}
+      let data;
+      try {
+        data = await res.json();
+      } catch {
+        data = { result: "success" };
+      }
 
-if (data.result === "success") {
-statusEl.style.color = "#2c7a7b";
-statusEl.textContent = "Thanks! We’ve received your details.";
-formEl.reset();
-} else {
-throw new Error(data.message || "Unknown error");
-}
-} catch (err) {
-console.error(err);
-statusEl.style.color = "#c53030";
-statusEl.textContent = "Sorry-something went wrong. Please email us at contact@ivolco.com.au.";
-} finally {
-btnEl.disabled = false;
-}
-});
+      if (data.result === "success") {
+        statusEl.style.color = "#2c7a7b";
+        statusEl.textContent = "Thanks! We’ve received your details.";
+        formEl.reset();
+      } else {
+        throw new Error(data.message || "Unknown error");
+      }
+    } catch (err) {
+      console.error(err);
+      statusEl.style.color = "#c53030";
+      statusEl.textContent = "Sorry-something went wrong. Please email us at contact@ivolco.com.au.";
+    } finally {
+      btnEl.disabled = false;
+    }
+  });
 </script>
 
 </body>
