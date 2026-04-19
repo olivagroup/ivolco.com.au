@@ -238,6 +238,76 @@
       padding-top: 18px;
     }
 
+.gallery-empty {
+  margin-top: 18px;
+  color: var(--muted);
+  font-size: 0.98rem;
+}
+    
+    .project-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.gallery-thumb {
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  cursor: pointer;
+  background: #fff;
+  aspect-ratio: 4 / 3;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.gallery-thumb:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px rgba(0,0,0,0.1);
+}
+
+.gallery-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* LIGHTBOX */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.85);
+  z-index: 999;
+}
+
+.lightbox.open {
+  display: flex;
+}
+
+.lightbox img {
+  max-width: 95%;
+  max-height: 90vh;
+  border-radius: 12px;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 24px;
+  font-size: 32px;
+  color: white;
+  cursor: pointer;
+}
+
+@media (max-width: 760px) {
+  .project-gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
     @media (max-width: 1060px) {
       .header-inner {
         grid-template-columns: 1fr;
@@ -299,33 +369,35 @@
   <div class="hero-card">
     <div class="content">
 
-      <div class="block">
-        <div class="label">Project Kirrawee</div>
-        <p>Status: <strong>IN PROGRESS</strong>, active construction, roof frame stage, open for inspection.</p>
-        <p>Timeline (construction): June 2025 – Present </p>
-        <p>Anticipated ROI: +10% to +32% (excluding interest, before tax).</p>
-        <p>Imagery: Available upon request / Pending upload.</p>
-      </div>
-      
-      <div class="block">
-        <div class="label">Project Jannali</div>
-        <p>Status: <strong>COMPLETED</strong>.</p>
-        <p>Timeline (construction): May 2020 – June 2021</p>
-        <p>ROI: +41% (excluding interest, before tax).</p>
-        <p>Domain (acquisition): https://www.domain.com.au/130-novara-crescent-jannali-nsw-2226-2015397783</p>
-        <p>Domain (unit 1 sale): https://www.domain.com.au/2-wiak-road-jannali-nsw-2226-2016968816</p>
-        <p>Domain (unit 2 sale): https://www.domain.com.au/4-wiak-road-jannali-nsw-2226-2019249534</p>
-        <p>Imagery: Available upon request / Pending upload.</p>
-      </div>
+  <div class="block">
+    <div class="label">Project Kirrawee</div>
+    <p>Status: <strong>IN PROGRESS</strong>, active construction, roof frame stage, open for inspection.</p>
+    <p>Timeline (construction): June 2025 – Present </p>
+    <p>Anticipated ROI: +10% to +32% (excluding interest, before tax).</p>
 
+    <div class="project-gallery" data-gallery="kirrawee"></div>
+  </div>
 
+  <div class="block">
+    <div class="label">Project Jannali</div>
+    <p>Status: <strong>COMPLETED</strong>.</p>
+    <p>Timeline (construction): May 2020 – June 2021</p>
+    <p>ROI: +41% (excluding interest, before tax).</p>
+    <p>Domain (acquisition): <a href="https://www.domain.com.au/130-novara-crescent-jannali-nsw-2226-2015397783" target="_blank" rel="noopener">View listing</a></p>
+    <p>Domain (unit 1 sale): <a href="https://www.domain.com.au/2-wiak-road-jannali-nsw-2226-2016968816" target="_blank" rel="noopener">View listing</a></p>
+    <p>Domain (unit 2 sale): <a href="https://www.domain.com.au/4-wiak-road-jannali-nsw-2226-2019249534" target="_blank" rel="noopener">View listing</a></p>
 
-      <div class="block">
-        <div class="label">Other Projects</div>
-        <p>Showcase of completed properties by our vetted building partners: Available upon request / Pending upload.</p>
-      </div>
+    <div class="project-gallery" data-gallery="jannali"></div>
+  </div>
 
-    </div>
+  <div class="block">
+    <div class="label">Other Projects</div>
+    <p>Showcase of completed properties by our vetted building partners.</p>
+
+    <div class="project-gallery" data-gallery="ebg"></div>
+  </div>
+
+</div>
   </div>
 </main>
 
@@ -335,6 +407,96 @@
     ABN 80 816 694 840
   </div>
 </footer>
+
+    <div class="lightbox" id="lightbox">
+  <div class="lightbox-close" id="closeLightbox">&times;</div>
+  <img id="lightboxImg" src="" alt="">
+</div>
+
+  <script>
+const projectImages = {
+  jannali: [
+    "/assets/Jannali/j8main.jpg",
+    "/assets/Jannali/j9main.jpg",
+    "/assets/Jannali/j10main.webp",
+    "/assets/Jannali/j1.webp",
+    "/assets/Jannali/j2.jpg",
+    "/assets/Jannali/j4.jpg",
+    "/assets/Jannali/j5.jpg",
+    "/assets/Jannali/j7.jpg",
+    "/assets/Jannali/j11.webp",
+    "/assets/Jannali/j12.webp",
+    "/assets/Jannali/j13.webp"
+  ],
+
+  kirrawee: [
+    "/assets/Kirrawee/k7main.jpg",
+    "/assets/Kirrawee/k1.jpg",
+    "/assets/Kirrawee/k2.jpg",
+    "/assets/Kirrawee/k3.jpg",
+    "/assets/Kirrawee/k4.jpg",
+    "/assets/Kirrawee/k5.jpg",
+    "/assets/Kirrawee/k6.jpg"
+  ],
+
+  ebg: [
+    "/assets/EBG/ebg1main.jpg",
+    "/assets/EBG/ebg2main.jpg",
+    "/assets/EBG/2019262936_4_1_240523_045319-w6720-h4480.webp",
+    "/assets/EBG/ebg3.webp",
+    "/assets/EBG/ebg4.jpg",
+    "/assets/EBG/ebg5.png",
+    "/assets/EBG/ebg6.webp",
+    "/assets/EBG/image.jpg",
+    "/assets/EBG/image (1).jpg",
+    "/assets/EBG/image (2).jpg",
+    "/assets/EBG/image (3).jpg",
+    "/assets/EBG/image (4).jpg",
+    "/assets/EBG/image (5).jpg",
+    "/assets/EBG/image (6).jpg"
+  ]
+};
+
+const galleries = document.querySelectorAll(".project-gallery");
+
+galleries.forEach(gallery => {
+  const key = gallery.dataset.gallery;
+  const images = projectImages[key];
+
+  gallery.innerHTML = images.map(src => `
+    <div class="gallery-thumb" data-src="${src}">
+      <img src="${src}" loading="lazy" alt="">
+    </div>
+  `).join("");
+});
+
+/* LIGHTBOX */
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightboxImg");
+const closeBtn = document.getElementById("closeLightbox");
+
+document.addEventListener("click", e => {
+  const thumb = e.target.closest(".gallery-thumb");
+  if (!thumb) return;
+
+  lightboxImg.src = thumb.dataset.src;
+  lightbox.classList.add("open");
+});
+
+closeBtn.onclick = () => lightbox.classList.remove("open");
+
+lightbox.onclick = (e) => {
+  if (e.target === lightbox) {
+    lightbox.classList.remove("open");
+  }
+};
+
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape") {
+    lightbox.classList.remove("open");
+  }
+});
+</script>
 
 </body>
 </html>
